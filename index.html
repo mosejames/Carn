@@ -413,33 +413,166 @@
   .card-doc-panel.active {
     display: block;
   }
-  .card-doc-panel iframe {
-    width: 100%;
-    height: 420px;
-    border: none;
+
+  /* Document preview card */
+  .doc-preview {
     display: block;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+    overflow: hidden;
+    min-height: 280px;
+    background: #111;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
   }
-  .card-doc-link {
+  .doc-preview:hover { background: #161616; }
+  .doc-preview:hover .doc-preview-cta { 
+    background: var(--red);
+    color: white;
+    border-color: var(--red);
+  }
+
+  /* Faux document background with scanlines */
+  .doc-preview-bg {
+    position: absolute;
+    inset: 0;
+    opacity: 0.06;
+    background:
+      repeating-linear-gradient(0deg, transparent 0px, transparent 18px, rgba(255,255,255,0.4) 18px, rgba(255,255,255,0.4) 19px),
+      repeating-linear-gradient(90deg, transparent 0px, transparent 200px, rgba(255,255,255,0.1) 200px, rgba(255,255,255,0.1) 201px);
+    pointer-events: none;
+  }
+
+  /* Confidential stamp */
+  .doc-preview-stamp {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-18deg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 3rem;
+    letter-spacing: 0.15em;
+    color: var(--red);
+    opacity: 0.12;
+    white-space: nowrap;
+    pointer-events: none;
+    border: 3px solid var(--red);
+    padding: 0.2rem 1.5rem;
+  }
+
+  /* Document metadata lines */
+  .doc-preview-meta {
+    position: relative;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 280px;
+  }
+  .doc-preview-top {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+  .doc-preview-icon {
+    width: 36px;
+    height: 44px;
+    border: 1.5px solid rgba(255,255,255,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
     background: rgba(255,255,255,0.03);
-    border-top: 1px solid rgba(255,255,255,0.06);
   }
-  .card-doc-link span {
-    font-size: 0.7rem;
-    color: var(--mid-gray);
+  .doc-preview-icon::after {
+    content: 'PDF';
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.45rem;
+    letter-spacing: 0.08em;
+    color: var(--red);
+    font-weight: 600;
   }
-  .card-doc-link a {
+  .doc-preview-icon-corner {
+    position: absolute;
+    top: 0; right: 0;
+    width: 8px;
+    height: 8px;
+    background: linear-gradient(135deg, var(--dark-gray) 50%, rgba(255,255,255,0.15) 50%);
+  }
+  .doc-preview-filename {
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.6rem;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--red);
-    text-decoration: none;
+    color: var(--light-gray);
+    line-height: 1.4;
+    word-break: break-all;
   }
-  .card-doc-link a:hover { text-decoration: underline; }
+
+  /* Key details from document */
+  .doc-preview-details {
+    margin: 0.8rem 0;
+    flex: 1;
+  }
+  .doc-preview-detail {
+    display: flex;
+    gap: 0.8rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+  .doc-preview-detail:last-child { border-bottom: none; }
+  .doc-detail-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--mid-gray);
+    width: 65px;
+    flex-shrink: 0;
+    padding-top: 0.1rem;
+  }
+  .doc-detail-value {
+    color: var(--light-gray);
+  }
+  .doc-detail-value strong { color: var(--white); }
+  .doc-detail-highlight {
+    color: var(--red);
+    font-weight: 600;
+  }
+
+  /* CTA button */
+  .doc-preview-cta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem;
+    border: 1px solid rgba(255,255,255,0.15);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--light-gray);
+    transition: all 0.3s;
+    background: transparent;
+    margin-top: 0.5rem;
+  }
+  .doc-preview-cta svg {
+    width: 14px;
+    height: 14px;
+  }
+  .doc-page-note {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    color: var(--mid-gray);
+    text-align: center;
+    margin-top: 0.4rem;
+    letter-spacing: 0.05em;
+  }
 
   /* Carousel navigation */
   .carousel-nav {
@@ -730,25 +863,100 @@
           </div>
           <div class="card-doc-viewer">
             <div class="card-doc-panel active" id="c1-d1">
-              <iframe src="https://www.mayorbianca.com/s/9242025-103479-Home-Depot-Trash-Cans-CE.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>Reimbursement request — see pages 3 & 5</span>
-                <a href="https://www.mayorbianca.com/s/9242025-103479-Home-Depot-Trash-Cans-CE.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/9242025-103479-Home-Depot-Trash-Cans-CE.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">9242025-103479-Home-Depot-Trash-Cans-CE.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendor</span>
+                      <span class="doc-detail-value"><strong>Home Depot</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Items</span>
+                      <span class="doc-detail-value">7× 64-gallon trash cans</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Type</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Personal reimbursement request</span></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Issue</span>
+                      <span class="doc-detail-value">Same items also on City's commercial account</span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                  <div class="doc-page-note">See pages 3 & 5</div>
+                </div>
+              </a>
             </div>
             <div class="card-doc-panel" id="c1-d2">
-              <iframe src="https://www.mayorbianca.com/s/HD-Statement-HL.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>City's Home Depot commercial account — see page 3</span>
-                <a href="https://www.mayorbianca.com/s/HD-Statement-HL.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/HD-Statement-HL.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">HD-Statement-HL.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Source</span>
+                      <span class="doc-detail-value"><strong>City's Home Depot Commercial Account</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Shows</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Same trash cans charged to city account</span></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Meaning</span>
+                      <span class="doc-detail-value">City already paid — reimbursement is a duplicate</span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                  <div class="doc-page-note">See page 3</div>
+                </div>
+              </a>
             </div>
             <div class="card-doc-panel" id="c1-d3">
-              <iframe src="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-712025-1312026.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>AP Invoice Statement 7/1/2025–1/31/2026</span>
-                <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-712025-1312026.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-712025-1312026.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">Carn-AP-Invoice-Report-712025-1312026.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Source</span>
+                      <span class="doc-detail-value"><strong>Accounts Payable Invoice Statement</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Period</span>
+                      <span class="doc-detail-value">7/1/2025 – 1/31/2026</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Shows</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Payments processed for reimbursements</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -772,25 +980,92 @@
           </div>
           <div class="card-doc-viewer">
             <div class="card-doc-panel active" id="c2-d1">
-              <iframe src="https://www.mayorbianca.com/s/3132025-Bargain-Wholesale-CCDR-10190-CE.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>Reimbursement documentation — see page 6</span>
-                <a href="https://www.mayorbianca.com/s/3132025-Bargain-Wholesale-CCDR-10190-CE.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/3132025-Bargain-Wholesale-CCDR-10190-CE.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">3132025-Bargain-Wholesale-CCDR-10190-CE.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendor</span>
+                      <span class="doc-detail-value"><strong>Bargain Wholesale</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Type</span>
+                      <span class="doc-detail-value">City reimbursement request — event supplies</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Issue</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Same charges also on campaign disclosure (CCDR)</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                  <div class="doc-page-note">See page 6</div>
+                </div>
+              </a>
             </div>
             <div class="card-doc-panel" id="c2-d2">
-              <iframe src="https://www.mayorbianca.com/s/Carn-CCDR-April-2025.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>Campaign Contribution Disclosure Report — see page 13</span>
-                <a href="https://www.mayorbianca.com/s/Carn-CCDR-April-2025.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/Carn-CCDR-April-2025.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">CAMPAIGN FILING</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">Carn-CCDR-April-2025.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Source</span>
+                      <span class="doc-detail-value"><strong>Campaign Contribution Disclosure Report</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Filed</span>
+                      <span class="doc-detail-value">April 2025</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Issue</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Same event supplies listed as campaign expenditure</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                  <div class="doc-page-note">See page 13</div>
+                </div>
+              </a>
             </div>
             <div class="card-doc-panel" id="c2-d3">
-              <iframe src="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-FY25.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>FY25 Accounts Payable Invoice Statement</span>
-                <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-FY25.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-FY25.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">Carn-AP-Invoice-Report-FY25.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Source</span>
+                      <span class="doc-detail-value"><strong>FY25 Accounts Payable Invoice Statement</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Shows</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">City processed the reimbursement payment</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -812,11 +1087,38 @@
           </div>
           <div class="card-doc-viewer">
             <div class="card-doc-panel active" id="c3-d1">
-              <iframe src="https://www.mayorbianca.com/s/7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>Five Below gift cards — Misc Services Account</span>
-                <a href="https://www.mayorbianca.com/s/7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendor</span>
+                      <span class="doc-detail-value"><strong>Five Below</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Items</span>
+                      <span class="doc-detail-value">Bulk gift card purchase</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Account</span>
+                      <span class="doc-detail-value">Misc Services Account</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Reason</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">"Community Enhancement/Community Engagement" — nothing else</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -838,11 +1140,38 @@
           </div>
           <div class="card-doc-viewer">
             <div class="card-doc-panel active" id="c4-d1">
-              <iframe src="https://www.mayorbianca.com/s/2122025-Liquidation-Outlet-no-explanation-CE.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>Liquidation Outlet — no explanation provided</span>
-                <a href="https://www.mayorbianca.com/s/2122025-Liquidation-Outlet-no-explanation-CE.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/2122025-Liquidation-Outlet-no-explanation-CE.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">2122025-Liquidation-Outlet-no-explanation-CE.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendor</span>
+                      <span class="doc-detail-value"><strong>Liquidation Outlet</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Items</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Unknown — no description provided</span></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Purpose</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">None stated</span></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Fund</span>
+                      <span class="doc-detail-value">Community Enhancement</span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
@@ -865,18 +1194,64 @@
           </div>
           <div class="card-doc-viewer">
             <div class="card-doc-panel active" id="c5-d1">
-              <iframe src="https://www.mayorbianca.com/s/11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>Corner Tavern & home ink delivery — Discretionary</span>
-                <a href="https://www.mayorbianca.com/s/11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendors</span>
+                      <span class="doc-detail-value"><strong>Corner Tavern</strong> (restaurant/bar) + home ink delivery</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Fund</span>
+                      <span class="doc-detail-value">Discretionary</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Purpose</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Minimal documentation provided</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
             </div>
             <div class="card-doc-panel" id="c5-d2">
-              <iframe src="https://www.mayorbianca.com/s/12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf" loading="lazy"></iframe>
-              <div class="card-doc-link">
-                <span>Oz Pizza & Tommy's Wholesale — Discretionary</span>
-                <a href="https://www.mayorbianca.com/s/12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf" target="_blank">Open Full PDF ↗</a>
-              </div>
+              <a href="https://www.mayorbianca.com/s/12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendors</span>
+                      <span class="doc-detail-value"><strong>Oz Pizza</strong> + <strong>Tommy's Wholesale</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Fund</span>
+                      <span class="doc-detail-value">Discretionary</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Purpose</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Little to no public purpose described</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
