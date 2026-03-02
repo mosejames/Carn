@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Follow the Money — College Park, GA</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --off-black: #141414;
+    --dark-gray: #1e1e1e;
+    --mid-gray: #666;
+    --light-gray: #999;
+    --paper: #f5f3ef;
+    --red: #e63226;
+    --red-dark: #b52a20;
+    --red-glow: rgba(230,50,38,0.3);
+    --gold: #d4a017;
+    --gold-glow: rgba(212,160,23,0.2);
+    --white: #ffffff;
+  }
+
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background-color: #0a0a0a !important;
+    background: #0a0a0a !important;
+    color: #ffffff;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ===================== MONTAGE HERO ===================== */
+  .montage {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem 1.5rem;
+    position: relative;
+    overflow: hidden;
+    background-color: #0a0a0a;
+    background: #0a0a0a;
+  }
+  .montage::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(230,50,38,0.15) 0%, transparent 50%),
+      radial-gradient(ellipse at 80% 50%, rgba(212,160,23,0.1) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .montage::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent 0px,
+      transparent 2px,
+      rgba(255,255,255,0.015) 2px,
+      rgba(255,255,255,0.015) 4px
+    );
+    pointer-events: none;
+  }
+
+  .montage-kicker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--red);
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.5s 0.2s forwards;
+  }
+  .montage-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 12vw, 8rem);
+    line-height: 0.9;
+    text-align: center;
+    position: relative;
+    margin: 0.5rem 0 1.5rem;
+    opacity: 0;
+    animation: fadeUp 0.6s 0.4s forwards;
+  }
+  .montage-title .the { color: var(--light-gray); }
+  .montage-title .money { 
+    color: var(--red);
+    text-shadow: 0 0 40px var(--red-glow);
+  }
+
+  /* RAPID FIRE FLAGS */
+  .flags-rapid {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    width: 100%;
+    max-width: 700px;
+    position: relative;
+    margin-top: 1rem;
+  }
+  .flag-line {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    padding: 0.7rem 1rem;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    opacity: 0;
+    transform: translateX(-30px);
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .flag-line:hover { background: rgba(230,50,38,0.08); }
+  .flag-line:last-child { border-bottom: none; }
+  
+  .flag-line.animate {
+    animation: flagSlide 0.4s forwards;
+  }
+  .flag-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--red);
+    width: 30px;
+    flex-shrink: 0;
+    text-align: center;
+  }
+  .flag-marker {
+    width: 8px;
+    height: 8px;
+    background: var(--red);
+    border-radius: 50%;
+    flex-shrink: 0;
+    box-shadow: 0 0 8px var(--red-glow);
+    animation: pulse 2s infinite;
+  }
+  .flag-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--white);
+    flex: 1;
+    line-height: 1.3;
+  }
+  .flag-tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.5rem;
+    background: var(--red);
+    color: white;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  @media (max-width: 600px) {
+    .flag-tag { display: none; }
+  }
+
+  .montage-cta {
+    margin-top: 2rem;
+    position: relative;
+    opacity: 0;
+    animation: fadeUp 0.5s 3s forwards;
+  }
+  .montage-cta a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--white);
+    text-decoration: none;
+    border: 1px solid var(--red);
+    padding: 0.8rem 2rem;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+  .montage-cta a:hover {
+    background: var(--red);
+    box-shadow: 0 0 30px var(--red-glow);
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    opacity: 0;
+    animation: fadeUp 0.5s 3.5s forwards;
+  }
+  .scroll-hint::after {
+    content: '↓';
+    display: block;
+    text-align: center;
+    margin-top: 0.3rem;
+    font-size: 1rem;
+    animation: bounce 1.5s infinite;
+  }
+
+  /* ===================== THE HYPOCRISY BANNER ===================== */
+  .hypocrisy {
+    background: var(--red);
+    padding: 3rem 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hypocrisy::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      -45deg,
+      transparent 0px,
+      transparent 20px,
+      rgba(0,0,0,0.05) 20px,
+      rgba(0,0,0,0.05) 40px
+    );
+  }
+  .hypocrisy-content {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  .hypocrisy h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.8rem, 5vw, 3rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+  .hypocrisy p {
+    font-size: 1rem;
+    line-height: 1.7;
+    opacity: 0.9;
+  }
+  .hypocrisy-split {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    align-items: center;
+  }
+  @media (max-width: 600px) {
+    .hypocrisy-split { grid-template-columns: 1fr; gap: 0.8rem; }
+  }
+  .hyp-box {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    font-size: 0.85rem;
+    line-height: 1.6;
+  }
+  .hyp-box.her {
+    background: rgba(0,0,0,0.25);
+    border-left: 3px solid var(--white);
+  }
+  .hyp-box.him {
+    background: rgba(0,0,0,0.25);
+    border-left: 3px solid var(--gold);
+  }
+  .hyp-box-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    display: block;
+  }
+  .hyp-box.her .hyp-box-label { color: rgba(255,255,255,0.7); }
+  .hyp-box.him .hyp-box-label { color: var(--gold); }
+  .hyp-vs {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    opacity: 0.5;
+  }
+
+  /* ===================== CAROUSEL SECTION ===================== */
+  .carousel-section {
+    padding: 3rem 0 4rem;
+    background-color: #141414;
+    background: #141414;
+    position: relative;
+  }
+  .carousel-section-header {
+    text-align: center;
+    padding: 0 1.5rem 2rem;
+  }
+  .carousel-section-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    margin-bottom: 0.5rem;
+  }
+  .carousel-section-header p {
+    color: var(--light-gray);
+    font-size: 0.85rem;
+  }
+
+  /* Carousel */
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+  }
+  .carousel-track {
+    display: flex;
+    gap: 1.5rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding: 0 max(1.5rem, calc((100vw - 700px) / 2));
+    scrollbar-width: none;
+  }
+  .carousel-track::-webkit-scrollbar { display: none; }
+
+  .carousel-card {
+    flex: 0 0 min(85vw, 660px);
+    scroll-snap-align: center;
+    background: var(--dark-gray);
+    border: 1px solid rgba(255,255,255,0.08);
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .carousel-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: var(--red);
+  }
+
+  .card-top {
+    padding: 1.5rem 1.5rem 1rem;
+  }
+  .card-flag-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: var(--red);
+    margin-bottom: 0.5rem;
+  }
+  .card-title {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.3;
+    margin-bottom: 0.5rem;
+  }
+  .card-issue {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    display: inline-block;
+    padding: 0.15rem 0.5rem;
+    background: var(--red);
+    color: white;
+    margin-bottom: 0.8rem;
+  }
+  .card-desc {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--light-gray);
+    margin-bottom: 0;
+  }
+  .card-desc strong { color: var(--white); }
+
+  /* Card doc tabs */
+  .card-docs {
+    margin-top: auto;
+    border-top: 1px solid rgba(255,255,255,0.08);
+  }
+  .card-doc-tabs {
+    display: flex;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .card-doc-tabs::-webkit-scrollbar { display: none; }
+  .card-doc-tab {
+    padding: 0.6rem 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--light-gray);
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: all 0.2s;
+  }
+  .card-doc-tab:hover { color: var(--white); }
+  .card-doc-tab.active {
+    color: var(--red);
+    border-bottom-color: var(--red);
+  }
+
+  .card-doc-viewer {
+    background: var(--black);
+  }
+  .card-doc-panel {
+    display: none;
+  }
+  .card-doc-panel.active {
+    display: block;
+  }
+  .card-doc-panel iframe {
+    width: 100%;
+    height: 420px;
+    border: none;
+    display: block;
+  }
+  .card-doc-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    background: rgba(255,255,255,0.03);
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+  .card-doc-link span {
+    font-size: 0.7rem;
+    color: var(--mid-gray);
+  }
+  .card-doc-link a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--red);
+    text-decoration: none;
+  }
+  .card-doc-link a:hover { text-decoration: underline; }
+
+  /* Carousel navigation */
+  .carousel-nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding: 0 1.5rem;
+  }
+  .carousel-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.2);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s;
+    padding: 0;
+  }
+  .carousel-dot.active {
+    background: var(--red);
+    box-shadow: 0 0 8px var(--red-glow);
+    transform: scale(1.3);
+  }
+  .carousel-btn {
+    width: 36px;
+    height: 36px;
+    border: 1px solid rgba(255,255,255,0.15);
+    background: transparent;
+    color: var(--white);
+    font-size: 1rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+  }
+  .carousel-btn:hover {
+    border-color: var(--red);
+    color: var(--red);
+  }
+  .swipe-hint {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--mid-gray);
+    margin-top: 0.8rem;
+  }
+
+  /* ===================== RULES CHEAT SHEET ===================== */
+  .rules-section {
+    background-color: #0a0a0a;
+    background: #0a0a0a;
+    padding: 4rem 1.5rem;
+  }
+  .rules-inner {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .rules-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+  .rules-header h2 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+  }
+  .rules-header p {
+    font-size: 0.85rem;
+    color: var(--light-gray);
+  }
+
+  .rules-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  @media (max-width: 600px) {
+    .rules-grid { grid-template-columns: 1fr; }
+  }
+  .rule-card {
+    padding: 1.5rem;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .rule-card.current { border-left: 3px solid #2d6a4f; }
+  .rule-card.proposed { border-left: 3px solid var(--red); }
+  .rule-card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.55rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    display: block;
+  }
+  .rule-card.current .rule-card-label { color: #4ade80; }
+  .rule-card.proposed .rule-card-label { color: var(--red); }
+  .rule-card h3 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.8rem;
+    line-height: 1.3;
+  }
+  .rule-card ul {
+    list-style: none;
+    padding: 0;
+  }
+  .rule-card li {
+    font-size: 0.82rem;
+    line-height: 1.6;
+    padding: 0.4rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    color: var(--light-gray);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .rule-card li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.75rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+  .rule-card.current li::before { background: #4ade80; }
+  .rule-card.proposed li::before { background: var(--red); }
+  .rule-card li:last-child { border-bottom: none; }
+  .rule-card li strong { color: var(--white); }
+
+  /* BOTTOM LINE */
+  .bottom-line {
+    max-width: 720px;
+    margin: 3rem auto 0;
+    border: 1px solid var(--gold);
+    padding: 1.5rem;
+    background: rgba(212,160,23,0.05);
+  }
+  .bottom-line h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+  .bottom-line p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+    color: var(--light-gray);
+  }
+  .bottom-line strong { color: var(--white); }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 1.5rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    text-align: center;
+    margin-top: 3rem;
+  }
+  footer p {
+    font-size: 0.7rem;
+    color: var(--mid-gray);
+    line-height: 1.7;
+  }
+  footer a { color: var(--red); text-decoration: none; }
+  footer a:hover { text-decoration: underline; }
+
+  /* ===================== ANIMATIONS ===================== */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(15px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes flagSlide {
+    from { opacity: 0; transform: translateX(-30px); }
+    to { opacity: 1; transform: translateX(0); }
+  }
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(5px); }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== MONTAGE HERO ==================== -->
+<section class="montage">
+  <div class="montage-kicker">College Park, Georgia</div>
+  <h1 class="montage-title">
+    <span class="the">Follow the</span><br>
+    <span class="money">Money</span>
+  </h1>
+
+  <div class="flags-rapid">
+    <div class="flag-line" data-delay="800" onclick="scrollToCard(0)">
+      <span class="flag-num">01</span>
+      <span class="flag-marker"></span>
+      <span class="flag-text">Trash cans on the city's tab — then reimbursed again to him personally</span>
+      <span class="flag-tag">Double Charge</span>
+    </div>
+    <div class="flag-line" data-delay="1100" onclick="scrollToCard(1)">
+      <span class="flag-num">02</span>
+      <span class="flag-marker"></span>
+      <span class="flag-text">Same event supplies on a city reimbursement AND a campaign disclosure</span>
+      <span class="flag-tag">Campaign / City Overlap</span>
+    </div>
+    <div class="flag-line" data-delay="1400" onclick="scrollToCard(2)">
+      <span class="flag-num">03</span>
+      <span class="flag-marker"></span>
+      <span class="flag-text">Bulk gift cards purchased with zero explanation of public purpose</span>
+      <span class="flag-tag">No Documentation</span>
+    </div>
+    <div class="flag-line" data-delay="1700" onclick="scrollToCard(3)">
+      <span class="flag-num">04</span>
+      <span class="flag-marker"></span>
+      <span class="flag-text">Liquidation outlet purchase — no description of what or why</span>
+      <span class="flag-tag">No Purpose</span>
+    </div>
+    <div class="flag-line" data-delay="2000" onclick="scrollToCard(4)">
+      <span class="flag-num">05</span>
+      <span class="flag-marker"></span>
+      <span class="flag-text">Restaurant tabs, pizza, wholesale — pattern of vague reimbursements</span>
+      <span class="flag-tag">Pattern</span>
+    </div>
+  </div>
+
+  <div class="montage-cta">
+    <a href="#evidence">See the Receipts</a>
+  </div>
+
+  <div class="scroll-hint">Scroll to investigate</div>
+</section>
+
+<!-- ==================== HYPOCRISY BANNER ==================== -->
+<section class="hypocrisy">
+  <div class="hypocrisy-content">
+    <h2>He Wants New Rules for Her — Not for Himself</h2>
+    <p>Councilman Carn's Agenda Item 10A proposes spending restrictions that apply only to the Mayor. Not to Council members. Not to himself.</p>
+    <div class="hypocrisy-split">
+      <div class="hyp-box her">
+        <span class="hyp-box-label">What he wants for the Mayor</span>
+        Must get a Council member's permission before <strong>any</strong> enhancement spending — even under $10,000 — can be placed on the agenda. A single Council member could block the full governing body from even discussing it.
+      </div>
+      <span class="hyp-vs">VS</span>
+      <div class="hyp-box him">
+        <span class="hyp-box-label">What he keeps for himself</span>
+        Current rules. City Manager approves under $10K per Charter. No individual permission required. No extra gatekeeping. The same system every prior mayor operated under — just not this one.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ==================== EVIDENCE CAROUSEL ==================== -->
+<section class="carousel-section" id="evidence">
+  <div class="carousel-section-header">
+    <h2>The Receipts</h2>
+    <p>Swipe through each flagged expense. Every document is embedded — see it for yourself.</p>
+  </div>
+
+  <div class="carousel-wrapper">
+    <div class="carousel-track" id="carouselTrack">
+
+      <!-- CARD 1 -->
+      <div class="carousel-card" id="card-0">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 01</div>
+          <h3 class="card-title">Seven Trash Cans — Charged Twice</h3>
+          <span class="card-issue">Potential Double Charge</span>
+          <p class="card-desc">
+            Seven 64-gallon trash cans were purchased on the <strong>City's Home Depot commercial account</strong> — meaning the city already paid. The same items then appear in a <strong>separate reimbursement request to Councilman Carn personally</strong>. If both were processed, the city paid twice and the councilman pocketed money he never spent.
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c1-d1')">Reimbursement (p.3&5)</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c1-d2')">Home Depot Statement (p.3)</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c1-d3')">AP Invoice Report</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c1-d1">
+              <iframe src="https://www.mayorbianca.com/s/9242025-103479-Home-Depot-Trash-Cans-CE.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>Reimbursement request — see pages 3 & 5</span>
+                <a href="https://www.mayorbianca.com/s/9242025-103479-Home-Depot-Trash-Cans-CE.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+            <div class="card-doc-panel" id="c1-d2">
+              <iframe src="https://www.mayorbianca.com/s/HD-Statement-HL.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>City's Home Depot commercial account — see page 3</span>
+                <a href="https://www.mayorbianca.com/s/HD-Statement-HL.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+            <div class="card-doc-panel" id="c1-d3">
+              <iframe src="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-712025-1312026.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>AP Invoice Statement 7/1/2025–1/31/2026</span>
+                <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-712025-1312026.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 2 -->
+      <div class="carousel-card" id="card-1">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 02</div>
+          <h3 class="card-title">Event Supplies — City Reimbursement Meets Campaign Disclosure</h3>
+          <span class="card-issue">Campaign / City Funds Overlap</span>
+          <p class="card-desc">
+            The same event supply charges appear on <strong>both a city reimbursement request and a Campaign Contribution Disclosure Report (CCDR)</strong>. If these were campaign expenses, they shouldn't have been reimbursed with public money. If they were city expenses, they shouldn't be on a campaign filing. <strong>Either way, something is wrong.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c2-d1')">Reimbursement (p.6)</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c2-d2')">CCDR Filing (p.13)</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c2-d3')">FY25 AP Invoice</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c2-d1">
+              <iframe src="https://www.mayorbianca.com/s/3132025-Bargain-Wholesale-CCDR-10190-CE.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>Reimbursement documentation — see page 6</span>
+                <a href="https://www.mayorbianca.com/s/3132025-Bargain-Wholesale-CCDR-10190-CE.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+            <div class="card-doc-panel" id="c2-d2">
+              <iframe src="https://www.mayorbianca.com/s/Carn-CCDR-April-2025.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>Campaign Contribution Disclosure Report — see page 13</span>
+                <a href="https://www.mayorbianca.com/s/Carn-CCDR-April-2025.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+            <div class="card-doc-panel" id="c2-d3">
+              <iframe src="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-FY25.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>FY25 Accounts Payable Invoice Statement</span>
+                <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-FY25.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="carousel-card" id="card-2">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 03</div>
+          <h3 class="card-title">Bulk Gift Cards — No Questions Asked</h3>
+          <span class="card-issue">No Documentation</span>
+          <p class="card-desc">
+            A large number of gift cards purchased from Five Below using public funds. The only justification provided: <strong>"Community Enhancement/Community Engagement."</strong> No list of recipients. No event tied to it. No explanation of what public purpose was served. Gift cards are cash equivalents — this is the kind of purchase that demands airtight documentation. <strong>It got none.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c3-d1')">Gift Card Purchase</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c3-d1">
+              <iframe src="https://www.mayorbianca.com/s/7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>Five Below gift cards — Misc Services Account</span>
+                <a href="https://www.mayorbianca.com/s/7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="carousel-card" id="card-3">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 04</div>
+          <h3 class="card-title">Liquidation Outlet — What Was Even Purchased?</h3>
+          <span class="card-issue">No Public Purpose Stated</span>
+          <p class="card-desc">
+            A reimbursement was submitted for a purchase at a liquidation outlet with <strong>zero explanation of what was bought or why public funds were used.</strong> No item description. No stated purpose. Just a receipt and a request for money back. Public dollars require public accountability — <strong>this has neither.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c4-d1')">Liquidation Outlet</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c4-d1">
+              <iframe src="https://www.mayorbianca.com/s/2122025-Liquidation-Outlet-no-explanation-CE.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>Liquidation Outlet — no explanation provided</span>
+                <a href="https://www.mayorbianca.com/s/2122025-Liquidation-Outlet-no-explanation-CE.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="carousel-card" id="card-4">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 05</div>
+          <h3 class="card-title">Corner Tavern, Oz Pizza, Tommy's Wholesale — A Pattern</h3>
+          <span class="card-issue">Recurring Pattern</span>
+          <p class="card-desc">
+            Multiple reimbursements across restaurants, a tavern, home ink delivery, pizza, and a wholesale store — all from discretionary funds, all with <strong>minimal to no documentation of public purpose.</strong> One vague receipt might be an oversight. A pattern of them is something else entirely. <strong>The small things have a way of adding up.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c5-d1')">Corner Tavern & Ink</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c5-d2')">Oz Pizza & Tommy's</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c5-d1">
+              <iframe src="https://www.mayorbianca.com/s/11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>Corner Tavern & home ink delivery — Discretionary</span>
+                <a href="https://www.mayorbianca.com/s/11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+            <div class="card-doc-panel" id="c5-d2">
+              <iframe src="https://www.mayorbianca.com/s/12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf" loading="lazy"></iframe>
+              <div class="card-doc-link">
+                <span>Oz Pizza & Tommy's Wholesale — Discretionary</span>
+                <a href="https://www.mayorbianca.com/s/12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf" target="_blank">Open Full PDF ↗</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /carousel-track -->
+
+    <div class="carousel-nav">
+      <button class="carousel-btn" onclick="moveCarousel(-1)">←</button>
+      <div class="carousel-dots">
+        <button class="carousel-dot active" onclick="goToCard(0)"></button>
+        <button class="carousel-dot" onclick="goToCard(1)"></button>
+        <button class="carousel-dot" onclick="goToCard(2)"></button>
+        <button class="carousel-dot" onclick="goToCard(3)"></button>
+        <button class="carousel-dot" onclick="goToCard(4)"></button>
+      </div>
+      <button class="carousel-btn" onclick="moveCarousel(1)">→</button>
+    </div>
+    <div class="swipe-hint">← Swipe or use arrows →</div>
+  </div>
+</section>
+
+<!-- ==================== RULES CHEAT SHEET ==================== -->
+<section class="rules-section">
+  <div class="rules-inner">
+    <div class="rules-header">
+      <h2>The Rules: Current vs. Proposed</h2>
+      <p>What Agenda Item 10A would actually change — and who it targets</p>
+    </div>
+
+    <div class="rules-grid">
+      <div class="rule-card current">
+        <span class="rule-card-label">✓ Current Rules (City Charter)</span>
+        <h3>How It Works Now</h3>
+        <ul>
+          <li><strong>$900K per official</strong> in FY 2025–26 ($500K capital, $400K non-capital)</li>
+          <li><strong>City Manager approves up to $10K</strong> within adopted budget — Charter authority</li>
+          <li><strong>Over $10K goes to Council</strong> for approval</li>
+          <li><strong>All officials treated equally</strong> — same rules for Mayor, Council, Mayor Pro Tem</li>
+          <li><strong>No individual veto power</strong> over another official's agenda items</li>
+        </ul>
+      </div>
+      <div class="rule-card proposed">
+        <span class="rule-card-label">✕ Proposed Changes (Item 10A — Carn)</span>
+        <h3>What He Wants</h3>
+        <ul>
+          <li><strong>Mayor must get a Council member to sponsor</strong> any enhancement spending before it reaches the agenda</li>
+          <li><strong>Applies to ANY amount</strong> — even under the $10K threshold the Charter gives the City Manager</li>
+          <li><strong>One Council member can block</strong> the full body from even discussing the Mayor's proposal</li>
+          <li><strong>Only targets the Mayor</strong> — Council members keep current rules</li>
+          <li><strong>No prior Mayor faced this</strong> — not in the Charter</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="bottom-line">
+      <h3>The Mayor's Position</h3>
+      <p>Mayor Bianca welcomes spending reforms — <strong>as long as they apply equally to all offices</strong>. She has publicly confirmed any participatory budgeting project over $10,000 would come before Council for approval. She has called for an <strong>independent, thorough, and impartial investigation</strong> to review internal controls and reconciliation procedures. As she stated: <em>"Whether the purchases are big or small, every dime with which we are entrusted is important."</em></p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    All source documents from <a href="https://www.mayorbianca.com/updates/322026-meeting-preview" target="_blank">Mayor Bianca Motley Broom's 3/2/2026 Meeting Preview</a>.<br>
+    Full agenda packets available at <a href="https://www.collegeparkga.gov/AgendaCenter/" target="_blank">collegeparkga.gov</a>.
+  </p>
+</footer>
+
+<script>
+// ===== MONTAGE FLAG ANIMATION =====
+document.addEventListener('DOMContentLoaded', () => {
+  const flags = document.querySelectorAll('.flag-line');
+  flags.forEach((flag) => {
+    const delay = parseInt(flag.dataset.delay) || 0;
+    setTimeout(() => {
+      flag.classList.add('animate');
+    }, delay);
+  });
+});
+
+// ===== CAROUSEL =====
+const track = document.getElementById('carouselTrack');
+let currentCard = 0;
+const totalCards = 5;
+
+function updateDots() {
+  document.querySelectorAll('.carousel-dot').forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentCard);
+  });
+}
+
+function goToCard(index) {
+  currentCard = Math.max(0, Math.min(index, totalCards - 1));
+  const card = document.getElementById(`card-${currentCard}`);
+  if (card) {
+    card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  }
+  updateDots();
+}
+
+function moveCarousel(dir) {
+  goToCard(currentCard + dir);
+}
+
+function scrollToCard(index) {
+  const section = document.getElementById('evidence');
+  section.scrollIntoView({ behavior: 'smooth' });
+  setTimeout(() => goToCard(index), 600);
+}
+
+// Track scroll position to update dots
+track.addEventListener('scroll', () => {
+  const scrollLeft = track.scrollLeft;
+  const cards = track.querySelectorAll('.carousel-card');
+  let closest = 0;
+  let closestDist = Infinity;
+  cards.forEach((card, i) => {
+    const dist = Math.abs(card.offsetLeft - scrollLeft - track.offsetWidth / 2 + card.offsetWidth / 2);
+    if (dist < closestDist) {
+      closestDist = dist;
+      closest = i;
+    }
+  });
+  if (closest !== currentCard) {
+    currentCard = closest;
+    updateDots();
+  }
+});
+
+// ===== CARD DOC TABS =====
+function switchCardTab(tabEl, panelId) {
+  const tabs = tabEl.parentElement;
+  tabs.querySelectorAll('.card-doc-tab').forEach(t => t.classList.remove('active'));
+  tabEl.classList.add('active');
+  const viewer = tabs.nextElementSibling;
+  viewer.querySelectorAll('.card-doc-panel').forEach(p => p.classList.remove('active'));
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+
+</body>
+</html>
