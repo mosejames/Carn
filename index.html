@@ -1639,6 +1639,17 @@ function switchCardTab(tabEl, panelId) {
 .qa-in:focus{border-color:#722f37}
 .qa-go{padding:10px 18px;background:#722f37;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:monospace;white-space:nowrap}
 .qa-go:disabled{background:#ddd;color:#999;cursor:not-allowed}
+.qa-replies{padding:4px 0 0 0;margin-top:8px;border-top:1px solid #f0f0f0}
+.qa-reply{padding:6px 0;font-size:13px;line-height:1.5;color:#333;border-bottom:1px solid #f7f7f7}
+.qa-reply:last-child{border-bottom:none}
+.qa-reply-meta{font-size:10px;color:#bbb;font-family:monospace;margin-top:2px}
+.qa-reply-btn{background:none;border:none;color:#722f37;font-size:11px;font-family:monospace;cursor:pointer;padding:2px 0;margin-top:4px;font-weight:600}
+.qa-reply-btn:hover{text-decoration:underline}
+.qa-reply-form{display:flex;gap:6px;margin-top:6px}
+.qa-reply-in{flex:1;padding:6px 10px;font-size:12px;border:1px solid #ddd;border-radius:6px;outline:none;font-family:sans-serif}
+.qa-reply-in:focus{border-color:#722f37}
+.qa-reply-go{padding:6px 12px;background:#722f37;color:#fff;border:none;border-radius:6px;font-size:11px;font-weight:600;cursor:pointer;font-family:monospace}
+.qa-reply-go:disabled{background:#ddd;color:#999;cursor:not-allowed}
 </style>
 <button class="qa-fab" id="qf" onclick="qToggle()">&#x1F4AC; Ask About the Money <span class="qa-cnt" id="qfc" style="display:none">0</span></button>
 <div class="qa-ov" id="qov" onclick="qToggle()"></div>
@@ -1717,7 +1728,23 @@ function rn() {
     h += '<span style="font-family:monospace;font-size:14px;font-weight:700;color:' + co + '">' + sc + '</span>';
     h += '<button class="qa-vb' + (mv === 'down' ? ' on' : '') + '" data-id="' + q.id + '" data-dir="down">\u25BC</button>';
     h += '</div><div style="flex:1"><p style="font-size:14px;line-height:1.5;color:#1a1a1a;margin:0">' + esc(q.text) + '</p>';
-    h += '<span style="font-size:11px;color:#bbb;font-family:monospace">' + ta(q.ts) + '</span></div></div>';
+    h += '<span style="font-size:11px;color:#bbb;font-family:monospace">' + ta(q.ts) + '</span>';
+    h += '<button class="qa-reply-btn" data-id="' + q.id + '" onclick="qShowReply(this)">Reply</button>';
+    var reps = q.replies || {};
+    var rkeys = Object.keys(reps).sort(function(a,b){ return reps[a].ts - reps[b].ts; });
+    if (rkeys.length > 0) {
+      h += '<div class="qa-replies">';
+      for (var ri = 0; ri < rkeys.length; ri++) {
+        var r = reps[rkeys[ri]];
+        h += '<div class="qa-reply">' + esc(r.text) + '<div class="qa-reply-meta">' + ta(r.ts) + '</div></div>';
+      }
+      h += '</div>';
+    }
+    h += '<div class="qa-reply-form" id="rf-' + q.id + '" style="display:none">';
+    h += '<input class="qa-reply-in" maxlength="280" placeholder="Add a response..." onkeydown="if(event.key===\'Enter\')qPostReply(\'' + q.id + '\',this)">';
+    h += '<button class="qa-reply-go" onclick="qPostReply(\'' + q.id + '\',this.previousElementSibling)">Reply</button>';
+    h += '</div>';
+    h += '</div></div>';
   }
   el.innerHTML = h;
   el.querySelectorAll('.qa-vb').forEach(function(btn) {
@@ -1772,6 +1799,24 @@ document.getElementById('qin').addEventListener('input', function() {
   document.getElementById('qgo').disabled = this.value.trim().length < 10;
 });
 document.getElementById('qin').addEventListener('keydown', function(e) { if (e.key === 'Enter') window.qSub(); });
+
+window.qShowReply = function(btn) {
+  var id = btn.dataset.id;
+  var form = document.getElementById('rf-' + id);
+  if (form) {
+    form.style.display = form.style.display === 'none' ? 'flex' : 'none';
+    if (form.style.display === 'flex') form.querySelector('input').focus();
+  }
+};
+
+window.qPostReply = function(qid, inp) {
+  var t = inp.value.trim();
+  if (t.length < 3) return;
+  var rid = Date.now().toString(36) + Math.random().toString(36).slice(2,5);
+  var reply = { text: t, ts: Date.now() };
+  qRef.child(qid).child('replies').child(rid).set(reply);
+  inp.value = '';
+};
 })();
 </script>
 

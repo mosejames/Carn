@@ -217,7 +217,24 @@ function render() {
     h += '<div class="q-actions">';
     h += '<button class="btn-delete" onclick="delQ(\'' + q.id + '\')">Delete</button>';
     h += '<button class="btn-flag" onclick="flagQ(\'' + q.id + '\')">' + (q.flagged ? 'Unflag' : 'Flag') + '</button>';
-    h += '</div></div></div>';
+    h += '</div>';
+    // Replies
+    var reps = q.replies || {};
+    var rkeys = Object.keys(reps).sort(function(a,b){ return reps[a].ts - reps[b].ts; });
+    if (rkeys.length > 0) {
+      h += '<div style="margin-top:8px;padding-top:8px;border-top:1px solid #eee">';
+      h += '<div style="font-size:11px;color:#888;font-family:monospace;margin-bottom:4px">' + rkeys.length + ' REPLIES</div>';
+      for (var ri = 0; ri < rkeys.length; ri++) {
+        var r = reps[rkeys[ri]];
+        h += '<div style="padding:4px 0 4px 12px;border-left:2px solid #ddd;margin-bottom:4px;font-size:13px">';
+        h += esc(r.text);
+        h += ' <span style="font-size:10px;color:#aaa">' + timeAgo(r.ts) + '</span>';
+        h += ' <button style="font-size:10px;color:#e74c3c;background:none;border:none;cursor:pointer" onclick="delReply(\'' + q.id + '\',\'' + rkeys[ri] + '\')">x</button>';
+        h += '</div>';
+      }
+      h += '</div>';
+    }
+    h += '</div></div>';
   }
   el.innerHTML = h;
 }
@@ -255,6 +272,13 @@ function flagQ(id) {
   q.flagged = !q.flagged;
   qRef.child(id).set(q);
   toast(q.flagged ? 'Flagged' : 'Unflagged');
+}
+
+function delReply(qid, rid) {
+  if (confirm('Delete this reply?')) {
+    qRef.child(qid).child('replies').child(rid).remove();
+    toast('Reply deleted');
+  }
 }
 
 function toast(msg) {
