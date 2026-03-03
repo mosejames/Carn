@@ -1729,7 +1729,7 @@ function rn() {
     h += '<button class="qa-vb' + (mv === 'down' ? ' on' : '') + '" data-id="' + q.id + '" data-dir="down">\u25BC</button>';
     h += '</div><div style="flex:1"><p style="font-size:14px;line-height:1.5;color:#1a1a1a;margin:0">' + esc(q.text) + '</p>';
     h += '<span style="font-size:11px;color:#bbb;font-family:monospace">' + ta(q.ts) + '</span>';
-    h += '<button class="qa-reply-btn" data-id="' + q.id + '" onclick="qShowReply(this)">Reply</button>';
+    h += '<br><button class="qa-reply-btn" data-id="' + q.id + '" onclick="qShowReply(this)">Reply</button>';
     var reps = q.replies || {};
     var rkeys = Object.keys(reps).sort(function(a,b){ return reps[a].ts - reps[b].ts; });
     if (rkeys.length > 0) {
