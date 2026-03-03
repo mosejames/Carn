@@ -1614,5 +1614,166 @@ function switchCardTab(tabEl, panelId) {
 }
 </script>
 
+
+<!-- COMMUNITY Q&A -->
+<style>
+.qa-fab{position:fixed;bottom:24px;right:24px;z-index:9999;background:#722f37;color:#fff;border:none;border-radius:50px;padding:14px 22px;font-family:'JetBrains Mono',monospace;font-size:13px;font-weight:600;letter-spacing:0.05em;cursor:pointer;box-shadow:0 4px 20px rgba(0,0,0,0.25);display:flex;align-items:center;gap:8px;transition:all 0.3s}
+.qa-fab:hover{background:#8b3a44}
+.qa-cnt{background:#d4a017;color:#1a1a1a;border-radius:12px;padding:2px 8px;font-size:11px;font-weight:700}
+.qa-ov{position:fixed;inset:0;z-index:9998;background:rgba(0,0,0,0.4);opacity:0;pointer-events:none;transition:opacity 0.3s}
+.qa-ov.on{opacity:1;pointer-events:auto}
+.qa-pn{position:fixed;bottom:0;right:0;left:0;z-index:9999;max-width:480px;margin:0 auto;background:#fff;border-radius:16px 16px 0 0;box-shadow:0 -4px 30px rgba(0,0,0,0.2);transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);display:flex;flex-direction:column;max-height:85vh;overflow:hidden}
+.qa-pn.on{transform:translateY(0)}
+.qa-hd{padding:16px 20px 12px;border-bottom:1px solid #eee;background:#fafafa;border-radius:16px 16px 0 0}
+.qa-sb{padding:4px 10px;font-size:11px;font-family:monospace;border-radius:4px;cursor:pointer;text-transform:uppercase;letter-spacing:0.05em}
+.qa-sb.on{background:#722f37;color:#fff;border:1px solid #722f37;font-weight:700}
+.qa-sb:not(.on){background:transparent;color:#888;border:1px solid #ddd}
+.qa-ls{flex:1;overflow-y:auto;padding:8px 0}
+.qa-it{display:flex;gap:12px;padding:12px 20px;border-bottom:1px solid #f0f0f0;align-items:flex-start}
+.qa-vt{display:flex;flex-direction:column;align-items:center;gap:2px;min-width:36px}
+.qa-vb{background:none;border:none;cursor:pointer;font-size:16px;padding:2px;opacity:0.35;transition:all 0.2s}
+.qa-vb.on{opacity:1;transform:scale(1.2)}
+.qa-ia{padding:12px 16px;border-top:1px solid #eee;background:#fafafa}
+.qa-ir{display:flex;gap:8px}
+.qa-in{flex:1;padding:10px 14px;font-size:14px;border:1.5px solid #ddd;border-radius:8px;outline:none;font-family:sans-serif}
+.qa-in:focus{border-color:#722f37}
+.qa-go{padding:10px 18px;background:#722f37;color:#fff;border:none;border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;font-family:monospace;white-space:nowrap}
+.qa-go:disabled{background:#ddd;color:#999;cursor:not-allowed}
+</style>
+<button class="qa-fab" id="qf" onclick="qToggle()">&#x1F4AC; Community Questions <span class="qa-cnt" id="qfc" style="display:none">0</span></button>
+<div class="qa-ov" id="qov" onclick="qToggle()"></div>
+<div class="qa-pn" id="qpn">
+<div class="qa-hd">
+<div style="width:40px;height:4px;background:#ddd;border-radius:2px;margin:0 auto 12px"></div>
+<div style="display:flex;justify-content:space-between;align-items:center">
+<div><div style="font-family:'Bebas Neue',sans-serif;font-size:22px;color:#722f37;margin:0;line-height:1">Community Questions</div><div style="font-size:12px;color:#888;margin:4px 0 0">What do you want answered at the next meeting?</div></div>
+<div style="display:flex;gap:4px"><button class="qa-sb on" id="qst" onclick="qSort('top')">Top</button><button class="qa-sb" id="qsn" onclick="qSort('new')">New</button></div>
+</div></div>
+<div class="qa-ls" id="qls"></div>
+<div class="qa-ia">
+<div id="qtt" style="background:rgba(212,160,23,0.12);color:#722f37;font-size:12px;font-weight:600;padding:6px 12px;border-radius:6px;margin-bottom:8px;text-align:center;font-family:monospace;display:none">&#x2713; Question submitted</div>
+<div class="qa-ir"><input class="qa-in" id="qin" type="text" maxlength="280" placeholder="Ask a question for the next council meeting..."><button class="qa-go" id="qgo" onclick="qSub()" disabled>Ask</button></div>
+<div style="font-size:10px;color:#bbb;margin:6px 0 0;text-align:center;font-family:monospace"><span id="qcc">0</span>/280 &middot; Questions are public and anonymous</div>
+</div></div>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+<script>
+(function(){
+// ===== FIREBASE CONFIG =====
+// Replace these values with your Firebase project config
+var firebaseConfig = {
+  apiKey: "AIzaSyDFDKevFIQjt2klRgaoASZWREmvFJembRo",
+  authDomain: "cpmoneytrail.firebaseapp.com",
+  databaseURL: "https://cpmoneytrail-default-rtdb.firebaseio.com",
+  projectId: "cpmoneytrail",
+  storageBucket: "cpmoneytrail.firebasestorage.app",
+  messagingSenderId: "777189511511",
+  appId: "1:777189511511:web:ec52f88738d9b8784b2e12"
+};
+
+firebase.initializeApp(firebaseConfig);
+var db = firebase.database();
+var qRef = db.ref('questions');
+
+var open=false,qs=[],vs={},so='top';
+
+try { vs = JSON.parse(localStorage.getItem('qa-votes')) || {}; } catch(e) { vs = {}; }
+function saveVotes() { try { localStorage.setItem('qa-votes', JSON.stringify(vs)); } catch(e) {} }
+
+qRef.on('value', function(snap) {
+  qs = [];
+  snap.forEach(function(child) { qs.push(child.val()); });
+  var b = document.getElementById('qfc');
+  if (qs.length > 0) { b.textContent = qs.length; b.style.display = 'inline'; }
+  else b.style.display = 'none';
+  rn();
+});
+
+function ta(t) {
+  var m = Math.floor((Date.now() - t) / 60000);
+  if (m < 1) return 'just now';
+  if (m < 60) return m + 'm ago';
+  var h = Math.floor(m / 60);
+  if (h < 24) return h + 'h ago';
+  return Math.floor(h / 24) + 'd ago';
+}
+function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+function rn() {
+  var el = document.getElementById('qls');
+  if (!qs.length) {
+    el.innerHTML = '<div style="text-align:center;padding:40px 20px;color:#999"><div style="font-size:32px;margin-bottom:8px">\u{1F5F3}\uFE0F</div><p style="font-size:14px;margin:0">No questions yet.</p><p style="font-size:12px;margin:4px 0 0;color:#bbb">Be the first to ask.</p></div>';
+    return;
+  }
+  var arr = qs.slice().sort(function(a, b) {
+    return so === 'top' ? (b.up - b.down) - (a.up - a.down) : b.ts - a.ts;
+  });
+  var h = '';
+  for (var i = 0; i < arr.length; i++) {
+    var q = arr[i], sc = q.up - q.down, mv = vs[q.id] || '';
+    var co = sc > 0 ? '#722f37' : sc < 0 ? '#ccc' : '#888';
+    h += '<div class="qa-it"><div class="qa-vt">';
+    h += '<button class="qa-vb' + (mv === 'up' ? ' on' : '') + '" data-id="' + q.id + '" data-dir="up">\u25B2</button>';
+    h += '<span style="font-family:monospace;font-size:14px;font-weight:700;color:' + co + '">' + sc + '</span>';
+    h += '<button class="qa-vb' + (mv === 'down' ? ' on' : '') + '" data-id="' + q.id + '" data-dir="down">\u25BC</button>';
+    h += '</div><div style="flex:1"><p style="font-size:14px;line-height:1.5;color:#1a1a1a;margin:0">' + esc(q.text) + '</p>';
+    h += '<span style="font-size:11px;color:#bbb;font-family:monospace">' + ta(q.ts) + '</span></div></div>';
+  }
+  el.innerHTML = h;
+  el.querySelectorAll('.qa-vb').forEach(function(btn) {
+    btn.addEventListener('click', function() { vt(this.dataset.id, this.dataset.dir); });
+  });
+}
+
+function vt(id, dir) {
+  var c = vs[id]; if (c === dir) return;
+  var q;
+  for (var i = 0; i < qs.length; i++) { if (qs[i].id === id) { q = JSON.parse(JSON.stringify(qs[i])); break; } }
+  if (!q) return;
+  if (c === 'up') q.up = Math.max(0, q.up - 1);
+  if (c === 'down') q.down = Math.max(0, q.down - 1);
+  if (dir === 'up') q.up++;
+  if (dir === 'down') q.down++;
+  vs[id] = dir; saveVotes();
+  qRef.child(id).set(q);
+}
+
+window.qToggle = function() {
+  open = !open;
+  document.getElementById('qpn').classList.toggle('on', open);
+  document.getElementById('qov').classList.toggle('on', open);
+  var f = document.getElementById('qf');
+  if (open) { f.innerHTML = '\u2715 Close'; }
+  else { f.innerHTML = '\uD83D\uDCAC Community Questions <span class="qa-cnt" id="qfc" style="' + (qs.length > 0 ? '' : 'display:none') + '">' + qs.length + '</span>'; }
+};
+
+window.qSort = function(v) {
+  so = v;
+  document.getElementById('qst').className = 'qa-sb' + (v === 'top' ? ' on' : '');
+  document.getElementById('qsn').className = 'qa-sb' + (v === 'new' ? ' on' : '');
+  rn();
+};
+
+window.qSub = function() {
+  var inp = document.getElementById('qin'), t = inp.value.trim();
+  if (t.length < 10) return;
+  var id = Date.now().toString(36) + Math.random().toString(36).slice(2, 6);
+  var q = { id: id, text: t, up: 0, down: 0, ts: Date.now() };
+  qRef.child(id).set(q);
+  inp.value = '';
+  document.getElementById('qcc').textContent = '0';
+  document.getElementById('qgo').disabled = true;
+  var tt = document.getElementById('qtt'); tt.style.display = 'block';
+  setTimeout(function() { tt.style.display = 'none'; }, 3000);
+};
+
+document.getElementById('qin').addEventListener('input', function() {
+  document.getElementById('qcc').textContent = this.value.length;
+  document.getElementById('qgo').disabled = this.value.trim().length < 10;
+});
+document.getElementById('qin').addEventListener('keydown', function(e) { if (e.key === 'Enter') window.qSub(); });
+})();
+</script>
+
 </body>
 </html>
