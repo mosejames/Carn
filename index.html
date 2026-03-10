@@ -950,34 +950,34 @@
 
   <div class="flags-rapid">
     <div class="flag-line" data-delay="800" onclick="scrollToCard(0)">
-      <span class="flag-num">01</span>
-      <span class="flag-marker"></span>
-      <span class="flag-text">Trash cans on the city's tab — then allegedly reimbursed again to Joe Carn personally</span>
-      <span class="flag-tag">Double Charge</span>
-    </div>
-    <div class="flag-line" data-delay="1100" onclick="scrollToCard(1)">
       <span class="flag-num">02</span>
       <span class="flag-marker"></span>
       <span class="flag-text">Same event supplies on a city reimbursement AND a campaign disclosure</span>
       <span class="flag-tag">Campaign / City Overlap</span>
     </div>
-    <div class="flag-line" data-delay="1400" onclick="scrollToCard(2)">
+    <div class="flag-line" data-delay="1100" onclick="scrollToCard(1)">
       <span class="flag-num">03</span>
       <span class="flag-marker"></span>
       <span class="flag-text">Bulk gift cards purchased with zero explanation of public purpose</span>
       <span class="flag-tag">No Documentation</span>
     </div>
-    <div class="flag-line" data-delay="1700" onclick="scrollToCard(3)">
+    <div class="flag-line" data-delay="1400" onclick="scrollToCard(2)">
       <span class="flag-num">04</span>
       <span class="flag-marker"></span>
       <span class="flag-text">Liquidation outlet purchase — no description of what or why</span>
       <span class="flag-tag">No Purpose</span>
     </div>
-    <div class="flag-line" data-delay="2000" onclick="scrollToCard(4)">
+    <div class="flag-line" data-delay="1700" onclick="scrollToCard(3)">
       <span class="flag-num">05</span>
       <span class="flag-marker"></span>
       <span class="flag-text">Restaurant tabs, pizza, wholesale — pattern of vague reimbursements</span>
       <span class="flag-tag">Pattern</span>
+    </div>
+    <div class="flag-line" data-delay="2000" onclick="scrollToCard(4)">
+      <span class="flag-num">01</span>
+      <span class="flag-marker"></span>
+      <span class="flag-text">Trash cans on the city's tab — then allegedly reimbursed again to Joe Carn personally</span>
+      <span class="flag-tag">Addressed</span>
     </div>
   </div>
 
@@ -998,8 +998,302 @@
   <div class="carousel-wrapper">
     <div class="carousel-track" id="carouselTrack">
 
+      <!-- CARD 2 -->
+      <div class="carousel-card" id="card-0">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 02</div>
+          <h3 class="card-title">Event Supplies — City Reimbursement Meets Campaign Disclosure</h3>
+          <span class="card-issue">Campaign / City Funds Overlap</span>
+          <p class="card-desc">
+            The same event supply charges appear on <strong>both a city reimbursement request and a Campaign Contribution Disclosure Report (CCDR)</strong>. If these were campaign expenses, they shouldn't have been reimbursed with public money. If they were city expenses, they shouldn't be on a campaign filing. <strong>Either way, these records appear to conflict.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c2-d1')">Reimbursement (p.6)</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c2-d2')">CCDR Filing (p.13)</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c2-d3')">FY25 AP Invoice</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c2-d1">
+              <a href="https://www.mayorbianca.com/s/3132025-Bargain-Wholesale-CCDR-10190-CE.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">3132025-Bargain-Wholesale-CCDR-10190-CE.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendor</span>
+                      <span class="doc-detail-value"><strong>Bargain Wholesale</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Type</span>
+                      <span class="doc-detail-value">City reimbursement request — event supplies</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Issue</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Same charges also on campaign disclosure (CCDR)</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                  <div class="doc-page-note">See page 6</div>
+                </div>
+              </a>
+            </div>
+            <div class="card-doc-panel" id="c2-d2">
+              <a href="https://www.mayorbianca.com/s/Carn-CCDR-April-2025.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">CAMPAIGN FILING</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">Carn-CCDR-April-2025.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Source</span>
+                      <span class="doc-detail-value"><strong>Campaign Contribution Disclosure Report</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Filed</span>
+                      <span class="doc-detail-value">April 2025</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Issue</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Same event supplies listed as campaign expenditure</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                  <div class="doc-page-note">See page 13</div>
+                </div>
+              </a>
+            </div>
+            <div class="card-doc-panel" id="c2-d3">
+              <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-FY25.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">Carn-AP-Invoice-Report-FY25.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Source</span>
+                      <span class="doc-detail-value"><strong>FY25 Accounts Payable Invoice Statement</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Shows</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">City processed the reimbursement payment</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 3 -->
+      <div class="carousel-card" id="card-1">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 03</div>
+          <h3 class="card-title">Bulk Gift Cards — No Questions Asked</h3>
+          <span class="card-issue">No Documentation</span>
+          <p class="card-desc">
+            A large number of gift cards purchased from Five Below using public funds. The only justification provided: <strong>"Community Enhancement/Community Engagement."</strong> No list of recipients. No event tied to it. No explanation of what public purpose was served. Gift cards are cash equivalents — this is the kind of purchase that demands airtight documentation. <strong>It got none.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c3-d1')">Gift Card Purchase</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c3-d1">
+              <a href="https://www.mayorbianca.com/s/7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendor</span>
+                      <span class="doc-detail-value"><strong>Five Below</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Items</span>
+                      <span class="doc-detail-value">Bulk gift card purchase</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Account</span>
+                      <span class="doc-detail-value">Misc Services Account</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Reason</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">"Community Enhancement/Community Engagement" — nothing else</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 4 -->
+      <div class="carousel-card" id="card-2">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 04</div>
+          <h3 class="card-title">Liquidation Outlet — What Was Even Purchased?</h3>
+          <span class="card-issue">No Public Purpose Stated</span>
+          <p class="card-desc">
+            A reimbursement was submitted for a purchase at a liquidation outlet with <strong>zero explanation of what was bought or why public funds were used.</strong> No item description. No stated purpose. Just a receipt and a request for money back. Public dollars require public accountability — <strong>this has neither.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c4-d1')">Liquidation Outlet</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c4-d1">
+              <a href="https://www.mayorbianca.com/s/2122025-Liquidation-Outlet-no-explanation-CE.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">2122025-Liquidation-Outlet-no-explanation-CE.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendor</span>
+                      <span class="doc-detail-value"><strong>Liquidation Outlet</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Items</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Unknown — no description provided</span></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Purpose</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">None stated</span></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Fund</span>
+                      <span class="doc-detail-value">Community Enhancement</span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CARD 5 -->
+      <div class="carousel-card" id="card-3">
+        <div class="card-top">
+          <div class="card-flag-num">FLAG 05</div>
+          <h3 class="card-title">Corner Tavern, Oz Pizza, Tommy's Wholesale — A Pattern</h3>
+          <span class="card-issue">Recurring Pattern</span>
+          <p class="card-desc">
+            Multiple reimbursements across restaurants, a tavern, home ink delivery, pizza, and a wholesale store — all from discretionary funds, all with <strong>minimal to no documentation of public purpose.</strong> One vague receipt might be an oversight. A pattern of them is something else entirely. <strong>The small things have a way of adding up.</strong>
+          </p>
+        </div>
+        <div class="card-docs">
+          <div class="card-doc-tabs">
+            <button class="card-doc-tab active" onclick="switchCardTab(this,'c5-d1')">Corner Tavern & Ink</button>
+            <button class="card-doc-tab" onclick="switchCardTab(this,'c5-d2')">Oz Pizza & Tommy's</button>
+          </div>
+          <div class="card-doc-viewer">
+            <div class="card-doc-panel active" id="c5-d1">
+              <a href="https://www.mayorbianca.com/s/11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendors</span>
+                      <span class="doc-detail-value"><strong>Corner Tavern</strong> (restaurant/bar) + home ink delivery</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Fund</span>
+                      <span class="doc-detail-value">Discretionary</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Purpose</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Minimal documentation provided</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
+            </div>
+            <div class="card-doc-panel" id="c5-d2">
+              <a href="https://www.mayorbianca.com/s/12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf" target="_blank" class="doc-preview">
+                <div class="doc-preview-bg"></div>
+                <div class="doc-preview-stamp">PUBLIC RECORD</div>
+                <div class="doc-preview-meta">
+                  <div class="doc-preview-top">
+                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
+                    <div class="doc-preview-filename">12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf</div>
+                  </div>
+                  <div class="doc-preview-details">
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Vendors</span>
+                      <span class="doc-detail-value"><strong>Oz Pizza</strong> + <strong>Tommy's Wholesale</strong></span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Fund</span>
+                      <span class="doc-detail-value">Discretionary</span>
+                    </div>
+                    <div class="doc-preview-detail">
+                      <span class="doc-detail-label">Purpose</span>
+                      <span class="doc-detail-value"><span class="doc-detail-highlight">Little to no public purpose described</span></span>
+                    </div>
+                  </div>
+                  <div class="doc-preview-cta">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                    Tap to View Document
+                  </div>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
       <!-- CARD 1 -->
-      <div class="carousel-card" id="card-0" style="position:relative;">
+      <div class="carousel-card" id="card-4" style="position:relative;">
         <div style="position:absolute; top:12px; right:12px; z-index:2; font-family:'JetBrains Mono',monospace; font-size:0.5rem; letter-spacing:0.12em; text-transform:uppercase; background:var(--gold); color:#1a1a1a; padding:0.25rem 0.6rem; font-weight:600;">Addressed</div>
         <div class="card-top">
           <div class="card-flag-num">FLAG 01</div>
@@ -1116,300 +1410,6 @@
         </div>
       </div>
 
-      <!-- CARD 2 -->
-      <div class="carousel-card" id="card-1">
-        <div class="card-top">
-          <div class="card-flag-num">FLAG 02</div>
-          <h3 class="card-title">Event Supplies — City Reimbursement Meets Campaign Disclosure</h3>
-          <span class="card-issue">Campaign / City Funds Overlap</span>
-          <p class="card-desc">
-            The same event supply charges appear on <strong>both a city reimbursement request and a Campaign Contribution Disclosure Report (CCDR)</strong>. If these were campaign expenses, they shouldn't have been reimbursed with public money. If they were city expenses, they shouldn't be on a campaign filing. <strong>Either way, these records appear to conflict.</strong>
-          </p>
-        </div>
-        <div class="card-docs">
-          <div class="card-doc-tabs">
-            <button class="card-doc-tab active" onclick="switchCardTab(this,'c2-d1')">Reimbursement (p.6)</button>
-            <button class="card-doc-tab" onclick="switchCardTab(this,'c2-d2')">CCDR Filing (p.13)</button>
-            <button class="card-doc-tab" onclick="switchCardTab(this,'c2-d3')">FY25 AP Invoice</button>
-          </div>
-          <div class="card-doc-viewer">
-            <div class="card-doc-panel active" id="c2-d1">
-              <a href="https://www.mayorbianca.com/s/3132025-Bargain-Wholesale-CCDR-10190-CE.pdf" target="_blank" class="doc-preview">
-                <div class="doc-preview-bg"></div>
-                <div class="doc-preview-stamp">PUBLIC RECORD</div>
-                <div class="doc-preview-meta">
-                  <div class="doc-preview-top">
-                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
-                    <div class="doc-preview-filename">3132025-Bargain-Wholesale-CCDR-10190-CE.pdf</div>
-                  </div>
-                  <div class="doc-preview-details">
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Vendor</span>
-                      <span class="doc-detail-value"><strong>Bargain Wholesale</strong></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Type</span>
-                      <span class="doc-detail-value">City reimbursement request — event supplies</span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Issue</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">Same charges also on campaign disclosure (CCDR)</span></span>
-                    </div>
-                  </div>
-                  <div class="doc-preview-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Tap to View Document
-                  </div>
-                  <div class="doc-page-note">See page 6</div>
-                </div>
-              </a>
-            </div>
-            <div class="card-doc-panel" id="c2-d2">
-              <a href="https://www.mayorbianca.com/s/Carn-CCDR-April-2025.pdf" target="_blank" class="doc-preview">
-                <div class="doc-preview-bg"></div>
-                <div class="doc-preview-stamp">CAMPAIGN FILING</div>
-                <div class="doc-preview-meta">
-                  <div class="doc-preview-top">
-                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
-                    <div class="doc-preview-filename">Carn-CCDR-April-2025.pdf</div>
-                  </div>
-                  <div class="doc-preview-details">
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Source</span>
-                      <span class="doc-detail-value"><strong>Campaign Contribution Disclosure Report</strong></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Filed</span>
-                      <span class="doc-detail-value">April 2025</span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Issue</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">Same event supplies listed as campaign expenditure</span></span>
-                    </div>
-                  </div>
-                  <div class="doc-preview-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Tap to View Document
-                  </div>
-                  <div class="doc-page-note">See page 13</div>
-                </div>
-              </a>
-            </div>
-            <div class="card-doc-panel" id="c2-d3">
-              <a href="https://www.mayorbianca.com/s/Carn-AP-Invoice-Report-FY25.pdf" target="_blank" class="doc-preview">
-                <div class="doc-preview-bg"></div>
-                <div class="doc-preview-stamp">PUBLIC RECORD</div>
-                <div class="doc-preview-meta">
-                  <div class="doc-preview-top">
-                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
-                    <div class="doc-preview-filename">Carn-AP-Invoice-Report-FY25.pdf</div>
-                  </div>
-                  <div class="doc-preview-details">
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Source</span>
-                      <span class="doc-detail-value"><strong>FY25 Accounts Payable Invoice Statement</strong></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Shows</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">City processed the reimbursement payment</span></span>
-                    </div>
-                  </div>
-                  <div class="doc-preview-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Tap to View Document
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 3 -->
-      <div class="carousel-card" id="card-2">
-        <div class="card-top">
-          <div class="card-flag-num">FLAG 03</div>
-          <h3 class="card-title">Bulk Gift Cards — No Questions Asked</h3>
-          <span class="card-issue">No Documentation</span>
-          <p class="card-desc">
-            A large number of gift cards purchased from Five Below using public funds. The only justification provided: <strong>"Community Enhancement/Community Engagement."</strong> No list of recipients. No event tied to it. No explanation of what public purpose was served. Gift cards are cash equivalents — this is the kind of purchase that demands airtight documentation. <strong>It got none.</strong>
-          </p>
-        </div>
-        <div class="card-docs">
-          <div class="card-doc-tabs">
-            <button class="card-doc-tab active" onclick="switchCardTab(this,'c3-d1')">Gift Card Purchase</button>
-          </div>
-          <div class="card-doc-viewer">
-            <div class="card-doc-panel active" id="c3-d1">
-              <a href="https://www.mayorbianca.com/s/7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf" target="_blank" class="doc-preview">
-                <div class="doc-preview-bg"></div>
-                <div class="doc-preview-stamp">PUBLIC RECORD</div>
-                <div class="doc-preview-meta">
-                  <div class="doc-preview-top">
-                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
-                    <div class="doc-preview-filename">7112025-50078-Five-Below-Gift-Cards-Misc-Services-Acct.pdf</div>
-                  </div>
-                  <div class="doc-preview-details">
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Vendor</span>
-                      <span class="doc-detail-value"><strong>Five Below</strong></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Items</span>
-                      <span class="doc-detail-value">Bulk gift card purchase</span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Account</span>
-                      <span class="doc-detail-value">Misc Services Account</span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Reason</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">"Community Enhancement/Community Engagement" — nothing else</span></span>
-                    </div>
-                  </div>
-                  <div class="doc-preview-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Tap to View Document
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 4 -->
-      <div class="carousel-card" id="card-3">
-        <div class="card-top">
-          <div class="card-flag-num">FLAG 04</div>
-          <h3 class="card-title">Liquidation Outlet — What Was Even Purchased?</h3>
-          <span class="card-issue">No Public Purpose Stated</span>
-          <p class="card-desc">
-            A reimbursement was submitted for a purchase at a liquidation outlet with <strong>zero explanation of what was bought or why public funds were used.</strong> No item description. No stated purpose. Just a receipt and a request for money back. Public dollars require public accountability — <strong>this has neither.</strong>
-          </p>
-        </div>
-        <div class="card-docs">
-          <div class="card-doc-tabs">
-            <button class="card-doc-tab active" onclick="switchCardTab(this,'c4-d1')">Liquidation Outlet</button>
-          </div>
-          <div class="card-doc-viewer">
-            <div class="card-doc-panel active" id="c4-d1">
-              <a href="https://www.mayorbianca.com/s/2122025-Liquidation-Outlet-no-explanation-CE.pdf" target="_blank" class="doc-preview">
-                <div class="doc-preview-bg"></div>
-                <div class="doc-preview-stamp">PUBLIC RECORD</div>
-                <div class="doc-preview-meta">
-                  <div class="doc-preview-top">
-                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
-                    <div class="doc-preview-filename">2122025-Liquidation-Outlet-no-explanation-CE.pdf</div>
-                  </div>
-                  <div class="doc-preview-details">
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Vendor</span>
-                      <span class="doc-detail-value"><strong>Liquidation Outlet</strong></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Items</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">Unknown — no description provided</span></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Purpose</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">None stated</span></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Fund</span>
-                      <span class="doc-detail-value">Community Enhancement</span>
-                    </div>
-                  </div>
-                  <div class="doc-preview-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Tap to View Document
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- CARD 5 -->
-      <div class="carousel-card" id="card-4">
-        <div class="card-top">
-          <div class="card-flag-num">FLAG 05</div>
-          <h3 class="card-title">Corner Tavern, Oz Pizza, Tommy's Wholesale — A Pattern</h3>
-          <span class="card-issue">Recurring Pattern</span>
-          <p class="card-desc">
-            Multiple reimbursements across restaurants, a tavern, home ink delivery, pizza, and a wholesale store — all from discretionary funds, all with <strong>minimal to no documentation of public purpose.</strong> One vague receipt might be an oversight. A pattern of them is something else entirely. <strong>The small things have a way of adding up.</strong>
-          </p>
-        </div>
-        <div class="card-docs">
-          <div class="card-doc-tabs">
-            <button class="card-doc-tab active" onclick="switchCardTab(this,'c5-d1')">Corner Tavern & Ink</button>
-            <button class="card-doc-tab" onclick="switchCardTab(this,'c5-d2')">Oz Pizza & Tommy's</button>
-          </div>
-          <div class="card-doc-viewer">
-            <div class="card-doc-panel active" id="c5-d1">
-              <a href="https://www.mayorbianca.com/s/11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf" target="_blank" class="doc-preview">
-                <div class="doc-preview-bg"></div>
-                <div class="doc-preview-stamp">PUBLIC RECORD</div>
-                <div class="doc-preview-meta">
-                  <div class="doc-preview-top">
-                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
-                    <div class="doc-preview-filename">11202025-Corner-Tavern-and-home-ink-delivery-Discretionary.pdf</div>
-                  </div>
-                  <div class="doc-preview-details">
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Vendors</span>
-                      <span class="doc-detail-value"><strong>Corner Tavern</strong> (restaurant/bar) + home ink delivery</span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Fund</span>
-                      <span class="doc-detail-value">Discretionary</span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Purpose</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">Minimal documentation provided</span></span>
-                    </div>
-                  </div>
-                  <div class="doc-preview-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Tap to View Document
-                  </div>
-                </div>
-              </a>
-            </div>
-            <div class="card-doc-panel" id="c5-d2">
-              <a href="https://www.mayorbianca.com/s/12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf" target="_blank" class="doc-preview">
-                <div class="doc-preview-bg"></div>
-                <div class="doc-preview-stamp">PUBLIC RECORD</div>
-                <div class="doc-preview-meta">
-                  <div class="doc-preview-top">
-                    <div class="doc-preview-icon"><div class="doc-preview-icon-corner"></div></div>
-                    <div class="doc-preview-filename">12232025-55672-Oz-Pizza-and-Tommys-Wholesale-Discretionary.pdf</div>
-                  </div>
-                  <div class="doc-preview-details">
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Vendors</span>
-                      <span class="doc-detail-value"><strong>Oz Pizza</strong> + <strong>Tommy's Wholesale</strong></span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Fund</span>
-                      <span class="doc-detail-value">Discretionary</span>
-                    </div>
-                    <div class="doc-preview-detail">
-                      <span class="doc-detail-label">Purpose</span>
-                      <span class="doc-detail-value"><span class="doc-detail-highlight">Little to no public purpose described</span></span>
-                    </div>
-                  </div>
-                  <div class="doc-preview-cta">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
-                    Tap to View Document
-                  </div>
-                </div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
 
     </div><!-- /carousel-track -->
 
