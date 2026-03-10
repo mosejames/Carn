@@ -1826,5 +1826,73 @@ window.qPostReply = function(qid, inp) {
 })();
 </script>
 
+
+<!-- ==================== SHARE POPUP ==================== -->
+<style>
+.share-popup-overlay{position:fixed;inset:0;z-index:9997;background:rgba(0,0,0,0.5);opacity:0;pointer-events:none;transition:opacity 0.3s}
+.share-popup-overlay.on{opacity:1;pointer-events:auto}
+.share-popup{position:fixed;bottom:50%;left:50%;transform:translate(-50%,50%) scale(0.95);z-index:9998;background:#fff;border-radius:16px;max-width:400px;width:calc(100% - 2rem);box-shadow:0 8px 40px rgba(0,0,0,0.25);opacity:0;pointer-events:none;transition:all 0.35s cubic-bezier(0.4,0,0.2,1);overflow:hidden}
+.share-popup.on{opacity:1;pointer-events:auto;transform:translate(-50%,50%) scale(1)}
+.share-popup-top{background:#722f37;padding:1.5rem 1.5rem 1.2rem;text-align:center}
+.share-popup-top h3{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:#fff;margin:0 0 0.3rem;letter-spacing:0.02em}
+.share-popup-top p{font-family:'DM Sans',sans-serif;font-size:0.85rem;color:rgba(255,255,255,0.85);margin:0;line-height:1.5}
+.share-popup-body{padding:1.2rem 1.5rem 1.5rem;text-align:center}
+.share-popup-body p{font-family:'Source Serif 4',serif;font-size:0.95rem;color:#444;line-height:1.6;margin:0 0 1.2rem}
+.share-popup-btns{display:flex;flex-wrap:wrap;gap:0.5rem;justify-content:center}
+.share-popup-btn{display:inline-flex;align-items:center;gap:6px;padding:10px 18px;border:1.5px solid #722f37;border-radius:8px;font-family:'JetBrains Mono',monospace;font-size:0.7rem;letter-spacing:0.05em;text-transform:uppercase;text-decoration:none;color:#722f37;background:#fff;cursor:pointer;font-weight:600;transition:all 0.2s}
+.share-popup-btn:hover{background:#722f37;color:#fff}
+.share-popup-btn.primary{background:#722f37;color:#fff}
+.share-popup-btn.primary:hover{background:#8b3a44}
+.share-popup-close{position:absolute;top:12px;right:14px;background:none;border:none;color:rgba(255,255,255,0.7);font-size:18px;cursor:pointer;padding:4px}
+.share-popup-close:hover{color:#fff}
+.share-popup-dismiss{display:block;margin-top:1rem;font-size:0.7rem;color:#aaa;font-family:monospace;cursor:pointer;background:none;border:none;text-decoration:underline}
+</style>
+
+<div class="share-popup-overlay" id="sp-ov" onclick="spClose()"></div>
+<div class="share-popup" id="sp">
+  <button class="share-popup-close" onclick="spClose()">&times;</button>
+  <div class="share-popup-top">
+    <h3>Help Follow the Money</h3>
+    <p>Public records. Public dollars. Your neighbors deserve to see this.</p>
+  </div>
+  <div class="share-popup-body">
+    <p>Every person who sees this page is another set of eyes on public spending. Share it with a neighbor, post it on your block's group chat, or put it on social media.</p>
+    <div class="share-popup-btns">
+      <a class="share-popup-btn primary" href="sms:?&body=Have%20you%20seen%20this%3F%20Public%20records%20raising%20questions%20about%20spending%20in%20College%20Park.%20cpmoneytrail.com" target="_blank">&#x1F4F1; Text a Neighbor</a>
+      <button class="share-popup-btn" onclick="navigator.clipboard.writeText('cpmoneytrail.com');this.textContent='Copied!';setTimeout(()=>{this.textContent='Copy Link'},2000)">&#x1F4CB; Copy Link</button>
+      <a class="share-popup-btn" href="https://twitter.com/intent/tweet?text=Public%20records%20raising%20questions%20about%20spending%20in%20College%20Park.%20See%20the%20receipts%3A%20cpmoneytrail.com" target="_blank">Share on X</a>
+      <a class="share-popup-btn" href="https://www.facebook.com/sharer/sharer.php?u=https://cpmoneytrail.com" target="_blank">Facebook</a>
+    </div>
+    <button class="share-popup-dismiss" onclick="spClose()">Maybe later</button>
+  </div>
+</div>
+
+<script>
+(function(){
+var shown = false;
+var dismissed = sessionStorage.getItem('sp-dismissed');
+
+function spShow() {
+  if (shown || dismissed) return;
+  shown = true;
+  document.getElementById('sp').classList.add('on');
+  document.getElementById('sp-ov').classList.add('on');
+}
+
+window.spClose = function() {
+  document.getElementById('sp').classList.remove('on');
+  document.getElementById('sp-ov').classList.remove('on');
+  sessionStorage.setItem('sp-dismissed', '1');
+  dismissed = '1';
+};
+
+// Show after scrolling 55% of the page
+window.addEventListener('scroll', function() {
+  var scrollPct = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+  if (scrollPct > 0.55) spShow();
+});
+})();
+</script>
+
 </body>
 </html>
