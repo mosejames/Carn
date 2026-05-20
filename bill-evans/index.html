@@ -70,16 +70,35 @@
     position: relative;
     min-height: 100vh;
     padding: 130px 0 80px;
-    background:
-      radial-gradient(circle at 20% 20%, rgba(45,110,63,0.18) 0%, transparent 55%),
-      radial-gradient(circle at 80% 80%, rgba(122,31,31,0.14) 0%, transparent 55%),
-      var(--ink);
-    display: flex; flex-direction: column; justify-content: center;
+    background: var(--ink);
+    display: flex; flex-direction: column; justify-content: flex-end;
     overflow: hidden;
   }
-  .hero::before {
+  .hero-photo {
+    position: absolute; inset: 0;
+    background-image: url('img/bill-evans-field-sunset.jpg');
+    background-size: cover;
+    background-position: center 30%;
+    z-index: 0;
+    /* fallback color wash if image missing */
+    background-color: var(--ink);
+  }
+  .hero-photo::after {
     content: "";
     position: absolute; inset: 0;
+    background:
+      linear-gradient(180deg,
+        rgba(15,18,16,0.55) 0%,
+        rgba(15,18,16,0.35) 30%,
+        rgba(15,18,16,0.78) 70%,
+        rgba(15,18,16,0.96) 100%),
+      linear-gradient(90deg,
+        rgba(15,18,16,0.65) 0%,
+        rgba(15,18,16,0.20) 55%,
+        rgba(15,18,16,0.0) 100%);
+  }
+  .hero-photo-grid {
+    position: absolute; inset: 0; z-index: 1;
     background-image:
       linear-gradient(rgba(245,241,230,0.03) 1px, transparent 1px),
       linear-gradient(90deg, rgba(245,241,230,0.03) 1px, transparent 1px);
@@ -87,6 +106,14 @@
     pointer-events: none;
   }
   .hero-content { position: relative; z-index: 2; }
+  .hero-photo-credit {
+    position: absolute;
+    right: 22px; bottom: 14px;
+    z-index: 3;
+    font-family: Manrope; font-weight: 800;
+    font-size: 9px; color: rgba(245,241,230,0.55);
+    text-transform: uppercase; letter-spacing: 0.22em;
+  }
 
   .breaking {
     display: inline-flex; align-items: center; gap: 10px;
@@ -591,6 +618,8 @@
 
 <!-- ============== HERO ============== -->
 <header class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-photo-grid"></div>
   <div class="wrap hero-content">
     <div class="breaking">Breaking — May 13, 2026</div>
 
@@ -612,6 +641,7 @@
 
     <div class="scroll-cue">The full timeline</div>
   </div>
+  <div class="hero-photo-credit">Bill Evans Field · College Park, Georgia</div>
 </header>
 
 <!-- ============== A LITTLE CONTEXT BEFORE THE STORY ============== -->
@@ -724,6 +754,18 @@
         Five weeks later, the council started giving it away.
       </p>
     </div>
+
+    <!-- The field, as it stands -->
+    <figure style="margin: 50px 0 10px; padding: 0;">
+      <div style="position:relative; overflow:hidden; border:1px solid rgba(245,241,230,0.12);">
+        <img src="img/bill-evans-field-empty.jpg"
+             alt="Bill Evans Field on a quiet weekday afternoon — empty bleachers, manicured diamond, the stadium lights waiting for the next game."
+             style="display:block; width:100%; height:auto;" />
+      </div>
+      <figcaption style="margin-top: 14px; font-family: Manrope; font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--muted);">
+        Bill Evans Field &nbsp;·&nbsp; weekday afternoon &nbsp;·&nbsp; the bleachers in front of the diamond, lights up, no game on. <span style="color:var(--bone);">The park the council voted to sell.</span>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
@@ -1137,6 +1179,130 @@
       <p>
         The meeting then adjourned until June.
       </p>
+      <p style="margin-top: 26px; font-family: 'DM Serif Display'; font-style: italic; font-size: 1.25rem; color: var(--gold); border-top: 1px solid rgba(245,241,230,0.12); padding-top: 22px;">
+        There is one more piece to this. The vote at 11:54 p.m. is not where the decision got made.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============== CHAPTER 6.5: THE BAILOUT (FAA TOWER / FIRST AMENDMENT) ============== -->
+<section class="chap deep">
+  <div class="narrow">
+    <div class="chap-num">Chapter 6.5 · The Bailout</div>
+    <h2 class="chap-headline">The deal at <span class="blood-text">11:54 p.m.</span> was already <span class="alt">signed five weeks earlier</span> &mdash; by the Mayor Pro Tem, not the Mayor.</h2>
+
+    <div class="chap-body">
+      <p>
+        Most of this story has been the story of votes. Public votes, on the record, at council meetings. The 11:54 p.m. vote on May 13 looked like one of those. It was unanimous. It was recorded. The motion was read aloud. The headline becomes "the council sold another acre."
+      </p>
+      <p>
+        That is true. It is also incomplete.
+      </p>
+      <p>
+        The reason the council had something to vote on at 11:54 p.m. is that <strong>another document had already been signed on April 1, 2026</strong> — about six weeks earlier — that obligated the city to convey that acre to Creed. By the time the cameras came on for the May 13 meeting, the decision had been made. The vote was a formality.
+      </p>
+      <p>
+        The document is called the <em style="font-style:normal; color: var(--gold);">First Amendment to Supplemental Post-Closing Agreement.</em> Here is what it actually does.
+      </p>
+    </div>
+
+    <!-- The chain of agreements, visualized -->
+    <div style="margin: 50px 0; padding: 28px 30px; background: rgba(245,241,230,0.04); border-left: 4px solid var(--gold);">
+      <div style="font-family: Manrope; font-weight: 900; font-size: 10px; text-transform: uppercase; letter-spacing: 0.24em; color: var(--gold); margin-bottom: 22px;">
+        Three agreements, in order
+      </div>
+
+      <div style="display:grid; grid-template-columns: 140px 1fr; gap:20px; padding:16px 0; border-bottom: 1px solid rgba(245,241,230,0.1);">
+        <div style="font-family:Manrope; font-weight:800; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">Apr 27, 2025<br><span style="color:var(--gold);">City &harr; FAA</span></div>
+        <div style="font-family:Inter; font-size:15px; line-height:1.6; color:var(--bone);">
+          The City of College Park enters a <strong>Reimbursable Agreement with the FAA</strong> to evaluate, design, and potentially relocate the FAA's <strong>Low Level Wind Shear Alert System (LLWAS) Tower #11</strong>, which sits on the Bill Evans Field parcel. <strong style="color:var(--gold);">The City advances $823,534.75</strong> of city money to the FAA to fund this work.
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 140px 1fr; gap:20px; padding:16px 0; border-bottom: 1px solid rgba(245,241,230,0.1);">
+        <div style="font-family:Manrope; font-weight:800; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--muted);">Sep 2, 2025<br><span style="color:var(--gold);">City &harr; Creed</span></div>
+        <div style="font-family:Inter; font-size:15px; line-height:1.6; color:var(--bone);">
+          The City enters a <strong>Supplemental Post-Closing Agreement</strong> with Creed Acquisition Company, LLC. As part of that deal, <strong>the City obligates itself to get the FAA tower off the 6.5-acre site</strong> for Creed's redevelopment of the parcel as "Six West."
+        </div>
+      </div>
+
+      <div style="display:grid; grid-template-columns: 140px 1fr; gap:20px; padding:16px 0;">
+        <div style="font-family:Manrope; font-weight:800; font-size:11px; text-transform:uppercase; letter-spacing:0.12em; color:var(--brick);">Apr 1, 2026<br><span style="color:var(--brick);">The bailout</span></div>
+        <div style="font-family:Inter; font-size:15px; line-height:1.6; color:var(--bone);">
+          The FAA tower relocation is turning out to be costly and complicated. Rather than continue, Creed and the City sign the <strong style="color:var(--brick);">First Amendment to Supplemental Post-Closing Agreement.</strong> Creed agrees to take the property with the tower still on it. In exchange, <strong style="color:var(--brick);">the City conveys an additional ~1 acre of city-owned land to Creed at no additional land cost.</strong> Creed pays the City <strong>$100,000</strong> at closing and is on the hook for up to <strong>$20,000</strong> of any FAA-refund shortfall. That is the limit of Creed's downside.
+        </div>
+      </div>
+    </div>
+
+    <div class="chap-body">
+      <p>
+        It is worth slowing down on what that means in plain English.
+      </p>
+      <p>
+        The City had already advanced <strong>$823,534.75</strong> in taxpayer money to the FAA to relocate a tower for a private developer's project. When the relocation got harder than expected, the City did not require the developer to absorb the difficulty. Instead, <strong>the City gave the developer another acre of public land</strong> — for the same $100,000 ballpark figure the council ratified on May 13 — and released the developer from the tower obligation. The City is now trying to recover what it can of the $823K from the FAA, with a maximum refund of <strong>$807,447.47</strong> after some non-refundable labor and overhead costs are deducted. Anything the City fails to recover beyond Creed's $20,000 cap is borne entirely by the public.
+      </p>
+    </div>
+
+    <!-- The "blighted" finding -->
+    <div style="margin: 50px 0; padding: 28px 30px; background: rgba(180,64,64,0.08); border-left: 4px solid var(--brick);">
+      <div style="font-family: Manrope; font-weight: 900; font-size: 10px; text-transform: uppercase; letter-spacing: 0.24em; color: var(--brick); margin-bottom: 18px;">
+        The legal vehicle &middot; Resolution No. 2026-09
+      </div>
+      <div style="font-family: 'DM Serif Display'; font-size: 1.15rem; line-height: 1.5; color: var(--bone); font-style: italic; margin-bottom: 14px;">
+        On March 23, 2026, the City formally found that the additional acre &mdash; which is athletic and recreational land carved from a 4.94-acre Parent City Parcel adjacent to the track facility &mdash; qualifies as a "slum and/or blighted area."
+      </div>
+      <div style="font-family: Inter; font-size: 14px; line-height: 1.6; color: rgba(245,241,230,0.82);">
+        That finding is the legal mechanism that allows the conveyance under Georgia's Urban Redevelopment Law. The land in question is not abandoned. It is not derelict. It is part of an operating athletic complex with active programming on it. <strong>The "blight" designation is a legal vehicle for the transfer, not a description of what is actually there.</strong>
+      </div>
+    </div>
+
+    <!-- The signature -->
+    <div class="chap-body">
+      <p>
+        There is one more detail in the document that is worth holding onto.
+      </p>
+      <p>
+        The First Amendment lists the Mayor as the authorized signatory for the City and the Redevelopment Agency. <strong>The Mayor did not sign it. Councilman Joe Carn, acting as Mayor Pro Tem, signed in her place.</strong> Section 4.1 of the underlying resolution allows the Mayor Pro Tem to sign if the Mayor does not timely execute &mdash; so the procedure was technically available. But that provision being invoked, on a transaction of this magnitude, on a parcel adjacent to a public park, with the Mayor herself having voted against this entire family of sales at the BIDA level the year before, is worth knowing.
+      </p>
+      <p>
+        The same Councilman Joe Carn moved the original February 19, 2024 quitclaim that started the sale of the 6.5-acre Bill Evans Field. Two years later, when the city carved out an extra acre to bail Creed out of the FAA tower obligation, it was Carn's signature on the bottom of the document.
+      </p>
+    </div>
+
+    <!-- The deadline issue -->
+    <div style="margin: 40px 0; padding: 24px 28px; background: rgba(245,241,230,0.04); border-left: 4px solid var(--muted);">
+      <div style="font-family: Manrope; font-weight: 900; font-size: 10px; text-transform: uppercase; letter-spacing: 0.24em; color: var(--muted); margin-bottom: 14px;">
+        One other small thing
+      </div>
+      <div style="font-family: Inter; font-size: 14px; line-height: 1.65; color: var(--bone);">
+        Section 3.2 of the First Amendment required the City to initiate, process, and adopt the Redevelopment Plan Amendment <strong>within 30 days of April 1, 2026</strong> &mdash; meaning by May 1. The public hearing on the Plan Amendment was scheduled for <strong>May 4, 2026</strong>. That is outside the window the agreement itself sets. Whether that creates a technical compliance question or not is a matter for lawyers; we are noting it because the document does.
+      </div>
+    </div>
+
+    <div class="chap-body" style="margin-top: 30px;">
+      <p style="font-size: 1.1rem;">
+        Put it all together, and the picture changes a little.
+      </p>
+      <p>
+        Bill Evans Field was not just a 6.5-acre park sold cheap to a connected buyer in 2024. The transaction kept moving after the original sale closed. The City absorbed an obligation to relocate an FAA tower. The City paid the FAA upfront. When the tower job got hard, the City gave the developer another acre, used a "blight" finding to do it, and accepted a $20,000 liability cap from the developer while keeping the residual risk on the public. The Mayor Pro Tem signed in the Mayor's place. The 30-day plan amendment window did not appear to be met. And then, on May 13 at 11:54 p.m., the council ratified the back end of all of that, unanimously, in eleven minutes, with the Ward 1 councilwoman seconding both motions.
+      </p>
+      <p>
+        By the time the cameras came on, the deal was already done.
+      </p>
+    </div>
+
+    <!-- Part 2 teaser -->
+    <div style="margin: 60px 0 0; padding: 32px 30px; background: linear-gradient(135deg, rgba(45,110,63,0.16) 0%, rgba(122,31,31,0.12) 100%); border: 1px solid rgba(212,168,87,0.4);">
+      <div style="font-family: Manrope; font-weight: 900; font-size: 10px; text-transform: uppercase; letter-spacing: 0.28em; color: var(--gold); margin-bottom: 14px;">
+        Part Two of this series &middot; coming
+      </div>
+      <div style="font-family: 'DM Serif Display'; font-size: 1.45rem; line-height: 1.35; color: var(--bone); margin-bottom: 14px;">
+        "The April 1 Amendment" &mdash; how a federal tower obligation became an extra acre of public land, and what the family-business angle next door has to do with any of it.
+      </div>
+      <div style="font-family: Inter; font-size: 14px; line-height: 1.65; color: rgba(245,241,230,0.78);">
+        Part Two takes the FAA Tower #11 story end to end &mdash; the original Reimbursable Agreement, the $823,534.75 the City advanced, the moment Creed decided it did not want the tower, the "blighted" finding on operating recreational land, and the Willis family's track complex sitting on the other side of the same fence. Same record. Same buyer. Different chapter.
+      </div>
     </div>
   </div>
 </section>
@@ -1457,7 +1623,7 @@
     <div class="src">
       Every fact on this page is sourced to the official meeting minutes of the City of College Park Regular Sessions, dated as cited, plus reported sources noted below. These records are public, available through the City Clerk's office, and obtainable by any resident through the Georgia Open Records Act. The BIDA vote scorecard and the "3 Strikes" framing are courtesy of <a href="#" style="color:var(--gold);">United College Park</a>. The Atlanta Journal-Constitution editorial of June 19, 2024 and the WSB-TV report of the same period are both publicly available. No allegations are made beyond what these documents establish. Specific sources used in this story:
       <br><br>
-      <strong>Jan 16, 2024</strong> · $319K FCAC improvements approval · <strong>Feb 19, 2024</strong> · Executive Session + quitclaim directive · <strong>Mar 4, 2024</strong> · Coleman public comment · <strong>Apr 15, 2024</strong> · Mose James IV public comment · <strong>May 6, 2024</strong> · Quitclaim execution + Phillips Park MOU · <strong>Aug 19, 2024</strong> · McGouirk Public Trust Doctrine challenge + Coleman $0.96/sq ft disclosure · <strong>Jan 21, 2025</strong> · MGBA + Morehouse alternative plan · <strong>Apr 7, 2025</strong> · Gay dismissal + McKenzie federal-protection note · <strong>Sep 2, 2025</strong> · Phillips Park paving authorization · <strong>Oct 6, 2025</strong> · Terry Jackson finance update · <strong>Jan 20 + Mar 2, 2026</strong> · Gay closing-pressure quotes · <strong>May 4, 2026</strong> · Planning Commission removal reference · <strong>May 13, 2026</strong> · New 1-acre sale to Creed at $101,000 (community report).
+      <strong>Jan 16, 2024</strong> · $319K FCAC improvements approval · <strong>Feb 19, 2024</strong> · Executive Session + quitclaim directive · <strong>Mar 4, 2024</strong> · Coleman public comment · <strong>Apr 15, 2024</strong> · Mose James IV public comment · <strong>May 6, 2024</strong> · Quitclaim execution + Phillips Park MOU · <strong>Aug 19, 2024</strong> · McGouirk Public Trust Doctrine challenge + Coleman $0.96/sq ft disclosure · <strong>Jan 21, 2025</strong> · MGBA + Morehouse alternative plan · <strong>Apr 7, 2025</strong> · Gay dismissal + McKenzie federal-protection note · <strong>Sep 2, 2025</strong> · Phillips Park paving authorization · <strong>Oct 6, 2025</strong> · Terry Jackson finance update · <strong>Jan 20 + Mar 2, 2026</strong> · Gay closing-pressure quotes · <strong>May 4, 2026</strong> · Planning Commission removal reference · <strong>May 13, 2026</strong> · New 1-acre sale to Creed at $101,000 (community report) · <strong>Apr 27, 2025</strong> · City &harr; FAA Reimbursable Agreement ($823,534.75 advance, LLWAS Tower #11) · <strong>Sep 2, 2025</strong> · Supplemental Post-Closing Agreement (City &harr; Creed Acquisition Company, LLC) · <strong>Mar 23, 2026</strong> · Resolution No. 2026-09 (blighted-area finding on the Additional Parcel) · <strong>Apr 1, 2026</strong> · First Amendment to Supplemental Post-Closing Agreement (extra ~1 acre to Creed, $100K + $20K cap, FAA tower obligation released, signed by Joe Carn as Mayor Pro Tem).
     </div>
     <div class="closing">
       You don't dispose of a public park in an executive session. You don't do it twice. You don't do it at 11:54 p.m. on the way out the door for the summer. That's not how this should end.
