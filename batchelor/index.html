@@ -1,0 +1,605 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>$60,000 in 35 Days — The Batchelor &amp; Bradley File</title>
+<meta name="description" content="Two $30,000 contracts. One vendor. Five weeks. One abandoned RFP. Every quote sourced to verbatim College Park council minutes." />
+<meta property="og:title" content="$60,000 in 35 Days — The Batchelor &amp; Bradley File" />
+<meta property="og:description" content="How one consultancy went from first appearance to two no-bid-adjacent contracts in five weeks. Sourced to the minutes." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Manrope:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=DM+Serif+Display:ital@0;1&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #050807;
+    --ink-2: #0c1310;
+    --night: #101a16;
+    --bone: #f5f1e6;
+    --gold: #d4a857;
+    --brick: #b54040;
+    --oxblood: #7a1f1f;
+    --grass: #2d6e3f;
+    --muted: rgba(245,241,230,0.62);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--ink); scroll-behavior: smooth; }
+  body { font-family: Inter, system-ui, sans-serif; color: var(--bone); background: var(--ink); line-height: 1.55; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; }
+
+  .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+  .narrow { width: min(760px, calc(100% - 40px)); margin: 0 auto; }
+  .mono { font-family: "IBM Plex Mono", ui-monospace, monospace; }
+
+  /* ===== NAV ===== */
+  nav.top {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(5,8,7,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(245,241,230,0.1);
+  }
+  nav.top .row {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 13px 0;
+    width: min(1100px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+  nav.top .brand {
+    font-family: "Archivo Black"; font-size: 12px; color: var(--gold);
+    letter-spacing: 0.18em; text-transform: uppercase;
+  }
+  nav.top .meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    color: var(--muted); text-transform: uppercase; letter-spacing: 0.18em;
+  }
+
+  /* ===== HERO ===== */
+  header.hero {
+    min-height: 92vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 120px 0 70px;
+    position: relative;
+    background:
+      radial-gradient(circle at 85% 15%, rgba(212,168,87,0.08) 0%, transparent 50%),
+      var(--ink);
+    overflow: hidden;
+  }
+  .kicker {
+    display: inline-flex; align-items: center; gap: 10px;
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.24em; text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 26px;
+  }
+  .kicker::before { content: "///"; opacity: 0.6; }
+  h1.title {
+    font-family: "Archivo Black";
+    font-size: clamp(3rem, 10.5vw, 8rem);
+    line-height: 0.92;
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    margin-bottom: 30px;
+  }
+  h1 .money { color: var(--gold); }
+  h1 .days { color: var(--brick); }
+  .lead {
+    font-family: "DM Serif Display"; font-style: italic;
+    font-size: clamp(1.2rem, 2.1vw, 1.7rem);
+    line-height: 1.4; max-width: 800px;
+    margin-bottom: 40px;
+  }
+  .fact-strip {
+    display: flex; flex-wrap: wrap; gap: 0;
+    border: 1px solid rgba(245,241,230,0.18);
+    max-width: 860px;
+  }
+  .fact-strip .cell {
+    flex: 1 1 200px;
+    padding: 18px 20px;
+    border-right: 1px solid rgba(245,241,230,0.18);
+  }
+  .fact-strip .cell:last-child { border-right: none; }
+  .fact-strip .num {
+    font-family: "Archivo Black"; font-size: 1.9rem; color: var(--gold);
+    line-height: 1;
+  }
+  .fact-strip .num.red { color: var(--brick); }
+  .fact-strip .lbl {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+    margin-top: 8px;
+  }
+
+  /* ===== SECTIONS ===== */
+  section.chap {
+    padding: 90px 0 70px;
+    border-top: 1px solid rgba(245,241,230,0.08);
+    position: relative;
+  }
+  section.chap.dark { background: var(--ink-2); }
+  section.chap.deep { background: var(--night); }
+  section.chap.blood { background: rgba(122,31,31,0.08); }
+  .chap-num {
+    font-family: "IBM Plex Mono", monospace;
+    font-size: 11px; letter-spacing: 0.26em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .chap-num::before { content: "// "; opacity: 0.6; }
+  h2.chap-headline {
+    font-family: "Archivo Black";
+    font-size: clamp(1.7rem, 4.4vw, 3rem);
+    line-height: 1.04; text-transform: uppercase; letter-spacing: -0.01em;
+    margin-bottom: 34px;
+  }
+  h2 .alt { color: var(--grass); }
+  h2 .blood-text { color: var(--brick); }
+  h2 .gold-text { color: var(--gold); }
+  .chap-body p { font-size: 1rem; margin-bottom: 18px; max-width: 720px; }
+  .chap-body strong { color: var(--bone); }
+  .gold { color: var(--gold); }
+
+  /* ===== TIMELINE ===== */
+  .tl {
+    border-left: 2px solid rgba(245,241,230,0.15);
+    margin: 40px 0 10px; padding-left: 28px;
+    display: flex; flex-direction: column; gap: 34px;
+  }
+  .tl-item { position: relative; }
+  .tl-item::before {
+    content: "";
+    position: absolute; left: -35px; top: 5px;
+    width: 12px; height: 12px;
+    background: var(--gold);
+  }
+  .tl-item.vote::before { background: var(--brick); }
+  .tl-date {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .tl-item.vote .tl-date { color: var(--brick); }
+  .tl-title {
+    font-family: Manrope; font-weight: 800; font-size: 1.08rem;
+    margin-bottom: 8px;
+  }
+  .tl-meta { font-size: 0.92rem; color: rgba(245,241,230,0.82); max-width: 640px; }
+  .tl-tag {
+    display: inline-block; margin: 10px 8px 0 0;
+    padding: 4px 10px;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.12em; text-transform: uppercase;
+    border: 1px solid rgba(245,241,230,0.25); color: var(--muted);
+  }
+  .tl-tag.blood { border-color: rgba(181,64,64,0.6); color: var(--brick); }
+  .tl-tag.gold { border-color: rgba(212,168,87,0.6); color: var(--gold); }
+
+  /* ===== QUOTE RECEIPTS ===== */
+  .receipt {
+    margin: 26px 0; padding: 24px 26px;
+    background: rgba(245,241,230,0.04);
+    border-left: 4px solid var(--gold);
+  }
+  .receipt.blood { border-left-color: var(--brick); }
+  .receipt .q {
+    font-family: "DM Serif Display"; font-style: italic;
+    font-size: 1.15rem; line-height: 1.45; margin-bottom: 14px;
+  }
+  .receipt .who {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+  }
+  .receipt .who strong { color: var(--gold); font-weight: 600; }
+  .receipt.blood .who strong { color: var(--brick); }
+
+  /* dialogue exchange */
+  .exchange {
+    margin: 30px 0; border: 1px solid rgba(245,241,230,0.14);
+  }
+  .exchange .hdr {
+    padding: 12px 20px;
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); background: rgba(212,168,87,0.08);
+    border-bottom: 1px solid rgba(245,241,230,0.14);
+  }
+  .exchange .line { padding: 14px 20px; border-bottom: 1px solid rgba(245,241,230,0.08); }
+  .exchange .line:last-child { border-bottom: none; }
+  .exchange .spk {
+    font-family: Manrope; font-weight: 800; font-size: 11px;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    color: var(--gold); margin-bottom: 4px;
+  }
+  .exchange .line.them .spk { color: var(--brick); }
+  .exchange .txt { font-size: 0.95rem; color: rgba(245,241,230,0.9); }
+
+  /* ===== MONEY TABLE ===== */
+  .money-stack { margin: 36px 0; border: 1px solid rgba(245,241,230,0.16); }
+  .money-row {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 20px; padding: 18px 22px;
+    border-bottom: 1px solid rgba(245,241,230,0.1);
+  }
+  .money-row:last-child { border-bottom: none; }
+  .money-row.total { background: rgba(212,168,87,0.09); }
+  .money-label { font-family: Manrope; font-weight: 700; font-size: 0.95rem; }
+  .money-label .sub {
+    display: block; font-family: "IBM Plex Mono", monospace;
+    font-weight: 400; font-size: 10px; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--muted); margin-top: 5px;
+  }
+  .money-val {
+    font-family: "IBM Plex Mono", monospace; font-weight: 600;
+    font-size: 1.05rem; color: var(--gold); white-space: nowrap;
+  }
+  .money-row.total .money-val { font-size: 1.5rem; }
+
+  /* ===== FLAGS GRID ===== */
+  .flags { display: grid; grid-template-columns: 1fr; gap: 18px; margin: 36px 0; }
+  @media (min-width: 720px) { .flags { grid-template-columns: 1fr 1fr; } }
+  .flag {
+    padding: 24px 24px 20px;
+    background: rgba(245,241,230,0.04);
+    border-top: 4px solid var(--brick);
+  }
+  .flag .n {
+    font-family: "Archivo Black"; font-size: 1.6rem; color: var(--brick);
+    margin-bottom: 10px;
+  }
+  .flag h3 {
+    font-family: Manrope; font-weight: 800; font-size: 1rem;
+    text-transform: uppercase; letter-spacing: 0.04em; margin-bottom: 10px;
+  }
+  .flag p { font-size: 0.92rem; color: rgba(245,241,230,0.82); }
+
+  /* ===== SOURCES ===== */
+  .src-list { margin: 30px 0; display: flex; flex-direction: column; gap: 12px; }
+  .src-item {
+    display: flex; gap: 16px; align-items: baseline;
+    padding: 14px 18px;
+    background: rgba(245,241,230,0.03);
+    border: 1px solid rgba(245,241,230,0.1);
+  }
+  .src-item .id {
+    font-family: "IBM Plex Mono", monospace; font-size: 11px;
+    color: var(--gold); white-space: nowrap;
+  }
+  .src-item .desc { font-size: 0.9rem; color: rgba(245,241,230,0.85); }
+
+  /* ===== FOOTER ===== */
+  footer.bottom {
+    padding: 70px 0 50px;
+    background: var(--night);
+    border-top: 1px solid rgba(245,241,230,0.1);
+  }
+  footer .meta {
+    font-family: "IBM Plex Mono", monospace; font-size: 10px;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold);
+    margin-bottom: 18px;
+  }
+  footer .src { font-size: 0.85rem; color: rgba(245,241,230,0.6); line-height: 1.7; }
+  footer .closing {
+    margin-top: 40px;
+    font-family: "DM Serif Display"; font-style: italic;
+    font-size: 1.25rem; line-height: 1.45; color: var(--bone);
+    max-width: 700px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="row">
+    <div class="brand">College Park · Public Record</div>
+    <div class="meta">CP Money Trail · File No. 3</div>
+  </div>
+</nav>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">The Batchelor &amp; Bradley File</div>
+    <h1 class="title">
+      <span class="money">$60,000</span><br>
+      IN <span class="days">35 DAYS.</span>
+    </h1>
+    <p class="lead">
+      A consultancy appears in the College Park record for the first time on March 2, 2026. Five weeks later it holds two $30,000 contracts — one approved the same night it was pitched, the other awarded as a "single-source alternative" to an RFP the city abandoned. Every quote below is verbatim from the official meeting minutes.
+    </p>
+    <div class="fact-strip">
+      <div class="cell">
+        <div class="num">2</div>
+        <div class="lbl">Contracts · $30K each</div>
+      </div>
+      <div class="cell">
+        <div class="num red">0</div>
+        <div class="lbl">Competitive bids awarded</div>
+      </div>
+      <div class="cell">
+        <div class="num">35</div>
+        <div class="lbl">Days, first appearance to second award</div>
+      </div>
+      <div class="cell">
+        <div class="num red">0</div>
+        <div class="lbl">Line-item budgets in the packet</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ CH 1 · WHO ============ -->
+<section class="chap dark">
+  <div class="narrow">
+    <div class="chap-num">Chapter 1 · The Vendor</div>
+    <h2 class="chap-headline">Batchelor &amp; Bradley <span class="gold-text">Insights Group.</span></h2>
+    <div class="chap-body">
+      <p>
+        Batchelor &amp; Bradley Insights Group LLC is a professional-services consultancy led by <strong>Amber Batchelor, IOM</strong>, its CEO and Managing Partner. The firm describes itself as focused on strategic planning, leadership development, and project management.
+      </p>
+      <p>
+        We searched every College Park Regular Session packet from <span class="mono gold">January 2, 2024</span> through <span class="mono gold">June 1, 2026</span> — 54 meetings across roughly two and a half years. The firm's first appearance in that record is <span class="mono gold">March 2, 2026</span>. Before that date: nothing. After April 6, 2026: nothing so far.
+      </p>
+      <p>
+        Everything that follows happened inside one five-week window.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 2 · TIMELINE ============ -->
+<section class="chap">
+  <div class="narrow">
+    <div class="chap-num">Chapter 2 · Five Weeks</div>
+    <h2 class="chap-headline">First hello to <span class="blood-text">second contract,</span> start to finish.</h2>
+
+    <div class="tl">
+      <div class="tl-item">
+        <div class="tl-date">Mar 2, 2026 · Workshop Session</div>
+        <div class="tl-title">Batchelor pitches a leadership retreat for department heads.</div>
+        <div class="tl-meta">A two-day retreat for up to 20 staff, built on DiSC and trust assessments. Council members greet her by name — the familiarity is on the record from her first documented appearance.</div>
+        <span class="tl-tag gold">First appearance in the record</span>
+      </div>
+
+      <div class="tl-item vote">
+        <div class="tl-date">Mar 2, 2026 · Regular Session · Same night</div>
+        <div class="tl-title">Council approves the retreat contract. $30,000. Unanimous.</div>
+        <div class="tl-meta">Arnold moves, McKenzie seconds, 4-0. McKenzie notes on the record that the City Manager can add up to $9,999 more without returning to council — a practical ceiling near $40,000.</div>
+        <span class="tl-tag blood">$30,000</span>
+        <span class="tl-tag blood">Pitched and approved same night</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Mar 26, 2026 · Proposal letter</div>
+        <div class="tl-title">The firm submits a "Single-Source Alternative" to RFP 26-19.</div>
+        <div class="tl-meta">The city had issued RFP 26-19 for a Fire &amp; Rescue feasibility study and made no award. Batchelor &amp; Bradley's proposal cover letter cites its "recent leadership development engagement" with the city as its unique advantage.</div>
+        <span class="tl-tag">RFP 26-19 · no award made</span>
+        <span class="tl-tag gold">Single-source</span>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-date">Apr 6, 2026 · Workshop Session</div>
+        <div class="tl-title">Batchelor pitches the fire feasibility study.</div>
+        <div class="tl-meta">Fire Chief Sterling Jones introduces it, describing how it came together: "as Ms. Batchelor and I had conversations, it almost, kind of, spurned itself." The Mayor asks whether the City Attorney reviewed the single-source request. He answers that he did not look at it — then says he has no issues with it.</div>
+        <span class="tl-tag">No line-item budget in packet</span>
+      </div>
+
+      <div class="tl-item vote">
+        <div class="tl-date">Apr 6, 2026 · Regular Session · Same night</div>
+        <div class="tl-title">Council approves the feasibility study. $30,000. Unanimous. Zero discussion.</div>
+        <div class="tl-meta">McKenzie moves, Arnold seconds, 4-0. The minutes record no discussion between motion and vote.</div>
+        <span class="tl-tag blood">$30,000</span>
+        <span class="tl-tag blood">"Any discussion? Hearing none."</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 3 · THE MONEY ============ -->
+<section class="chap deep">
+  <div class="narrow">
+    <div class="chap-num">Chapter 3 · The Money</div>
+    <h2 class="chap-headline">What the city agreed to <span class="gold-text">pay.</span></h2>
+
+    <div class="money-stack">
+      <div class="money-row">
+        <div class="money-label">Department Head Leadership Retreat
+          <span class="sub">Approved Mar 2, 2026 · GL 100-1300-52-6170 · pitched &amp; voted same night</span>
+        </div>
+        <div class="money-val">$30,000</div>
+      </div>
+      <div class="money-row">
+        <div class="money-label">City Manager add-on authority noted by McKenzie
+          <span class="sub">"liberty for the City Manager to add on up to $9,999"</span>
+        </div>
+        <div class="money-val">+ up to $9,999</div>
+      </div>
+      <div class="money-row">
+        <div class="money-label">Fire &amp; Rescue Public Safety Feasibility Study
+          <span class="sub">Approved Apr 6, 2026 · GL 100-3500-52-6170 · single-source alternative to RFP 26-19</span>
+        </div>
+        <div class="money-val">$30,000</div>
+      </div>
+      <div class="money-row total">
+        <div class="money-label">Committed in 35 days
+          <span class="sub">Excluding any add-on spending · both votes unanimous</span>
+        </div>
+        <div class="money-val">$60,000</div>
+      </div>
+    </div>
+
+    <div class="chap-body">
+      <p>
+        Inside the retreat proposal, one line item drew the only real price scrutiny either contract received. The Mayor, on the record:
+      </p>
+    </div>
+
+    <div class="receipt">
+      <div class="q">"Can you talk a little bit about the DiSC assessment for $8,500? When I was looking at it, that seemed a little out of line from what I know of DiSC assessments and how they work."</div>
+      <div class="who"><strong>Mayor Bianca Motley Broom</strong> · Mar 2, 2026 Workshop · verbatim minutes</div>
+    </div>
+
+    <div class="chap-body">
+      <p>
+        Batchelor's answer: the fee covers two assessments per person, one-on-one sessions, physical reports, and "support in perpetuity." The item passed as proposed.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 4 · THE RECEIPTS ============ -->
+<section class="chap blood">
+  <div class="narrow">
+    <div class="chap-num">Chapter 4 · On the Record</div>
+    <h2 class="chap-headline">Read the minutes <span class="blood-text">for yourself.</span></h2>
+
+    <div class="chap-body">
+      <p>Four exchanges from the verbatim minutes carry most of the story.</p>
+    </div>
+
+    <div class="exchange">
+      <div class="hdr">Exchange 1 · The familiarity · Mar 2, 2026 Workshop</div>
+      <div class="line them">
+        <div class="spk">Councilwoman McKenzie</div>
+        <div class="txt">"Hi, Amber. Good to see you."</div>
+      </div>
+      <div class="line them">
+        <div class="spk">Mayor Pro Tem Carn</div>
+        <div class="txt">"It's good to see you again."</div>
+      </div>
+      <div class="line">
+        <div class="spk">What it tells you</div>
+        <div class="txt">On the firm's first documented appearance in the council record, two of the four council members greeted its CEO as someone they already knew. Whatever relationship preceded March 2 is not in the packets we searched.</div>
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="hdr">Exchange 2 · The missing breakdown · Apr 6, 2026 Workshop</div>
+      <div class="line them">
+        <div class="spk">Councilwoman McKenzie</div>
+        <div class="txt">"We don't see a breakdown of that $30,000&hellip; there's no, like, line item that says, you know, $5,000 for this. Just wanted to ask the question is there a reason for that?"</div>
+      </div>
+      <div class="line them">
+        <div class="spk">Ms. Amber Batchelor</div>
+        <div class="txt">"Great question. So not necessarily. There wasn't a specific reason. We can provide that to you&hellip; This will be a project we operate at a loss on."</div>
+      </div>
+      <div class="line">
+        <div class="spk">What it tells you</div>
+        <div class="txt">A $30,000 public contract reached the council floor with no itemized budget. The vendor said she would provide one and characterized the project as a loss — a claim no document in the packet substantiates. The vote happened that night anyway.</div>
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="hdr">Exchange 3 · The legal review that wasn't · Apr 6, 2026 Workshop</div>
+      <div class="line">
+        <div class="spk">Mayor Motley Broom</div>
+        <div class="txt">"Mr. Denmark, have you had an opportunity to review this?"</div>
+      </div>
+      <div class="line them">
+        <div class="spk">City Attorney Denmark</div>
+        <div class="txt">"No, ma'am. I did not look at this."</div>
+      </div>
+      <div class="line">
+        <div class="spk">Mayor Motley Broom</div>
+        <div class="txt">"Do you have any issues with the single source&hellip;"</div>
+      </div>
+      <div class="line them">
+        <div class="spk">City Attorney Denmark</div>
+        <div class="txt">"I don't have any issues with the single source."</div>
+      </div>
+      <div class="line">
+        <div class="spk">What it tells you</div>
+        <div class="txt">The city's own attorney cleared a single-source procurement in the same breath he confirmed he hadn't reviewed it.</div>
+      </div>
+    </div>
+
+    <div class="exchange">
+      <div class="hdr">Exchange 4 · How the deal was born · Apr 6, 2026 Workshop</div>
+      <div class="line them">
+        <div class="spk">Fire Chief Jones</div>
+        <div class="txt">"As Ms. Batchelor and I had conversations, it almost, kind of, spurned itself. So it, kind of, grew legs in that direction; but it didn't necessarily put them inside of that initial RFP&hellip;"</div>
+      </div>
+      <div class="line">
+        <div class="spk">What it tells you</div>
+        <div class="txt">By the Chief's own telling, the contract grew out of conversations with the vendor — not out of the competitive process the city had opened and abandoned. The firms that responded to RFP 26-19 priced the full scope; Batchelor &amp; Bradley never bid on it, then received it at the city's budget number.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 5 · FLAGS ============ -->
+<section class="chap dark">
+  <div class="narrow">
+    <div class="chap-num">Chapter 5 · The Pattern</div>
+    <h2 class="chap-headline">Six things the record <span class="blood-text">can't explain yet.</span></h2>
+
+    <div class="flags">
+      <div class="flag">
+        <div class="n">01</div>
+        <h3>Same-night approvals, twice</h3>
+        <p>Both contracts were pitched in the Workshop and voted in the Regular Session hours later. No cooling-off period, no follow-up packet, no independent review between pitch and vote — either time.</p>
+      </div>
+      <div class="flag">
+        <div class="n">02</div>
+        <h3>The abandoned RFP</h3>
+        <p>RFP 26-19 was issued, drew responses, and produced no award. The packet contains no written determination explaining the rejection — the only account is the Chief's verbal summary that prices ran high and one respondent was a "one-man shop."</p>
+      </div>
+      <div class="flag">
+        <div class="n">03</div>
+        <h3>Retreat as runway</h3>
+        <p>The firm's fire-study proposal explicitly leverages the retreat: "Because our firm has already worked directly with City leadership&hellip;" A $30K relationship contract became the stated qualification for the next $30K contract.</p>
+      </div>
+      <div class="flag">
+        <div class="n">04</div>
+        <h3>No itemized budgets</h3>
+        <p>Neither $30,000 award came with a line-item budget in the public packet. The one line item that was visible — $8,500 for DiSC assessments — drew a pricing challenge from the Mayor.</p>
+      </div>
+      <div class="flag">
+        <div class="n">05</div>
+        <h3>Legal review skipped</h3>
+        <p>The City Attorney confirmed on the record that he had not reviewed the single-source request — then approved of it anyway, seconds later.</p>
+      </div>
+      <div class="flag">
+        <div class="n">06</div>
+        <h3>Scope is already growing</h3>
+        <p>McKenzie, on the record, April 6: "feasibility study for probably all of our departments are going to be coming as well, so, Amber, get ready." A city council member told a vendor to expect future work before the second contract was even voted on.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CH 6 · OPEN QUESTIONS ============ -->
+<section class="chap">
+  <div class="narrow">
+    <div class="chap-num">Chapter 6 · Open Questions</div>
+    <h2 class="chap-headline">What an Open Records Request <span class="alt">would settle.</span></h2>
+    <div class="chap-body">
+      <p>None of the flags above is an allegation. Every one of them is a documented gap — and every gap has a document that would close it. A Georgia Open Records Act request could produce:</p>
+    </div>
+    <div class="src-list">
+      <div class="src-item"><span class="id">ORR-1</span><span class="desc">RFP 26-19 as issued, all addenda, proof of public posting, and the full list of respondents with their proposals and pricing.</span></div>
+      <div class="src-item"><span class="id">ORR-2</span><span class="desc">Any written determination canceling RFP 26-19 or authorizing the single-source award, and the purchasing policy provisions relied on.</span></div>
+      <div class="src-item"><span class="id">ORR-3</span><span class="desc">The itemized budget Batchelor committed on the record to provide for the $30,000 feasibility study.</span></div>
+      <div class="src-item"><span class="id">ORR-4</span><span class="desc">All communications between any city official and Amber Batchelor or Batchelor &amp; Bradley Insights Group from January 1, 2025 forward.</span></div>
+      <div class="src-item"><span class="id">ORR-5</span><span class="desc">All invoices, payments, and change orders to Batchelor &amp; Bradley to date, including any City Manager add-on spending beneath the $9,999 threshold.</span></div>
+      <div class="src-item"><span class="id">ORR-6</span><span class="desc">The "formal follow-up report" from the leadership retreat that Batchelor said the firm would provide.</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SOURCES ============ -->
+<footer class="bottom">
+  <div class="narrow">
+    <div class="meta">Sources · Public Record</div>
+    <div class="src">
+      Every quote on this page is verbatim from the official minutes of the City of College Park, as published in the city's own Regular Session agenda packets. Search window: all 54 Regular Session packets from January 2, 2024 through June 1, 2026. Specific sources: <strong>Mar 2, 2026 Workshop Session minutes</strong> (retreat presentation and Q&amp;A) and <strong>Mar 2, 2026 Regular Session minutes</strong> (retreat vote), both published in the Mar 23, 2026 packet · <strong>Batchelor &amp; Bradley retreat proposal deck</strong>, published in the Mar 2, 2026 packet · <strong>Apr 6, 2026 Workshop Session minutes</strong> (feasibility presentation, single-source exchange) and <strong>Apr 6, 2026 Regular Session minutes</strong> (feasibility vote), both published in the Apr 20, 2026 packet · <strong>Batchelor &amp; Bradley "Single-Source Alternative" proposal for RFP 26-19</strong>, dated Mar 26, 2026, published in the Apr 6, 2026 packet. These records are public and obtainable by any resident through the Georgia Open Records Act. No allegations are made beyond what these documents establish.
+    </div>
+    <div class="closing">
+      Two contracts in five weeks is not a crime. Approving them the night they're pitched, without bids, without budgets, and without legal review — that's not a crime either. It's just not how public money is supposed to move.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
