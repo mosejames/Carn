@@ -81,9 +81,8 @@ h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 }
 /* rub to reveal */
 .revealbar{display:none;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:12px;margin-top:26px;padding:13px 15px;background:var(--ink);color:#fff}
+  gap:12px;margin-top:20px;padding:13px 15px;background:var(--ink);color:#fff}
 .revealbar.on{display:flex}
-.revealbar{position:sticky;top:0;z-index:20;box-shadow:0 6px 18px rgba(16,23,32,.16)}
 .revealall{font:inherit;font-size:14px;font-weight:700;color:var(--ink);background:#fff;
   border:0;padding:10px 18px;border-radius:999px;cursor:pointer;
   transition:background .14s ease,transform .14s cubic-bezier(.2,.9,.25,1)}
@@ -120,7 +119,7 @@ h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 @keyframes sheen{0%{transform:translateX(-100%)}58%,100%{transform:translateX(100%)}}
 .veil-txt{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;color:#fff;white-space:nowrap;
-  display:flex;align-items:center;gap:10px}
+  display:flex;align-items:center;gap:15px}
 .veil-txt i{display:block;width:20px;height:2px;background:var(--band-accent);
   animation:nudge 1.5s ease-in-out infinite}
 @keyframes nudge{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(7px);opacity:1}}
@@ -266,24 +265,19 @@ footer p+p{margin-top:10px}
 
 <section>
   <div class="shell">
-    <p class="eyebrow">The job description</p>
-    <h2>So what does it actually do?</h2>
-    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Each one is below, in bold, exactly as the contract describes it. Who is already responsible for that work is hidden underneath. Rub your finger across a black bar to uncover it.</p>
-
-    <div class="revealbar" id="rvbar" hidden>
-      <button type="button" class="revealall" id="rvall">Reveal all</button>
-      <p class="tally" id="rvtally"><b>0</b> of <b>10</b> revealed</p>
-    </div>
+    <p class="eyebrow">Exhibit A, line by line</p>
+    <h2>Whose job is it anyway?</h2>
+    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Each one is below, in bold, exactly as the contract describes it. The answer to who already does that work is hidden underneath. Slide each black bar open to see whose job it already is.</p>
 
     <div class="ov" id="ovlist">
       <div class="ov-r">
         <span class="l mono">(a)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Runs the council office and advises the officeholder</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip elected">The councilmember</span></div>
           <span class="src">Charter Sec. 1-3. The office has one elected head.</span>
         </div>
@@ -291,11 +285,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(b)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Budget planning, procurement coordination, records management</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip dept">Finance &amp; Accounting</span><span class="chip dept">Procurement</span><span class="chip dept">City Clerk</span></div>
           <span class="src">Charter Sec. 4-7; Code Secs. 2-3(b), 2-102.</span>
         </div>
@@ -303,11 +297,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r none">
         <span class="l mono">(b)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Scheduling and calendar management</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">Nobody is doing this today</span>
+          <span class="tag tag-have">Nobody’s job</span>
           <div class="chips"><span class="chip nobody">No one</span></div>
           <span class="src">The only part of the job with no existing owner.</span>
         </div>
@@ -315,11 +309,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(c)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Researches policy, drafts ordinances and resolutions</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip elected">The councilmember</span></div>
           <span class="src">Charter Sec. 1-3. Passing ordinances is the office itself.</span>
         </div>
@@ -327,11 +321,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(d)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Sets and manages strategic priorities and special projects</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip elected">The councilmember</span></div>
           <span class="src">Setting ward priorities is what the seat is for.</span>
         </div>
@@ -339,11 +333,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(e)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Coordinates vendors, reviews invoices, administers contracts</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip dept">City Manager</span><span class="chip dept">Procurement</span><span class="chip dept">Finance &amp; Accounting</span></div>
           <span class="src">Charter Sec. 4-7(i) and (j).</span>
         </div>
@@ -351,11 +345,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(f)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Town halls, community meetings, constituent communications</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">Strategic Communications</span><span class="chip dept">Customer Service</span></div>
           <span class="src">Code Sec. 2-76(s) names constituent services as the officeholder's own work.</span>
         </div>
@@ -363,11 +357,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(g)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Relations with departments, agencies, and business leaders</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">City Manager</span><span class="chip dept">Economic Development</span></div>
           <span class="src">Charter Sec. 4-7.</span>
         </div>
@@ -375,11 +369,11 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(h)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Reports only to the councilmember. No city officer may supervise the position.</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip na">Not a service</span></div>
           <span class="src">This part buys the city nothing.</span>
         </div>
@@ -387,17 +381,21 @@ footer p+p{margin-top:10px}
       <div class="ov-r">
         <span class="l mono">(i)</span>
         <div class="pay">
-          <span class="tag tag-buy">This is what we would pay for</span>
+          <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Whatever else the councilmember asks for</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">The city already pays</span>
+          <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip na">Not a service</span></div>
           <span class="src">An open ended clause.</span>
         </div>
       </div>
     </div>
-      <div class="payoff" id="rvpayoff"><p>Ten lines. Nine of them already belong to somebody. The tenth is a calendar.</p></div>
+    <div class="revealbar" id="rvbar" hidden>
+      <button type="button" class="revealall" id="rvall">Reveal all</button>
+      <p class="tally" id="rvtally"><b>0</b> of <b>10</b> answered</p>
+    </div>
+      <div class="payoff" id="rvpayoff"><p>Ten lines. Nine of them are already somebody’s job. The tenth is a calendar.</p></div>
       <div class="legend"><span><span class="chip elected">The councilmember</span> the elected office</span><span><span class="chip dept">Department</span> already staffed and funded by the city</span><span><span class="chip nobody">No one</span> no existing owner</span></div>
 
     <div class="punch">
@@ -542,9 +540,9 @@ footer p+p{margin-top:10px}
 
   bar.hidden=false; bar.classList.add("on");
   function count(bump){
-    tally.innerHTML="<b>"+done+"</b> of <b>"+total+"</b> revealed";
+    tally.innerHTML="<b>"+done+"</b> of <b>"+total+"</b> answered";
     if(bump){ tally.classList.remove("bump"); void tally.offsetWidth; tally.classList.add("bump"); }
-    if(done>=total){ all.disabled=true; all.textContent="All revealed"; payoff.classList.add("on"); }
+    if(done>=total){ all.disabled=true; all.textContent="All answered"; payoff.classList.add("on"); }
   }
 
   cells.forEach(function(cell){
@@ -558,10 +556,10 @@ footer p+p{margin-top:10px}
 
     var wrap=document.createElement("div");
     wrap.className="reveal"; wrap.tabIndex=0; wrap.setAttribute("role","button");
-    wrap.setAttribute("aria-label","Reveal who already does this");
+    wrap.setAttribute("aria-label","Slide to reveal whose job this already is");
     var mask=document.createElement("div"); mask.className="vmask";
     var veil=document.createElement("div"); veil.className="veil";
-    veil.innerHTML='<span class="veil-txt"><i></i>Rub to reveal</span>';
+    veil.innerHTML='<span class="veil-txt"><i></i>Slide to reveal</span>';
     mask.appendChild(veil); wrap.appendChild(inner); wrap.appendChild(mask); cell.appendChild(wrap);
 
     var open=false,down=false,startX=0,lastX=0,lastT=0,vel=0,moved=0,pct=0,raf=0,target=0;
