@@ -80,6 +80,15 @@ h2{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
   font-size:clamp(30px,7.4vw,56px);line-height:.95}
 h2 .q{color:var(--yellow)}
 .deck{color:var(--muted);max-width:58ch;margin-top:14px;font-size:16.5px}
+.srcnote{margin-top:26px;border:2px solid var(--yellow);border-radius:12px;
+  background:var(--panel);padding:18px 19px}
+.srcnote .sn-h{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(17px,4.4vw,22px);
+  color:var(--yellow);line-height:1.06;margin-bottom:10px}
+.srcnote .sn-b{font-size:15px;line-height:1.6;color:var(--ink)}
+.srcnote .sn-b strong{color:var(--yellow)}
+.srcnote .sn-a{display:inline-flex;align-items:center;gap:8px;margin-top:13px;font-size:13px;
+  font-weight:700;color:var(--yellow);text-decoration:none;border-bottom:2px solid rgba(255,217,61,.4);padding-bottom:2px}
+.srcnote .sn-a:hover{border-bottom-color:var(--yellow)}
 .gbar{height:6px;background:var(--grad);border-radius:999px;margin-bottom:22px;max-width:190px}
 
 /* ---------- DOC LINK ---------- */
@@ -158,19 +167,19 @@ details.how[open] .howbody{animation:drop .28s cubic-bezier(.2,.9,.25,1)}
   transform:translate3d(0,0,0);will-change:transform;transition:transform .36s cubic-bezier(.16,1,.3,1)}
 .reveal.dragging .veil{transition:none}
 .veil::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'%3E%3Cpath d='M20 14 L38 32 L20 50' fill='none' stroke='%23ffffff' stroke-width='8' stroke-linecap='round' stroke-linejoin='round' opacity='0.18'/%3E%3C/svg%3E");
-  background-repeat:repeat-x;background-size:64px 100%;background-position:0 center;
-  animation:march 1.6s linear infinite}
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='100' viewBox='0 0 420 100'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='13' stroke-linecap='round' stroke-linejoin='round' opacity='0.62'%3E%3Cpath d='M18 50 H372'/%3E%3Cpath d='M322 16 L372 50 L322 84'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-size:82% 74%;background-position:left center;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 30%,rgba(0,0,0,.34) 66%,transparent 88%);
+  mask-image:linear-gradient(90deg,#000 0%,#000 30%,rgba(0,0,0,.34) 66%,transparent 88%);
+  animation:glide 2.4s ease-in-out infinite}
 .veil::after{content:"";position:absolute;left:-2px;top:0;bottom:0;width:4px;background:#fff;
   box-shadow:0 0 20px 4px rgba(255,255,255,.9);opacity:0;transition:opacity .1s ease}
 .reveal.dragging .veil::after{opacity:1}
 .reveal.done .veil{transform:translate3d(103%,0,0)}
-@keyframes march{from{background-position:0 center}to{background-position:64px center}}
+@keyframes glide{0%{transform:translateX(-5%)}55%{transform:translateX(5%)}100%{transform:translateX(-5%)}}
 .veil-txt{position:relative;z-index:1;font-family:Anton,Impact,sans-serif;font-size:15px;
   letter-spacing:.1em;text-transform:uppercase;color:#fff;white-space:nowrap;
-  display:flex;align-items:center;gap:14px;text-shadow:0 2px 0 rgba(60,10,70,.3)}
-.veil-txt .arw{display:block;flex:none;color:#fff;animation:nudge 1.4s ease-in-out infinite}
-@keyframes nudge{0%,100%{transform:translateX(0);opacity:.72}50%{transform:translateX(9px);opacity:1}}
+  text-shadow:0 2px 0 rgba(60,10,70,.35)}
 .reveal-inner .chip,.reveal-inner .src,.reveal-inner details.how{opacity:0}
 .reveal.done .reveal-inner .chip{animation:pop .44s cubic-bezier(.2,.9,.25,1) forwards;
   animation-delay:calc(var(--i,0)*70ms + 80ms)}
@@ -252,7 +261,7 @@ footer p+p{margin-top:11px}
   .ov-r .o{margin-top:0;padding-top:0;border-top:0}
 }
 @media (prefers-reduced-motion: reduce){
-  .veil,.veil::before,.veil-txt .arw,.revealall,.tally b,.payoff.on,.reveal.flash::after,
+  .veil,.veil::before,.revealall,.tally b,.payoff.on,.reveal.flash::after,
   .reveal.done .reveal-inner .chip,.reveal.done .reveal-inner .src,
   .reveal.done .reveal-inner details.how,a.docbtn,a.docbtn .ico,details.how[open] .howbody,summary.hows .cv{
     animation:none !important;transition:none !important}
@@ -316,7 +325,14 @@ footer p+p{margin-top:11px}
     <div class="gbar"></div>
     <p class="eyebrow">Exhibit A, line by line</p>
     <h2>Ten lines. <span class="q">Who already does them?</span></h2>
-    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Each one is below, in bold, exactly as the contract describes it. Slide each bar open to see whose job it already is, then open the drop-down to see how a working city handles that job.</p>
+    <p class="deck">The contract does not describe this job in a memo. It attaches a formal Scope of Services and lists the work in nine lettered parts. Every one of them is below, word for word. Slide each bar open to see whose job it already is, then open the drop-down to see how a working city handles that job.</p>
+
+
+    <div class="srcnote">
+      <p class="sn-h">Where these ten lines come from</p>
+      <p class="sn-b">The contract carries an attachment titled <strong>Exhibit A, Scope of Services</strong>, on packet pages 224 to 226. That exhibit is the city's own official list of everything this position would do, and it is what the council votes to buy on Monday. Nothing below is summarized, reworded, or added. These are its nine lettered parts, (a) through (i), in the contract's own order. Part (b) is split into two lines because it bundles work three departments already do together with the one task nobody does.</p>
+      <a class="sn-a" href="ward1-chief-of-staff-contract.pdf"><svg class="ico-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M13.5 3v5.5H19"/></svg>Open Exhibit A in the contract, pages 224 to 226</a>
+    </div>
 
     <div class="ov" id="ovlist">
 
@@ -612,7 +628,7 @@ footer p+p{margin-top:11px}
     wrap.setAttribute("aria-label","Slide to reveal whose job this already is");
     var mask=document.createElement("div"); mask.className="vmask";
     var veil=document.createElement("div"); veil.className="veil";
-    veil.innerHTML='<span class="veil-txt"><svg class=\'arw\' width=\'32\' height=\'14\' viewBox=\'0 0 32 14\' fill=\'none\' stroke=\'currentColor\' stroke-width=\'3\' stroke-linecap=\'round\' stroke-linejoin=\'round\' aria-hidden=\'true\'><path d=\'M2 7h25\'/><path d=\'M21 2l6 5-6 5\'/></svg>Slide to reveal</span>';
+    veil.innerHTML='<span class="veil-txt">Slide to reveal</span>';
     mask.appendChild(veil); wrap.appendChild(inner); wrap.appendChild(mask); cell.appendChild(wrap);
 
     var open=false,down=false,startX=0,lastX=0,lastT=0,vel=0,moved=0,pct=0,raf=0,target=0;
