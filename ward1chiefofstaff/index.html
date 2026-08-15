@@ -64,6 +64,33 @@ h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 .ov-r.none{background:rgba(31,79,216,.09);padding-left:12px;padding-right:12px}
 .ov-r.none .o{color:var(--accent);font-weight:600}
 
+
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:center;
+  font-size:12.5px;color:var(--muted)}
+.legend .chip{margin-right:2px}
+.chips{display:flex;flex-wrap:wrap;gap:6px}
+.chip{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 12px;
+  border-radius:999px;white-space:nowrap;line-height:1.4}
+.chip.dept{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
+.chip.elected{background:var(--accent);color:#fff;border:1.5px solid var(--accent)}
+.chip.nobody{background:transparent;color:var(--accent);border:1.5px dashed var(--accent)}
+.chip.na{background:transparent;color:var(--muted);border:1.5px solid var(--rule);font-weight:400}
+.ov-r .src{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--muted);
+  display:block;margin-top:9px;line-height:1.45}
+.ov-r.none{background:rgba(31,79,216,.09);padding-left:12px;padding-right:12px}
+.dilemma{background:var(--ink);color:#fff;padding:56px 0 60px}
+.dilemma h2{color:#fff}
+.dilemma .eyebrow{color:var(--band-accent)}
+.dl{display:grid;gap:0;margin-top:32px}
+.dl-i{border-top:1px solid var(--band-rule);padding:22px 0}
+.dl-i .k{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--band-accent);display:block;margin-bottom:9px}
+.dl-i .t{font-size:clamp(19px,4.6vw,25px);font-weight:600;letter-spacing:-.02em;line-height:1.3}
+.dl-i .s{font-size:15px;color:var(--band-muted);margin-top:9px;line-height:1.55;max-width:60ch}
+.dl-end{border-top:2px solid var(--band-accent);margin-top:8px;padding-top:24px;
+  font-size:clamp(19px,4.8vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.3}
+.dl-end span{display:block;font-size:15px;font-weight:400;color:var(--band-muted);
+  margin-top:10px;letter-spacing:0;line-height:1.55}
 .punch{margin-top:26px;padding:24px;background:var(--ink);color:#fff}
 .punch p{font-size:clamp(18px,4.4vw,24px);font-weight:600;line-height:1.3;letter-spacing:-.02em}
 .punch .sub{font-size:15px;font-weight:400;color:var(--band-muted);margin-top:12px;letter-spacing:0;line-height:1.5}
@@ -124,55 +151,56 @@ footer p+p{margin-top:10px}
       <div class="ovh"><div>Part</div><div>What the contract says it does</div><div>Who already does it</div></div>
       <div class="ov-r">
         <div class="l mono">(a)</div>
-        <div class="n">Runs the council office and advises the councilmember</div>
-        <div class="o">The councilmember. The office has one elected head. Charter Sec. 1-3.</div>
+        <div class="n">Runs the council office and advises the officeholder</div>
+        <div class="o"><div class="chips"><span class="chip elected">The councilmember</span></div><span class="src">Charter Sec. 1-3. The office has one elected head.</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(b)</div>
         <div class="n">Budget planning, procurement coordination, records management</div>
-        <div class="o">Finance and Accounting, Procurement, the City Clerk. Charter Sec. 4-7; Code Secs. 2-3(b), 2-102.</div>
+        <div class="o"><div class="chips"><span class="chip dept">Finance &amp; Accounting</span><span class="chip dept">Procurement</span><span class="chip dept">City Clerk</span></div><span class="src">Charter Sec. 4-7; Code Secs. 2-3(b), 2-102.</span></div>
       </div>
       <div class="ov-r none">
         <div class="l mono">(b)</div>
         <div class="n">Scheduling and calendar management</div>
-        <div class="o">Nobody. This is the only part with no existing owner.</div>
+        <div class="o"><div class="chips"><span class="chip nobody">No one</span></div><span class="src">The only part of the job with no existing owner.</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(c)</div>
-        <div class="n">Researches policy and drafts ordinances and resolutions</div>
-        <div class="o">The councilmember. Passing ordinances is the office itself. Charter Sec. 1-3.</div>
+        <div class="n">Researches policy, drafts ordinances and resolutions</div>
+        <div class="o"><div class="chips"><span class="chip elected">The councilmember</span></div><span class="src">Charter Sec. 1-3. Passing ordinances is the office itself.</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(d)</div>
         <div class="n">Sets and manages strategic priorities and special projects</div>
-        <div class="o">The councilmember. Setting ward priorities is what the seat is for.</div>
+        <div class="o"><div class="chips"><span class="chip elected">The councilmember</span></div><span class="src">Setting ward priorities is what the seat is for.</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(e)</div>
         <div class="n">Coordinates vendors, reviews invoices, administers contracts</div>
-        <div class="o">The City Manager, Procurement, Finance. Charter Sec. 4-7(i) and (j).</div>
+        <div class="o"><div class="chips"><span class="chip dept">City Manager</span><span class="chip dept">Procurement</span><span class="chip dept">Finance &amp; Accounting</span></div><span class="src">Charter Sec. 4-7(i) and (j).</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(f)</div>
         <div class="n">Town halls, community meetings, constituent communications</div>
-        <div class="o">The councilmember, Strategic Communications, Customer Service. Code Sec. 2-76(s).</div>
+        <div class="o"><div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">Strategic Communications</span><span class="chip dept">Customer Service</span></div><span class="src">Code Sec. 2-76(s) names constituent services as the officeholder's own work.</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(g)</div>
         <div class="n">Relations with departments, agencies, and business leaders</div>
-        <div class="o">The councilmember, the City Manager, Economic Development. Charter Sec. 4-7.</div>
+        <div class="o"><div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">City Manager</span><span class="chip dept">Economic Development</span></div><span class="src">Charter Sec. 4-7.</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(h)</div>
-        <div class="n">Reports only to her. No city officer may supervise him.</div>
-        <div class="o">Not a service. This part buys the city nothing.</div>
+        <div class="n">Reports only to the councilmember. No city officer may supervise the position.</div>
+        <div class="o"><div class="chips"><span class="chip na">Not a service</span></div><span class="src">This part buys the city nothing.</span></div>
       </div>
       <div class="ov-r">
         <div class="l mono">(i)</div>
         <div class="n">Whatever else the councilmember asks for</div>
-        <div class="o">Not a service. An open ended clause.</div>
+        <div class="o"><div class="chips"><span class="chip na">Not a service</span></div><span class="src">An open ended clause.</span></div>
       </div>
     </div>
+      <div class="legend"><span><span class="chip elected">The councilmember</span> the elected office</span><span><span class="chip dept">Department</span> already staffed and funded</span><span><span class="chip nobody">No one</span> no existing owner</span></div>
 
     <div class="punch">
       <p>Out of the entire job description, one thing has no existing owner: keeping the calendar.</p>
@@ -181,7 +209,30 @@ footer p+p{margin-top:10px}
   </div>
 </section>
 
-<section style="padding-top:0">
+
+<section class="dilemma">
+  <div class="shell">
+    <p class="eyebrow">The question underneath all of this</p>
+    <h2>If the seat needs $72,800 of help, what is the seat for?</h2>
+    <div class="dl">
+      <div class="dl-i">
+        <span class="k">Either</span>
+        <p class="t">This work is already being done by people the city employs.</p>
+        <p class="s">In which case we are buying it twice, and the council owes the public an explanation of what the second purchase adds.</p>
+      </div>
+      <div class="dl-i">
+        <span class="k">Or</span>
+        <p class="t">Whoever holds the seat cannot carry the job the voters elected them to do.</p>
+        <p class="s">In which case the problem is not a staffing shortage, and hiring someone at three times the salary of the office does not fix it.</p>
+      </div>
+    </div>
+    <p class="dl-end">Both answers are a problem. Neither one is worth $291,199.68.
+      <span>Voters hired one person to represent Ward 1. Nobody voted for a Chief of Staff, and no one at the city is permitted to supervise the position once it exists.</span>
+    </p>
+  </div>
+</section>
+
+<section>
   <div class="shell">
     <h2>Three more things worth knowing</h2>
     <div class="facts">
@@ -207,6 +258,9 @@ footer p+p{margin-top:10px}
     <h2>Ask them to pull 8.C from consent.</h2>
     <p class="deck">Every question points at a document, so it is hard to answer with a speech.</p>
     <ol class="asks">
+      <li>If every part of this job already belongs to someone, why does the position exist?
+        <span class="w">And if it does not already belong to someone, say which part, and show it in Exhibit A.</span>
+      </li>
       <li>What does this position do that the city is not already paying someone to do?
         <span class="w">Go down Exhibit A, pages 224 to 226, part by part, and name it.</span>
       </li>
@@ -240,7 +294,7 @@ footer p+p{margin-top:10px}
     <p>Sources, all public: Regular Session agenda and packet for August 17, 2026, item 8.C, packet pages 215 to 228, including the Council Agenda Memo and Exhibit A, Scope of Services. City of College Park Charter and Code of Ordinances.</p>
     <p>Every quotation and dollar figure on this page is exact. Who currently holds each part of the work is our reading of the contract against the city's published department list and the charter, and you should check it yourself against the sections cited.</p>
     <p><a href="https://www.collegeparkga.gov/AgendaCenter">Agenda Center</a> &middot; <a href="https://library.municode.com/ga/college_park/codes/code_of_ordinances">Charter and Code</a> &middot; <a href="https://www.collegeparkga.gov/296/Council-Meetings">Meeting details</a></p>
-    <p>This page is about a contract and a public office. It makes no claim about any individual's character or background.</p>
+    <p>This page is about a contract, a job description, and a public office. It raises questions about how that office is being staffed and funded. It makes no claim about any individual's character or background.</p>
   </div>
 </footer>
 
