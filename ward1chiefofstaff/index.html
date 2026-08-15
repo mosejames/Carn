@@ -235,16 +235,27 @@ details.how[open] .howbody{animation:drop .28s cubic-bezier(.2,.9,.25,1)}
 .f .fs{font-size:14.5px;color:var(--muted);margin-top:8px;line-height:1.55;max-width:64ch}
 .f q{quotes:"\201C" "\201D";color:var(--ink)}
 
-.ask{background:var(--grad);padding:54px 0 58px}
+.ask{background:var(--grad);padding:44px 0 46px}
 .ask .eyebrow{color:#3B0F45}
 .ask h2{color:#fff;text-shadow:0 4px 0 rgba(48,8,60,.22)}
 .ask .deck{color:#3B0F45;font-weight:500}
-.asks{list-style:none;padding:0;margin:28px 0 0;counter-reset:a}
-.asks li{counter-increment:a;border-top:2px solid rgba(42,11,51,.32);padding:17px 0 17px 46px;
-  position:relative;font-size:17px;font-weight:700;color:#1E0726;line-height:1.35}
+.timing{margin-top:16px;padding:15px 17px;background:rgba(30,7,38,.86);border-radius:12px;
+  font-size:14.5px;line-height:1.55;color:#F0E4FF;max-width:62ch}
+.timing b{color:var(--yellow)}
+details.qbox{margin-top:18px;background:rgba(30,7,38,.86);border-radius:12px;overflow:hidden}
+summary.qsum{list-style:none;cursor:pointer;padding:15px 17px;display:flex;align-items:center;gap:12px;
+  font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:.04em;
+  color:var(--yellow)}
+summary.qsum::-webkit-details-marker{display:none}
+summary.qsum .cv{margin-left:auto;flex:none;transition:transform .22s cubic-bezier(.2,.9,.25,1)}
+details.qbox[open] summary.qsum .cv{transform:rotate(180deg)}
+.asks{list-style:none;padding:0 17px 17px;margin:0;counter-reset:a}
+.asks li{counter-increment:a;border-top:1px solid rgba(255,217,61,.22);padding:15px 0 15px 40px;
+  position:relative;font-size:16px;font-weight:700;color:#fff;line-height:1.35}
+.asks li:first-child{border-top:0}
 .asks li::before{content:counter(a);position:absolute;left:0;top:15px;
-  font-family:Anton,Impact,sans-serif;font-size:22px;color:#fff}
-.asks .w{display:block;font-weight:500;font-size:14.5px;color:#3B0F45;margin-top:7px;line-height:1.5}
+  font-family:Anton,Impact,sans-serif;font-size:19px;color:var(--yellow)}
+.asks .w{display:block;font-weight:400;font-size:14px;color:#C9B8E4;margin-top:6px;line-height:1.5}
 .meet{margin-top:30px;padding:20px;background:rgba(30,7,38,.9);border-radius:14px;display:grid;gap:14px}
 @media(min-width:700px){.meet{grid-template-columns:repeat(3,1fr)}}
 .meet .ml{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;
@@ -554,32 +565,40 @@ footer p+p{margin-top:11px}
 
 <section class="ask">
   <div class="shell">
-    <p class="eyebrow">Monday night</p>
-    <h2>Ask them to pull 8.C from consent.</h2>
-    <p class="deck">Every question points at a document, so it is hard to answer with a speech.</p>
-    <ol class="asks">
-      <li>If every part of this job already belongs to someone, why does the position exist?
-        <span class="w">And if it does not already belong to someone, say which part, and show it in Exhibit A.</span>
-      </li>
-      <li>Which city department was asked whether it could do this work?
-        <span class="w">College Park staffs Procurement, Finance and Accounting, the City Clerk, Customer Service, and Strategic Communications and Public Information right now. Name the ones that were asked, and say what they answered.</span>
-      </li>
-      <li>If the work is real, why is it a personal contract instead of a posted city job?
-        <span class="w">A budgeted position gets a public job description, competitive hiring, and civil service protection. This skips all of it.</span>
-      </li>
-      <li>Why was it never competed?
-        <span class="w">The city has a Procurement department and a Purchasing Policies Manual, referenced in Code Sec. 2-23(b). Nothing tested this price against the market.</span>
-      </li>
-      <li>Which city employees will report to this contractor?
-        <span class="w">The council memo says the position provides oversight of staff, contractors, and consultants. Charter Sec. 4-7(c) and (d) reserve hiring, firing, and discipline to the city manager and department heads.</span>
-      </li>
-      <li>Why is a $291,199.68 contract on the consent agenda?
-        <span class="w">Nothing about this is routine. It should be debated in Regular Business and voted on by itself.</span>
-      </li>
-      <li>Does a future council have to vote again to keep paying?
-        <span class="w">If the answer is no, then Monday is the only chance the public gets for four years. One year with a written performance report would fix that.</span>
-      </li>
-    </ol>
+    <p class="eyebrow">Before Monday</p>
+    <h2>Questions worth asking.</h2>
+
+    <p class="timing">This item was published <b>Thursday</b>. The meeting is <b>Monday</b>. Consent agendas are not built for debate, and by the time citizen remarks are called the block has usually already been adopted. So this is not a speech to prepare. These are questions worth putting to the council in writing, before the vote or after it.</p>
+
+    <details class="qbox">
+      <summary class="qsum">Open the questions<svg class="cv" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+      <ol class="asks">
+        <li>Does this become the precedent for every other ward?
+          <span class="w">If Ward 1 gets a Chief of Staff, what is the answer when Wards 2, 3 and 4 ask for one? Four of these is $291,199.68 a year, not over four years.</span>
+        </li>
+        <li>Does the contract outlive the term that created it?
+          <span class="w">Under Charter Secs. 5-8 and 5-9, the current Ward 1 term ends December 31, 2027. This agreement can run to August 31, 2030. That is two years and eight months of a position attached to a seat, past the end of the term of the person holding it.</span>
+        </li>
+        <li>If every part of this job already belongs to someone, why does the position exist?
+          <span class="w">And if some part does not, say which one, and point to it in Exhibit A.</span>
+        </li>
+        <li>Which city department was asked whether it could do this work?
+          <span class="w">Procurement, Finance and Accounting, the City Clerk, Customer Service and Strategic Communications are all staffed today. Name the ones that were asked, and say what they answered.</span>
+        </li>
+        <li>If the work is real, why is it a personal contract instead of a posted city job?
+          <span class="w">A budgeted position gets a public job description, competitive hiring, and civil service. This route skips all of it.</span>
+        </li>
+        <li>Why was it never competed?
+          <span class="w">The city has a Procurement department and a Purchasing Policies Manual, referenced at Code Sec. 2-23(b). Nothing here tested the price against the market.</span>
+        </li>
+        <li>Who supervises the position, and under what authority?
+          <span class="w">Exhibit A (h) places it outside every city officer, while Charter Sec. 4-7(c) gives the city manager control over all departments and divisions. The city attorney's approval line on packet page 223 is blank.</span>
+        </li>
+        <li>Why is a $291,199.68 commitment on the consent agenda at all?
+          <span class="w">Consent is for the routine. A four year obligation that renews itself without another vote is not routine.</span>
+        </li>
+      </ol>
+    </details>
 
     <div class="meet">
       <div><span class="ml">When</span><span class="mv">Monday, August 17, 2026, 7:30 p.m.</span></div>
