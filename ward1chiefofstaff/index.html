@@ -274,11 +274,80 @@ footer p+p{margin-top:11px}
   .reveal.done .reveal-inner .chip,.reveal.done .reveal-inner .src,
   .reveal.done .reveal-inner details.how{opacity:1}
 }
+
+/* ---------- INTRO PANELS ---------- */
+html{scroll-behavior:smooth;scroll-snap-type:y proximity}
+.panel{min-height:100dvh;display:flex;flex-direction:column;justify-content:center;
+  padding:70px 0 110px;position:relative;scroll-snap-align:start}
+.p-black{background:#000}
+.p-grad{background:var(--grad)}
+.pstmt{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(31px,7.8vw,62px);line-height:1.03;color:#fff;letter-spacing:.004em}
+.pstmt b{color:var(--yellow);font-weight:400}
+.pkick{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:20px}
+.cmp{display:grid;gap:26px;margin-top:6px}
+.cmp .row .rl{font-size:15px;color:#9C8FB8;margin-bottom:5px}
+.cmp .row .rv{font-family:Anton,Impact,sans-serif;font-size:clamp(46px,13.5vw,92px);
+  line-height:.9;color:#fff;letter-spacing:.01em}
+.cmp .row.hot .rv{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.cmp .row .rn{font-size:13px;color:#6F6489;margin-top:8px;font-family:ui-monospace,Menlo,monospace}
+.xbig{margin-top:34px;padding-top:26px;border-top:3px solid #241738}
+.xbig .n{font-family:Anton,Impact,sans-serif;font-size:clamp(64px,20vw,150px);line-height:.84;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.xbig .t{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(19px,5vw,32px);
+  color:#fff;line-height:1.04;margin-top:10px}
+.chev{position:absolute;left:0;right:0;bottom:34px;display:flex;justify-content:center;z-index:5}
+.chev button{background:none;border:0;padding:12px 18px;cursor:pointer;color:#fff;
+  display:flex;flex-direction:column;align-items:center;gap:7px;
+  font-family:ui-monospace,Menlo,monospace;font-size:10px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;opacity:.9}
+.chev button:hover{opacity:1}
+.chev svg{animation:bob 1.5s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(9px)}}
+.p-grad .chev button{color:#2A0B33}
+.plogo .ln{font-size:clamp(52px,17vw,124px)}
+.plogo .qm{font-size:clamp(150px,44vw,320px)}
+@media (prefers-reduced-motion: reduce){
+  html{scroll-behavior:auto}
+  .chev svg{animation:none}
+}
 </style>
 </head>
 <body>
 
-<div class="marquee">
+<section class="panel p-black" id="p1">
+  <div class="shell">
+    <p class="pkick">College Park, Georgia</p>
+    <p class="pstmt">On Monday night, the City Council will vote to award a <b>$72,800 a year</b> job for work the city is already doing.</p>
+  </div>
+  <div class="chev"><button type="button" data-to="p2">Swipe down<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+</section>
+
+<section class="panel p-black" id="p2">
+  <div class="shell">
+    <p class="pkick">The math</p>
+    <div class="cmp">
+      <div class="row">
+        <p class="rl">The Ward 1 councilmember, elected and salaried</p>
+        <p class="rv">$24,215</p>
+        <p class="rn">Per year. Code of Ordinances Sec. 2-27(b).</p>
+      </div>
+      <div class="row hot">
+        <p class="rl">The Chief of Staff the council is voting on</p>
+        <p class="rv">$72,799.92</p>
+        <p class="rn">Per year. $6,066.66 a month. Contract Sec. 3, packet p. 217.</p>
+      </div>
+    </div>
+    <div class="xbig">
+      <p class="n">3x</p>
+      <p class="t">The staffer costs three times the elected official.</p>
+    </div>
+  </div>
+  <div class="chev"><button type="button" data-to="p3">Keep going<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+</section>
+
+<section class="panel p-grad plogo" id="p3">
   <div class="shell">
     <span class="logo">
       <span class="qm" aria-hidden="true">?</span>
@@ -286,42 +355,12 @@ footer p+p{margin-top:11px}
       <span class="ln l-2">Job <em>is it</em></span>
       <span class="ln l-3">Anyway</span>
     </span>
-    <p class="subline">College Park / Ward 1 / Consent Item 8.C / Monday, August 17, 2026</p>
+    <p class="subline">Ward 1 / Consent Item 8.C / Monday, August 17, 2026</p>
   </div>
-</div>
+  <div class="chev"><button type="button" data-to="game">Play it<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
+</section>
 
-<header class="hero">
-  <div class="shell">
-    <h1>A <span class="hot">$72,800</span> job the city is already doing.</h1>
-    <p class="lede">The council votes Monday. Read the job description against what the city already pays people to do, and almost nothing is left over.</p>
-
-    <div class="bars">
-      <div class="bar">
-        <div class="lab"><span class="who">The Ward 1 councilmember, elected and salaried</span><span class="amt">$24,215</span></div>
-        <div class="track"><div class="fill" style="width:33%"></div></div>
-        <span class="note">Per year. Code of Ordinances Sec. 2-27(b).</span>
-      </div>
-      <div class="bar big">
-        <div class="lab"><span class="who">The Chief of Staff the council is voting on</span><span class="amt">$72,799.92</span></div>
-        <div class="track"><div class="fill" style="width:100%"></div></div>
-        <span class="note">Per year. $6,066.66 a month. Contract Sec. 3, packet p. 217.</span>
-      </div>
-      <p class="ratio">3x<span>The staffer costs three times the elected official.</span></p>
-    </div>
-
-    <div class="docs">
-      <a class="docbtn" href="ward1-chief-of-staff-contract.pdf">
-        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.75h4.9L19.25 8.1V17.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-12.75a2 2 0 0 1 2-2z"/><path d="M13.6 2.9v5.4h5.4"/><path d="M4.75 6.5v12.25a2.5 2.5 0 0 0 2.5 2.5h8.25"/></svg>
-        <span>
-          <span class="dt">Read item 8.C yourself</span>
-          <span class="dm">The contract and council memo. PDF, 14 pages.</span>
-        </span>
-      </a>
-    </div>
-  </div>
-</header>
-
-<section>
+<section id="game">
   <div class="shell">
     <div class="gbar"></div>
     <p class="eyebrow">Exhibit A, line by line</p>
@@ -504,26 +543,19 @@ footer p+p{margin-top:11px}
   </div>
 </section>
 
-<section class="dilemma">
+<section>
   <div class="shell">
     <div class="gbar"></div>
-    <p class="eyebrow">The question underneath all of this</p>
-    <h2>If the seat needs <span class="q">$72,800</span> of help, what is the seat for?</h2>
-    <div class="dl">
-      <div class="dl-i">
-        <span class="k">Either</span>
-        <p class="t">This work is already being done by people the city employs.</p>
-        <p class="s">In which case we are buying it twice, and the council owes the public an explanation of what the second purchase adds.</p>
-      </div>
-      <div class="dl-i">
-        <span class="k">Or</span>
-        <p class="t">Whoever holds the seat cannot carry the job the voters elected them to do.</p>
-        <p class="s">In which case the problem is not a staffing shortage, and hiring someone at three times the salary of the office does not fix it.</p>
-      </div>
+    <h2>Read item 8.C <span class="q">for yourself</span></h2>
+    <div class="docs">
+      <a class="docbtn" href="ward1-chief-of-staff-contract.pdf">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.75h4.9L19.25 8.1V17.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-12.75a2 2 0 0 1 2-2z"/><path d="M13.6 2.9v5.4h5.4"/><path d="M4.75 6.5v12.25a2.5 2.5 0 0 0 2.5 2.5h8.25"/></svg>
+        <span>
+          <span class="dt">Read item 8.C yourself</span>
+          <span class="dm">The contract and council memo. PDF, 14 pages.</span>
+        </span>
+      </a>
     </div>
-    <p class="dl-end">Both answers are a problem. Neither is worth $291,199.68.
-      <span>Voters hired one person to represent Ward 1. Nobody voted for a Chief of Staff, and no one at the city is permitted to supervise the position once it exists.</span>
-    </p>
   </div>
 </section>
 
@@ -545,6 +577,29 @@ footer p+p{margin-top:11px}
         <p class="fs">The contract says the contractor <q>shall not be subject to the direction or supervision of any other elected official, City officer, department, employee, board, commission, or authority.</q> The charter gives the city manager <q>administrative control over all regular departments and divisions of the City of College Park.</q> Exhibit A (h), packet p. 226; Charter Sec. 4-7(c).</p>
       </div>
     </div>
+  </div>
+</section>
+
+<section class="dilemma">
+  <div class="shell">
+    <div class="gbar"></div>
+    <p class="eyebrow">The question underneath all of this</p>
+    <h2>If the seat needs <span class="q">$72,800</span> of help, what is the seat for?</h2>
+    <div class="dl">
+      <div class="dl-i">
+        <span class="k">Either</span>
+        <p class="t">This work is already being done by people the city employs.</p>
+        <p class="s">In which case we are buying it twice, and the council owes the public an explanation of what the second purchase adds.</p>
+      </div>
+      <div class="dl-i">
+        <span class="k">Or</span>
+        <p class="t">Whoever holds the seat cannot carry the job the voters elected them to do.</p>
+        <p class="s">In which case the problem is not a staffing shortage, and hiring someone at three times the salary of the office does not fix it.</p>
+      </div>
+    </div>
+    <p class="dl-end">Both answers are a problem. Neither is worth $291,199.68.
+      <span>Voters hired one person to represent Ward 1. Nobody voted for a Chief of Staff, and no one at the city is permitted to supervise the position once it exists.</span>
+    </p>
   </div>
 </section>
 
@@ -686,6 +741,15 @@ footer p+p{margin-top:11px}
     cells.forEach(function(c,i){ setTimeout(function(){ if(c._reveal) c._reveal(); }, i*85); });
   });
   count(false);
+})();
+
+(function(){
+  document.querySelectorAll('.chev button').forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=document.getElementById(b.dataset.to);
+      if(t) t.scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  });
 })();
 </script>
 </body>
