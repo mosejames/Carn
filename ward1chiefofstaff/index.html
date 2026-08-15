@@ -3,233 +3,272 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Ward 1 Chief of Staff</title>
-<meta name="description" content="College Park votes Monday on a $72,800 a year Chief of Staff for Ward 1. Almost everything in the job description is already somebody's job.">
-<meta property="og:title" content="A $72,800 job the city is already doing">
-<meta property="og:description" content="College Park votes Monday on a Chief of Staff for Ward 1. Of the nine parts of the job description, one thing has no existing owner: the calendar.">
+<title>Whose Job Is It Anyway?</title>
+<meta name="description" content="College Park votes Monday on a $72,800 a year Chief of Staff for Ward 1. Nine of the ten things the contract buys are already somebody's job. The tenth is a calendar.">
+<meta property="og:title" content="Whose Job Is It Anyway?">
+<meta property="og:description" content="College Park votes Monday on a $72,800 a year Chief of Staff for Ward 1. Nine of the ten things the contract buys are already somebody's job. The tenth is a calendar.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cpmoneytrail.com/ward1chiefofstaff/">
 <meta property="og:image" content="https://cpmoneytrail.com/ward1chiefofstaff/chamber.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://cpmoneytrail.com/ward1chiefofstaff/chamber.jpg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23101720'/%3E%3Crect x='12' y='40' width='40' height='8' fill='%231F4FD8'/%3E%3Crect x='12' y='20' width='14' height='8' fill='%23EDEFF2'/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238B2FF8'/%3E%3Cstop offset='.5' stop-color='%23E0219A'/%3E%3Cstop offset='1' stop-color='%23FF8A1E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' fill='url(%23g)'/%3E%3Ctext x='33' y='49' font-family='Impact,sans-serif' font-size='50' fill='%23FFD93D' text-anchor='middle'%3E?%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
 <style>
 :root{
-  --ground:#EDEFF2;--ink:#101720;--muted:#5B6675;--rule:#CFD5DD;
-  --accent:#1F4FD8;--band:#101720;--band-muted:#9BA7B6;--band-rule:#2A3442;--band-accent:#7FA0F5;
+  --stage:#150A24; --panel:#20123A; --panel2:#2A1850;
+  --ink:#F6F0FF; --muted:#B3A3D0; --rule:#3B2568;
+  --yellow:#FFD93D; --hot:#FF3D8B; --green:#4BE3A6;
+  --grad:linear-gradient(100deg,#8B2FF8 0%,#E0219A 40%,#FF6A1E 74%,#FFD93D 100%);
+  --grad-soft:linear-gradient(100deg,rgba(139,47,248,.22),rgba(224,33,154,.22),rgba(255,138,30,.18));
 }
 *{box-sizing:border-box}
-body{margin:0;background:var(--ground);color:var(--ink);
- font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
- font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+html{background:var(--stage)}
+body{margin:0;background:var(--stage);color:var(--ink);
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .mono{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
 .shell{max-width:900px;margin:0 auto;padding:0 20px}
 h1,h2{margin:0;text-wrap:balance}
 p{margin:0}
-a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--yellow);outline-offset:3px}
 
-.hero{padding:44px 0 0}
-h1{font-size:clamp(40px,9.4vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:14px 0 16px}
-.lede{font-size:clamp(17px,4vw,20px);color:var(--muted);max-width:54ch}
-.bars{margin:38px 0 0;border-top:1px solid var(--rule);padding-top:26px}
+/* ---------- LOGO ---------- */
+.marquee{background:var(--grad);padding:30px 0 32px;position:relative;overflow:hidden}
+.marquee::after{content:"";position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(120% 90% at 12% 0%,rgba(255,255,255,.22),transparent 58%)}
+.logo{position:relative;z-index:1;display:block}
+.ln{display:block;font-family:Anton,Impact,"Arial Narrow Bold",sans-serif;text-transform:uppercase;
+  line-height:.92;letter-spacing:-.005em;text-shadow:0 5px 0 rgba(48,8,60,.26);
+  font-size:clamp(44px,14.5vw,100px);position:relative;z-index:1}
+.l-1,.l-3{color:var(--yellow)}
+.l-2{color:#fff}
+.l-2 em{font-style:normal;font-size:.46em;margin-left:.18em;letter-spacing:.03em;vertical-align:.06em}
+.qm{position:absolute;right:-.02em;top:50%;transform:translateY(-54%);z-index:0;pointer-events:none;
+  font-family:Anton,Impact,sans-serif;font-size:clamp(120px,36vw,268px);line-height:.68;color:#fff;
+  text-shadow:0 7px 0 rgba(48,8,60,.22)}
+.subline{position:relative;z-index:1;margin-top:22px;padding-top:14px;
+  border-top:3px solid rgba(255,255,255,.42);
+  font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:#2A0B33}
+
+/* ---------- HERO ---------- */
+.hero{padding:40px 0 0}
+h1{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(33px,8.4vw,64px);line-height:.95;margin:0 0 16px}
+h1 .hot{color:var(--yellow)}
+.lede{font-size:clamp(16.5px,4vw,19.5px);color:var(--muted);max-width:54ch}
+.bars{margin:36px 0 0;border-top:2px solid var(--rule);padding-top:26px}
 .bar{margin-bottom:20px}
-.bar .lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
+.bar .lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:8px}
 .bar .who{font-size:14.5px;font-weight:600}
-.bar .amt{font-family:ui-monospace,Menlo,monospace;font-weight:600;font-size:clamp(16px,4vw,20px)}
-.bar .track{height:26px;background:var(--rule)}
-.bar .fill{height:100%;background:var(--ink)}
-.bar.big .fill{background:var(--accent)}
-.bar.big .amt{color:var(--accent)}
-.bar .note{font-size:12.5px;color:var(--muted);margin-top:6px;display:block}
-.ratio{font-family:ui-monospace,Menlo,monospace;font-weight:600;font-size:clamp(28px,7vw,42px);color:var(--accent);letter-spacing:-.03em;margin-top:4px}
-.ratio span{font-family:system-ui,sans-serif;font-size:15px;font-weight:400;color:var(--muted);display:block;letter-spacing:0;margin-top:4px}
+.bar .amt{font-family:Anton,Impact,sans-serif;font-size:clamp(20px,5.4vw,26px);letter-spacing:.02em}
+.bar .track{height:28px;background:var(--panel);border-radius:999px;overflow:hidden}
+.bar .fill{height:100%;background:#5B4A80;border-radius:999px}
+.bar.big .fill{background:var(--grad)}
+.bar.big .amt{color:var(--yellow)}
+.bar .note{font-size:12.5px;color:var(--muted);margin-top:7px;display:block}
+.ratio{font-family:Anton,Impact,sans-serif;font-size:clamp(46px,13vw,84px);line-height:.9;margin-top:6px;
+  background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.ratio span{font-family:system-ui,sans-serif;font-size:15px;display:block;margin-top:8px;
+  -webkit-text-fill-color:var(--muted);color:var(--muted)}
 
 section{padding:56px 0}
-h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
-.deck{color:var(--muted);max-width:58ch;margin-top:12px;font-size:16.5px}
+.eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--yellow);margin-bottom:10px}
+h2{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(30px,7.4vw,56px);line-height:.95}
+h2 .q{color:var(--yellow)}
+.deck{color:var(--muted);max-width:58ch;margin-top:14px;font-size:16.5px}
+.gbar{height:6px;background:var(--grad);border-radius:999px;margin-bottom:22px;max-width:190px}
 
-.ov{margin-top:22px;border-top:2px solid var(--ink)}
+/* ---------- DOC LINK ---------- */
+.docs{margin-top:26px;border-top:2px solid var(--rule);padding-top:18px}
+.docs .dl{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
+a.docbtn{display:inline-flex;align-items:center;gap:13px;text-decoration:none;max-width:100%;
+  background:var(--panel);border:2px solid var(--yellow);border-radius:12px;padding:12px 17px 12px 14px;
+  transition:transform .14s cubic-bezier(.2,.9,.25,1),background .14s ease}
+a.docbtn:hover{background:var(--panel2);transform:translateY(-2px)}
+.ico{width:27px;height:27px;flex:none;color:var(--yellow)}
+a.docbtn .dt{display:block;font-size:15.5px;font-weight:700;color:var(--ink);line-height:1.25}
+a.docbtn .dm{display:block;font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--muted);margin-top:3px}
+.doc-row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px}
+.doc-row a{font-size:12.5px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule)}
+.doc-row a:hover{color:var(--yellow);border-bottom-color:var(--yellow)}
+
+/* ---------- THE GAME ---------- */
+.ov{margin-top:24px;border-top:3px solid var(--yellow)}
 .ov-r{padding:20px 0;border-bottom:1px solid var(--rule)}
-.ov-r .l{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:700;
-  color:var(--accent);display:block;margin-bottom:10px}
+.ov-r .l{font-family:Anton,Impact,sans-serif;font-size:17px;color:var(--yellow);
+  display:block;margin-bottom:9px;letter-spacing:.03em}
 .tag{font-family:ui-monospace,Menlo,monospace;font-size:10px;font-weight:700;
-  letter-spacing:.13em;text-transform:uppercase;display:flex;align-items:center;
-  gap:7px;margin-bottom:8px}
-.tag::before{content:"";width:14px;height:2px;flex:none}
-.tag-buy{color:var(--accent)}
-.tag-buy::before{background:var(--accent)}
+  letter-spacing:.13em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:8px}
+.tag::before{content:"";width:15px;height:3px;border-radius:2px;flex:none}
+.tag-buy{color:var(--hot)}
+.tag-buy::before{background:var(--hot)}
 .tag-have{color:var(--muted)}
 .tag-have::before{background:var(--muted)}
-.ov-r .n{font-weight:700;font-size:16.5px;line-height:1.35;color:var(--ink)}
+.ov-r .n{font-weight:700;font-size:17px;line-height:1.32}
 .ov-r .o{margin-top:16px;padding-top:15px;border-top:1px dashed var(--rule)}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-block;font-size:12.5px;font-weight:600;padding:5px 13px;
-  border-radius:999px;white-space:nowrap;line-height:1.4}
-.chip.dept{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
-.chip.elected{background:var(--accent);color:#fff;border:1.5px solid var(--accent)}
-.chip.nobody{background:transparent;color:var(--accent);border:1.5px dashed var(--accent)}
-.chip.na{background:transparent;color:var(--muted);border:1.5px solid var(--rule);font-weight:400}
+.chips{display:flex;flex-wrap:wrap;gap:7px}
+.chip{display:inline-block;font-size:12.5px;font-weight:700;padding:6px 14px;border-radius:999px;
+  white-space:nowrap;line-height:1.4}
+.chip.dept{background:var(--panel2);color:var(--ink);border:2px solid var(--rule)}
+.chip.elected{background:var(--yellow);color:#2A0B33;border:2px solid var(--yellow)}
+.chip.nobody{background:transparent;color:var(--hot);border:2px dashed var(--hot)}
+.chip.na{background:transparent;color:var(--muted);border:2px solid var(--rule);font-weight:500}
 .ov-r .src{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--muted);
-  display:block;margin-top:10px;line-height:1.5}
-.ov-r.none{background:rgba(31,79,216,.09);padding-left:14px;padding-right:14px}
-.ov-r.none .o{border-top-color:rgba(31,79,216,.35)}
-@media(min-width:760px){
-  .ov-r{display:grid;grid-template-columns:34px 1fr 1fr;gap:24px;align-items:start}
-  .ov-r .l{margin-bottom:0;padding-top:14px}
-  .ov-r .o{margin-top:0;padding-top:0;border-top:0}
-}
-/* rub to reveal */
-.revealbar{display:none;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:12px;margin-top:20px;padding:13px 15px;background:var(--ink);color:#fff}
-.revealbar.on{display:flex}
-.revealall{font:inherit;font-size:14px;font-weight:700;color:var(--ink);background:#fff;
-  border:0;padding:10px 18px;border-radius:999px;cursor:pointer;
-  transition:background .14s ease,transform .14s cubic-bezier(.2,.9,.25,1)}
-.revealall:hover{background:var(--band-accent);transform:translateY(-1px)}
-.revealall:active{transform:translateY(1px)}
-.revealall:focus-visible{outline:2px solid var(--band-accent);outline-offset:3px}
-.revealall[disabled]{opacity:.45;cursor:default;transform:none}
-.tally{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--band-muted)}
-.tally b{color:#fff;transition:color .2s}
-.tally.bump b{animation:bump .34s cubic-bezier(.2,.9,.25,1)}
-@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.32);color:var(--band-accent)}100%{transform:scale(1)}}
-.tally b{display:inline-block}
+  display:block;margin-top:11px;line-height:1.5}
+.ov-r.none{background:var(--grad-soft);padding-left:15px;padding-right:15px;border-radius:10px}
+.ov-r.none .o{border-top-color:rgba(255,61,139,.45)}
 
-.reveal{position:relative;border-radius:5px;touch-action:pan-y;cursor:grab;
+/* how a working government does it */
+details.how{margin-top:14px;border:2px solid var(--rule);border-radius:10px;background:var(--panel);overflow:hidden}
+details.how[open]{border-color:var(--green)}
+summary.hows{list-style:none;cursor:pointer;padding:11px 14px;display:flex;align-items:center;gap:10px;
+  font-family:ui-monospace,Menlo,monospace;font-size:10.5px;font-weight:700;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--green);transition:background .14s ease}
+summary.hows::-webkit-details-marker{display:none}
+summary.hows:hover{background:var(--panel2)}
+summary.hows .cv{margin-left:auto;transition:transform .22s cubic-bezier(.2,.9,.25,1);flex:none}
+details.how[open] summary.hows .cv{transform:rotate(180deg)}
+.howbody{padding:0 14px 14px;font-size:14.5px;line-height:1.6;color:var(--ink)}
+details.how[open] .howbody{animation:drop .28s cubic-bezier(.2,.9,.25,1)}
+@keyframes drop{from{opacity:0;transform:translateY(-7px)}to{opacity:1;transform:none}}
+
+.reveal{position:relative;border-radius:10px;touch-action:pan-y;cursor:grab;
   -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
 .reveal:active{cursor:grabbing}
 .reveal.done{cursor:default;-webkit-user-select:text;user-select:text}
-.reveal:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
-.vmask{position:absolute;inset:-7px -9px;overflow:hidden;border-radius:5px;pointer-events:none}
-.veil{position:absolute;inset:0;background:var(--ink);
-  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 3px,transparent 3px 9px);
-  display:flex;align-items:center;padding:0 15px;
-  transform:translate3d(0,0,0);will-change:transform;
-  transition:transform .36s cubic-bezier(.16,1,.3,1)}
+.reveal:focus-visible{outline:3px solid var(--yellow);outline-offset:5px}
+.vmask{position:absolute;inset:-8px -10px;overflow:hidden;border-radius:10px;pointer-events:none}
+.veil{position:absolute;inset:0;background:var(--grad);display:flex;align-items:center;padding:0 17px;
+  transform:translate3d(0,0,0);will-change:transform;transition:transform .36s cubic-bezier(.16,1,.3,1)}
 .reveal.dragging .veil{transition:none}
 .veil::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(100deg,transparent 32%,rgba(255,255,255,.14) 48%,transparent 64%);
-  transform:translateX(-100%);animation:sheen 3s ease-in-out infinite}
-.veil::after{content:"";position:absolute;left:-2px;top:0;bottom:0;width:3px;
-  background:var(--band-accent);box-shadow:0 0 16px 3px rgba(127,160,245,.8);
-  opacity:0;transition:opacity .1s ease}
+  background:linear-gradient(100deg,transparent 32%,rgba(255,255,255,.42) 48%,transparent 64%);
+  transform:translateX(-100%);animation:sheen 2.6s ease-in-out infinite}
+.veil::after{content:"";position:absolute;left:-2px;top:0;bottom:0;width:4px;background:#fff;
+  box-shadow:0 0 20px 4px rgba(255,255,255,.9);opacity:0;transition:opacity .1s ease}
 .reveal.dragging .veil::after{opacity:1}
-.reveal.done .veil{transform:translate3d(102%,0,0)}
+.reveal.done .veil{transform:translate3d(103%,0,0)}
 @keyframes sheen{0%{transform:translateX(-100%)}58%,100%{transform:translateX(100%)}}
-.veil-txt{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:#fff;white-space:nowrap;
-  display:flex;align-items:center;gap:15px}
-.veil-txt i{display:block;width:20px;height:2px;background:var(--band-accent);
-  animation:nudge 1.5s ease-in-out infinite}
-@keyframes nudge{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(7px);opacity:1}}
-.reveal-inner .chip,.reveal-inner .src{opacity:0}
+.veil-txt{position:relative;z-index:1;font-family:Anton,Impact,sans-serif;font-size:15px;
+  letter-spacing:.1em;text-transform:uppercase;color:#fff;white-space:nowrap;
+  display:flex;align-items:center;gap:14px;text-shadow:0 2px 0 rgba(60,10,70,.3)}
+.veil-txt i{display:block;width:22px;height:3px;border-radius:2px;background:#fff;
+  animation:nudge 1.4s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0);opacity:.65}50%{transform:translateX(8px);opacity:1}}
+.reveal-inner .chip,.reveal-inner .src,.reveal-inner details.how{opacity:0}
 .reveal.done .reveal-inner .chip{animation:pop .44s cubic-bezier(.2,.9,.25,1) forwards;
   animation-delay:calc(var(--i,0)*70ms + 80ms)}
 .reveal.done .reveal-inner .src{animation:pop .44s cubic-bezier(.2,.9,.25,1) forwards;
   animation-delay:calc(var(--n,1)*70ms + 140ms)}
-@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
-.reveal.flash::after{content:"";position:absolute;inset:-7px -9px;border-radius:5px;
-  pointer-events:none;animation:ring .55s ease-out forwards}
-@keyframes ring{from{box-shadow:0 0 0 0 rgba(31,79,216,.5)}to{box-shadow:0 0 0 16px rgba(31,79,216,0)}}
-.payoff{margin-top:18px;padding:18px 20px;background:var(--accent);color:#fff;display:none}
+.reveal.done .reveal-inner details.how{animation:pop .44s cubic-bezier(.2,.9,.25,1) forwards;
+  animation-delay:calc(var(--n,1)*70ms + 240ms)}
+@keyframes pop{from{opacity:0;transform:translateY(9px) scale(.95)}to{opacity:1;transform:none}}
+.reveal.flash::after{content:"";position:absolute;inset:-8px -10px;border-radius:10px;pointer-events:none;
+  animation:ring .6s ease-out forwards}
+@keyframes ring{from{box-shadow:0 0 0 0 rgba(255,217,61,.65)}to{box-shadow:0 0 0 20px rgba(255,217,61,0)}}
+
+.revealbar{display:none;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;
+  margin-top:22px;padding:14px 16px;background:var(--panel);border:2px solid var(--rule);border-radius:12px}
+.revealbar.on{display:flex}
+.revealall{font-family:Anton,Impact,sans-serif;font-size:16px;letter-spacing:.06em;text-transform:uppercase;
+  color:#2A0B33;background:var(--yellow);border:0;padding:11px 22px;border-radius:999px;cursor:pointer;
+  transition:transform .14s cubic-bezier(.2,.9,.25,1),filter .14s ease}
+.revealall:hover{transform:translateY(-2px);filter:brightness(1.08)}
+.revealall[disabled]{opacity:.4;cursor:default;transform:none}
+.tally{font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--muted)}
+.tally b{color:var(--yellow);display:inline-block}
+.tally.bump b{animation:bump .34s cubic-bezier(.2,.9,.25,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.4)}100%{transform:scale(1)}}
+
+.payoff{margin-top:18px;padding:22px;background:var(--grad);border-radius:14px;display:none}
 .payoff.on{display:block;animation:pop .5s cubic-bezier(.2,.9,.25,1)}
-.payoff p{font-size:clamp(16px,4vw,20px);font-weight:700;line-height:1.35;letter-spacing:-.015em}
-@media (prefers-reduced-motion: reduce){
-  .veil,.revealall,.tally b{transition:none;animation:none}
-  .veil::before,.veil-txt i{animation:none}
-  .reveal.done .reveal-inner .chip,.reveal.done .reveal-inner .src{animation:none;opacity:1}
-  .reveal.flash::after,.payoff.on{animation:none}
-}
-/* compact source links */
-.docs{margin-top:26px;border-top:1px solid var(--rule);padding-top:18px}
-.docs .dl{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
-a.docbtn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;
-  background:#fff;border:2px solid var(--ink);padding:11px 16px 11px 13px;max-width:100%;
-  transition:background .14s ease,transform .14s cubic-bezier(.2,.9,.25,1)}
-a.docbtn:hover{background:var(--ink);transform:translateY(-1px)}
-a.docbtn:hover .dt,a.docbtn:hover .dm{color:#fff}
-a.docbtn:hover .ico{color:#fff}
-a.docbtn:active{transform:translateY(1px)}
-a.docbtn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-.ico{width:26px;height:26px;flex:none;color:var(--accent);transition:color .14s ease}
-a.docbtn .dt{display:block;font-size:15.5px;font-weight:700;color:var(--ink);
-  letter-spacing:-.01em;line-height:1.25}
-a.docbtn .dm{display:block;font-family:ui-monospace,Menlo,monospace;font-size:11px;
-  color:var(--muted);margin-top:3px;line-height:1.4}
-.doc-row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px}
-.doc-row a{font-size:12.5px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule)}
-.doc-row a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+.payoff p{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(21px,5.6vw,32px);line-height:1.02;color:#fff;text-shadow:0 3px 0 rgba(48,8,60,.22)}
+.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:center;font-size:12.5px;color:var(--muted)}
+.punch{margin-top:26px;padding:26px;border:3px solid var(--yellow);border-radius:14px;background:var(--panel)}
+.punch p{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(20px,5.4vw,31px);line-height:1.04;color:var(--yellow)}
+.punch .sub{font-family:system-ui,sans-serif;text-transform:none;font-size:15.5px;font-weight:400;
+  color:var(--ink);margin-top:13px;line-height:1.5}
 
-.legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:center;
-  font-size:12.5px;color:var(--muted)}
-.legend .chip{margin-right:2px}
-.chips{display:flex;flex-wrap:wrap;gap:6px}
-.chip{display:inline-block;font-size:12.5px;font-weight:600;padding:4px 12px;
-  border-radius:999px;white-space:nowrap;line-height:1.4}
-.chip.dept{background:#fff;color:var(--ink);border:1.5px solid var(--ink)}
-.chip.elected{background:var(--accent);color:#fff;border:1.5px solid var(--accent)}
-.chip.nobody{background:transparent;color:var(--accent);border:1.5px dashed var(--accent)}
-.chip.na{background:transparent;color:var(--muted);border:1.5px solid var(--rule);font-weight:400}
-.ov-r .src{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:var(--muted);
-  display:block;margin-top:9px;line-height:1.45}
-.ov-r.none{background:rgba(31,79,216,.09);padding-left:12px;padding-right:12px}
-.dilemma{background:var(--ink);color:#fff;padding:56px 0 60px}
-.dilemma h2{color:#fff}
-.dilemma .eyebrow{color:var(--band-accent)}
-.dl{display:grid;gap:0;margin-top:32px}
-.dl-i{border-top:1px solid var(--band-rule);padding:22px 0}
-.dl-i .k{font-family:ui-monospace,Menlo,monospace;font-size:11px;letter-spacing:.13em;
-  text-transform:uppercase;color:var(--band-accent);display:block;margin-bottom:9px}
-.dl-i .t{font-size:clamp(19px,4.6vw,25px);font-weight:600;letter-spacing:-.02em;line-height:1.3}
-.dl-i .s{font-size:15px;color:var(--band-muted);margin-top:9px;line-height:1.55;max-width:60ch}
-.dl-end{border-top:2px solid var(--band-accent);margin-top:8px;padding-top:24px;
-  font-size:clamp(19px,4.8vw,26px);font-weight:700;letter-spacing:-.02em;line-height:1.3}
-.dl-end span{display:block;font-size:15px;font-weight:400;color:var(--band-muted);
-  margin-top:10px;letter-spacing:0;line-height:1.55}
-.punch{margin-top:26px;padding:24px;background:var(--ink);color:#fff}
-.punch p{font-size:clamp(18px,4.4vw,24px);font-weight:600;line-height:1.3;letter-spacing:-.02em}
-.punch .sub{font-size:15px;font-weight:400;color:var(--band-muted);margin-top:12px;letter-spacing:0;line-height:1.5}
+.dilemma{background:var(--panel);padding:56px 0 60px}
+.dl{margin-top:30px}
+.dl-i{border-top:2px solid var(--rule);padding:22px 0}
+.dl-i .k{font-family:Anton,Impact,sans-serif;font-size:20px;letter-spacing:.08em;text-transform:uppercase;
+  color:var(--hot);display:block;margin-bottom:9px}
+.dl-i .t{font-size:clamp(19px,4.6vw,25px);font-weight:700;line-height:1.3}
+.dl-i .s{font-size:15px;color:var(--muted);margin-top:9px;line-height:1.55;max-width:60ch}
+.dl-end{border-top:3px solid var(--yellow);margin-top:8px;padding-top:24px;
+  font-family:Anton,Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(21px,5.4vw,32px);line-height:1.04;color:var(--yellow)}
+.dl-end span{display:block;font-family:system-ui,sans-serif;text-transform:none;font-size:15px;
+  font-weight:400;color:var(--muted);margin-top:12px;line-height:1.55}
 
-.facts{margin-top:30px;display:grid;gap:0;border-top:2px solid var(--ink)}
-.f{padding:18px 0;border-bottom:1px solid var(--rule)}
-.f .ft{font-size:clamp(17px,4.2vw,21px);font-weight:600;letter-spacing:-.015em;line-height:1.3}
-.f .fs{font-size:14.5px;color:var(--muted);margin-top:7px;line-height:1.5;max-width:64ch}
-.f q{quotes:"\201C" "\201D"}
+.facts{margin-top:28px;border-top:3px solid var(--yellow)}
+.f{padding:20px 0;border-bottom:1px solid var(--rule)}
+.f .ft{font-size:clamp(17px,4.2vw,21px);font-weight:700;line-height:1.3}
+.f .fs{font-size:14.5px;color:var(--muted);margin-top:8px;line-height:1.55;max-width:64ch}
+.f q{quotes:"\201C" "\201D";color:var(--ink)}
 
-.ask{background:var(--band);color:var(--ground);padding:52px 0 56px}
-.ask h2{color:#fff}.ask .deck{color:var(--band-muted)}.ask .eyebrow{color:var(--band-accent)}
-.asks{list-style:none;padding:0;margin:30px 0 0;counter-reset:a}
-.asks li{counter-increment:a;border-top:1px solid var(--band-rule);padding:16px 0 16px 42px;position:relative;font-size:16.5px;font-weight:600;color:#fff;line-height:1.4}
-.asks li::before{content:counter(a);position:absolute;left:0;top:17px;font-family:ui-monospace,Menlo,monospace;font-size:13px;color:var(--band-accent)}
-.asks .w{display:block;font-weight:400;font-size:14px;color:var(--band-muted);margin-top:6px;line-height:1.5}
-.meet{margin-top:32px;padding:20px;border:1px solid var(--band-rule);display:grid;gap:13px}
+.ask{background:var(--grad);padding:54px 0 58px}
+.ask .eyebrow{color:#3B0F45}
+.ask h2{color:#fff;text-shadow:0 4px 0 rgba(48,8,60,.22)}
+.ask .deck{color:#3B0F45;font-weight:500}
+.asks{list-style:none;padding:0;margin:28px 0 0;counter-reset:a}
+.asks li{counter-increment:a;border-top:2px solid rgba(42,11,51,.32);padding:17px 0 17px 46px;
+  position:relative;font-size:17px;font-weight:700;color:#1E0726;line-height:1.35}
+.asks li::before{content:counter(a);position:absolute;left:0;top:15px;
+  font-family:Anton,Impact,sans-serif;font-size:22px;color:#fff}
+.asks .w{display:block;font-weight:500;font-size:14.5px;color:#3B0F45;margin-top:7px;line-height:1.5}
+.meet{margin-top:30px;padding:20px;background:rgba(30,7,38,.9);border-radius:14px;display:grid;gap:14px}
 @media(min-width:700px){.meet{grid-template-columns:repeat(3,1fr)}}
-.meet .ml{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--band-accent);display:block}
-.meet .mv{font-size:15px;color:#fff;margin-top:4px;display:block;font-weight:600}
-
-.fix{padding:56px 0}
-.fx{margin-top:30px;counter-reset:f;list-style:none;padding:0}
-.fx li{counter-increment:f;position:relative;padding:20px 0 20px 52px;border-top:1px solid var(--rule)}
-.fx li::before{content:counter(f,decimal-leading-zero);position:absolute;left:0;top:21px;
-  font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;color:var(--accent)}
-.fx .h{font-size:clamp(17px,4.2vw,21px);font-weight:700;letter-spacing:-.015em;line-height:1.3}
-.fx .b{font-size:15px;color:var(--muted);margin-top:8px;line-height:1.55;max-width:64ch}
-.fixnote{margin-top:26px;padding:18px 20px;border:2px solid var(--ink);font-size:clamp(16px,4vw,19px);
-  font-weight:700;letter-spacing:-.015em;line-height:1.35}
+.meet .ml{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--yellow);display:block}
+.meet .mv{font-size:15px;color:#fff;margin-top:5px;display:block;font-weight:700}
 
 footer{padding:38px 0 56px;font-size:13px;color:var(--muted)}
-footer a{color:var(--accent)}
-footer p+p{margin-top:10px}
+footer a{color:var(--yellow)}
+footer p+p{margin-top:11px}
+
+@media(min-width:760px){
+  .ov-r{display:grid;grid-template-columns:44px 1fr 1fr;gap:24px;align-items:start}
+  .ov-r .l{margin-bottom:0;padding-top:12px}
+  .ov-r .o{margin-top:0;padding-top:0;border-top:0}
+}
+@media (prefers-reduced-motion: reduce){
+  .veil,.veil::before,.veil-txt i,.revealall,.tally b,.payoff.on,.reveal.flash::after,
+  .reveal.done .reveal-inner .chip,.reveal.done .reveal-inner .src,
+  .reveal.done .reveal-inner details.how,a.docbtn,details.how[open] .howbody,summary.hows .cv{
+    animation:none !important;transition:none !important}
+  .reveal.done .reveal-inner .chip,.reveal.done .reveal-inner .src,
+  .reveal.done .reveal-inner details.how{opacity:1}
+}
 </style>
 </head>
 <body>
 
+<div class="marquee">
+  <div class="shell">
+    <span class="logo">
+      <span class="qm" aria-hidden="true">?</span>
+      <span class="ln l-1">Whose</span>
+      <span class="ln l-2">Job <em>is it</em></span>
+      <span class="ln l-3">Anyway</span>
+    </span>
+    <p class="subline">College Park / Ward 1 / Consent Item 8.C / Monday, August 17, 2026</p>
+  </div>
+</div>
+
 <header class="hero">
   <div class="shell">
-    <p class="eyebrow">cpmoneytrail.com / Consent Item 8.C / Monday, August 17, 2026</p>
-    <h1>A $72,800 job the city is already doing.</h1>
+    <h1>A <span class="hot">$72,800</span> job the city is already doing.</h1>
     <p class="lede">College Park votes Monday on a Chief of Staff for the Ward 1 council office. Read the job description against what the city already pays people to do, and almost nothing is left over.</p>
 
     <div class="bars">
@@ -265,13 +304,15 @@ footer p+p{margin-top:10px}
 
 <section>
   <div class="shell">
+    <div class="gbar"></div>
     <p class="eyebrow">Exhibit A, line by line</p>
-    <h2>Whose job is it anyway?</h2>
-    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Each one is below, in bold, exactly as the contract describes it. The answer to who already does that work is hidden underneath. Slide each black bar open to see whose job it already is.</p>
+    <h2>Ten lines. <span class="q">Who already does them?</span></h2>
+    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Each one is below, in bold, exactly as the contract describes it. Slide each bar open to see whose job it already is, then open the drop-down to see how a working city handles that job.</p>
 
     <div class="ov" id="ovlist">
+
       <div class="ov-r">
-        <span class="l mono">(a)</span>
+        <span class="l">(a)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Runs the council office and advises the officeholder</div>
@@ -280,10 +321,13 @@ footer p+p{margin-top:10px}
           <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip elected">The councilmember</span></div>
           <span class="src">Charter Sec. 1-3. The office has one elected head.</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">There is no separate office to run. The council sets policy, the city manager runs the administration, and the elected official carries their own seat. The advising a councilmember needs comes from the city attorney on legal questions and from department heads on their own subjects, and every councilmember can already ask for it.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(b)</span>
+        <span class="l">(b)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Budget planning, procurement coordination, records management</div>
@@ -292,46 +336,58 @@ footer p+p{margin-top:10px}
           <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip dept">Finance &amp; Accounting</span><span class="chip dept">Procurement</span><span class="chip dept">City Clerk</span></div>
           <span class="src">Charter Sec. 4-7; Code Secs. 2-3(b), 2-102.</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">Finance and Accounting builds and tracks the budget for the entire city and the city manager submits it to council every year. Procurement runs purchasing under the city's Purchasing Policies Manual. The City Clerk is custodian of official records, and the Code names a Records Management Officer with a retention schedule. Three departments, already funded, already doing this for all four wards.</div></details>
         </div>
       </div>
+
       <div class="ov-r none">
-        <span class="l mono">(b)</span>
+        <span class="l">(b)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Scheduling and calendar management</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">Nobody’s job</span>
+          <span class="tag tag-have">Nobody&rsquo;s job</span>
           <div class="chips"><span class="chip nobody">No one</span></div>
           <span class="src">The only part of the job with no existing owner.</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">With a calendar. Every other elected official in this city keeps their own schedule, and the tools to do it are free. This is the one line on the list with no existing owner, and it is also the one line nobody would argue is worth a salary.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(c)</span>
+        <span class="l">(c)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Researches policy, drafts ordinances and resolutions</div>
         </div>
         <div class="o">
           <span class="tag tag-have">Whose job it already is</span>
-          <div class="chips"><span class="chip elected">The councilmember</span></div>
-          <span class="src">Charter Sec. 1-3. Passing ordinances is the office itself.</span>
+          <div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">City Attorney</span></div>
+          <span class="src">Charter Sec. 1-3; Charter Sec. 1-9(a).</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">The council elects a city attorney, who puts ordinances and resolutions into legal form so they survive a challenge. Department heads supply the substance in their own subject areas. The councilmember decides what to introduce and casts the vote. If the council genuinely needs more research capacity, the honest fix is a shared analyst serving all four wards, not personal staff for one.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(d)</span>
+        <span class="l">(d)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Sets and manages strategic priorities and special projects</div>
         </div>
         <div class="o">
           <span class="tag tag-have">Whose job it already is</span>
-          <div class="chips"><span class="chip elected">The councilmember</span></div>
-          <span class="src">Setting ward priorities is what the seat is for.</span>
+          <div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">City Manager</span></div>
+          <span class="src">Charter Secs. 1-3, 4-7(b).</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">Priorities come from the elected officials and become real when the whole council adopts them in the budget and the comprehensive plan. Execution then belongs to the city manager, who is charged with seeing that the business of the city is efficiently organized and handled, and who reports back to council in writing every month.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(e)</span>
+        <span class="l">(e)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Coordinates vendors, reviews invoices, administers contracts</div>
@@ -339,11 +395,14 @@ footer p+p{margin-top:10px}
         <div class="o">
           <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip dept">City Manager</span><span class="chip dept">Procurement</span><span class="chip dept">Finance &amp; Accounting</span></div>
-          <span class="src">Charter Sec. 4-7(i) and (j).</span>
+          <span class="src">Charter Sec. 4-7(i) and (j); Code Sec. 2-76(p).</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">Procurement solicits and awards. Finance and Accounting reviews invoices against the contract and pays them. The city manager executes contracts and must report every purchase, contract and disbursement to the whole council in writing each month. Keeping invoice review inside the finance department, and away from the politician who wanted the vendor, is the entire point of the arrangement.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(f)</span>
+        <span class="l">(f)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Town halls, community meetings, constituent communications</div>
@@ -352,64 +411,83 @@ footer p+p{margin-top:10px}
           <span class="tag tag-have">Whose job it already is</span>
           <div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">Strategic Communications</span><span class="chip dept">Customer Service</span></div>
           <span class="src">Code Sec. 2-76(s) names constituent services as the officeholder's own work.</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">The city has a Strategic Communications and Public Information department for notices, campaigns and public information, and a Customer Service department that takes resident requests and routes them. What is left is the part only an elected official can do: show up, listen, and answer for it. The ethics code calls that the officeholder's own work.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(g)</span>
+        <span class="l">(g)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Relations with departments, agencies, and business leaders</div>
         </div>
         <div class="o">
           <span class="tag tag-have">Whose job it already is</span>
-          <div class="chips"><span class="chip elected">The councilmember</span><span class="chip dept">City Manager</span><span class="chip dept">Economic Development</span></div>
+          <div class="chips"><span class="chip dept">City Manager</span><span class="chip dept">Economic Development</span><span class="chip elected">The councilmember</span></div>
           <span class="src">Charter Sec. 4-7.</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">The city manager is the single door between the council and the departments. That one rule is what keeps day to day administration out of politics and gives every councilmember the same access. Economic Development carries business and developer relations for the whole city. Intergovernmental work belongs to the council acting as a body.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(h)</span>
+        <span class="l">(h)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Reports only to the councilmember. No city officer may supervise the position.</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">Whose job it already is</span>
+          <span class="tag tag-have">Nobody&rsquo;s job</span>
           <div class="chips"><span class="chip na">Not a service</span></div>
           <span class="src">This part buys the city nothing.</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">Everyone the city pays answers to the city manager, and the city manager answers to the whole council. That chain is the accountability. It is how a resident with a complaint gets it escalated, and how a bad hire gets corrected. A position deliberately placed outside that chain has nobody to escalate to and nobody who can correct it.</div></details>
         </div>
       </div>
+
       <div class="ov-r">
-        <span class="l mono">(i)</span>
+        <span class="l">(i)</span>
         <div class="pay">
           <span class="tag tag-buy">The contract would pay for this</span>
           <div class="n">Whatever else the councilmember asks for</div>
         </div>
         <div class="o">
-          <span class="tag tag-have">Whose job it already is</span>
+          <span class="tag tag-have">Nobody&rsquo;s job</span>
           <div class="chips"><span class="chip na">Not a service</span></div>
           <span class="src">An open ended clause.</span>
+          <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+          <div class="howbody">Public jobs get written job descriptions and defined scopes, posted publicly, so residents can see what they bought and hold somebody to it. Open ended clauses are how the work, and eventually the price, grows without anyone taking another vote.</div></details>
         </div>
       </div>
+
     </div>
+
     <div class="revealbar" id="rvbar" hidden>
       <button type="button" class="revealall" id="rvall">Reveal all</button>
       <p class="tally" id="rvtally"><b>0</b> of <b>10</b> answered</p>
     </div>
-      <div class="payoff" id="rvpayoff"><p>Ten lines. Nine of them are already somebody’s job. The tenth is a calendar.</p></div>
-      <div class="legend"><span><span class="chip elected">The councilmember</span> the elected office</span><span><span class="chip dept">Department</span> already staffed and funded by the city</span><span><span class="chip nobody">No one</span> no existing owner</span></div>
+
+    <div class="payoff" id="rvpayoff"><p>Ten lines. Nine are already somebody&rsquo;s job. The tenth is a calendar.</p></div>
+
+    <div class="legend">
+      <span><span class="chip elected">The councilmember</span> the elected office</span>
+      <span><span class="chip dept">Department</span> already staffed and funded by the city</span>
+      <span><span class="chip nobody">No one</span> no existing owner</span>
+    </div>
 
     <div class="punch">
-      <p>Out of the entire job description, one thing has no existing owner: keeping the calendar.</p>
+      <p>One thing on the whole list is nobody&rsquo;s job: keeping the calendar.</p>
       <p class="sub">Google Calendar is free. Whatever the answer to scheduling is, it is not $72,799.92 a year.</p>
     </div>
   </div>
 </section>
 
-
 <section class="dilemma">
   <div class="shell">
+    <div class="gbar"></div>
     <p class="eyebrow">The question underneath all of this</p>
-    <h2>If the seat needs $72,800 of help, what is the seat for?</h2>
+    <h2>If the seat needs <span class="q">$72,800</span> of help, what is the seat for?</h2>
     <div class="dl">
       <div class="dl-i">
         <span class="k">Either</span>
@@ -422,7 +500,7 @@ footer p+p{margin-top:10px}
         <p class="s">In which case the problem is not a staffing shortage, and hiring someone at three times the salary of the office does not fix it.</p>
       </div>
     </div>
-    <p class="dl-end">Both answers are a problem. Neither one is worth $291,199.68.
+    <p class="dl-end">Both answers are a problem. Neither is worth $291,199.68.
       <span>Voters hired one person to represent Ward 1. Nobody voted for a Chief of Staff, and no one at the city is permitted to supervise the position once it exists.</span>
     </p>
   </div>
@@ -430,7 +508,8 @@ footer p+p{margin-top:10px}
 
 <section>
   <div class="shell">
-    <h2>Three more things worth knowing</h2>
+    <div class="gbar"></div>
+    <h2>Three more things <span class="q">worth knowing</span></h2>
     <div class="facts">
       <div class="f">
         <p class="ft">It is on the consent agenda.</p>
@@ -448,42 +527,6 @@ footer p+p{margin-top:10px}
   </div>
 </section>
 
-
-<section class="fix">
-  <div class="shell">
-    <p class="eyebrow">The fix</p>
-    <h2>What this should look like instead</h2>
-    <p class="deck">None of this is exotic. It is how College Park already hires everybody else who works for the public.</p>
-    <ol class="fx">
-      <li>
-        <p class="h">Make it a job, not a personal contract.</p>
-        <p class="b">If the work is real, create a budgeted position with a public job description, post it, and hire competitively into the city pay plan. The charter has a civil service article for exactly this. A professional services agreement written for one person skips all of it.</p>
-      </li>
-      <li>
-        <p class="h">Put it under the city manager, like every other city employee.</p>
-        <p class="b">Charter Sec. 4-7(c) gives the city manager administrative control over all departments and divisions. Anyone paid by the public should answer to the professional administrator, not to a single politician. That is the whole reason the city has a manager.</p>
-      </li>
-      <li>
-        <p class="h">Share the staff across all four wards.</p>
-        <p class="b">Council wide legislative support is a legitimate need. One or two analysts serving the entire council, available to every member on the same terms, is how that need gets met. Personal staff for one ward at a price nobody else was offered is a different thing.</p>
-      </li>
-      <li>
-        <p class="h">Compete it, so the price gets tested.</p>
-        <p class="b">The city has a Procurement department and a Purchasing Policies Manual, referenced in Code Sec. 2-23(b). Professional services at this value should be solicited in public so the cost is measured against the market instead of set in a memo.</p>
-      </li>
-      <li>
-        <p class="h">Decide it in the budget, in public.</p>
-        <p class="b">If the council wants ward staff, adopt it during the budget process as a policy that applies to all four wards equally, debated in Regular Business. Not one contract at a time, buried on consent.</p>
-      </li>
-      <li>
-        <p class="h">One year, then prove it worked.</p>
-        <p class="b">A single term, with a written report to council on what the position produced before anyone votes to continue it. Not four years of automatic renewal authorized by one vote nobody discussed.</p>
-      </li>
-    </ol>
-    <p class="fixnote">Every one of these is the opposite of what item 8.C does. That is the problem, and it is fixable in a single motion Monday night.</p>
-  </div>
-</section>
-
 <section class="ask">
   <div class="shell">
     <p class="eyebrow">Monday night</p>
@@ -493,11 +536,14 @@ footer p+p{margin-top:10px}
       <li>If every part of this job already belongs to someone, why does the position exist?
         <span class="w">And if it does not already belong to someone, say which part, and show it in Exhibit A.</span>
       </li>
-      <li>What does this position do that the city is not already paying someone to do?
-        <span class="w">Go down Exhibit A, pages 224 to 226, part by part, and name it.</span>
-      </li>
       <li>Which city department was asked whether it could do this work?
         <span class="w">College Park staffs Procurement, Finance and Accounting, the City Clerk, Customer Service, and Strategic Communications and Public Information right now. Name the ones that were asked, and say what they answered.</span>
+      </li>
+      <li>If the work is real, why is it a personal contract instead of a posted city job?
+        <span class="w">A budgeted position gets a public job description, competitive hiring, and civil service protection. This skips all of it.</span>
+      </li>
+      <li>Why was it never competed?
+        <span class="w">The city has a Procurement department and a Purchasing Policies Manual, referenced in Code Sec. 2-23(b). Nothing tested this price against the market.</span>
       </li>
       <li>Which city employees will report to this contractor?
         <span class="w">The council memo says the position provides oversight of staff, contractors, and consultants. Charter Sec. 4-7(c) and (d) reserve hiring, firing, and discipline to the city manager and department heads.</span>
@@ -505,11 +551,8 @@ footer p+p{margin-top:10px}
       <li>Why is a $291,199.68 contract on the consent agenda?
         <span class="w">Nothing about this is routine. It should be debated in Regular Business and voted on by itself.</span>
       </li>
-      <li>Who supervises the position, and under what authority?
-        <span class="w">Exhibit A (h) places it outside every city officer. Has the city attorney put an opinion in writing? The signature line on packet page 223 is blank.</span>
-      </li>
       <li>Does a future council have to vote again to keep paying?
-        <span class="w">If the answer is no, then Monday is the only chance the public gets for four years.</span>
+        <span class="w">If the answer is no, then Monday is the only chance the public gets for four years. One year with a written performance report would fix that.</span>
       </li>
     </ol>
 
@@ -524,7 +567,7 @@ footer p+p{margin-top:10px}
 <footer>
   <div class="shell">
     <p>Sources, all public: Regular Session agenda and packet for August 17, 2026, item 8.C, packet pages 215 to 228, including the Council Agenda Memo and Exhibit A, Scope of Services. City of College Park Charter and Code of Ordinances.</p>
-    <p>Every quotation and dollar figure on this page is exact. Who currently holds each part of the work is our reading of the contract against the city's published department list and the charter, and you should check it yourself against the sections cited.</p>
+    <p>Every quotation and dollar figure on this page is exact. Who currently holds each part of the work, and how a working city handles it, is our reading of the contract against the city's published department list and the charter. Check it yourself against the sections cited.</p>
     <p><a href="https://www.collegeparkga.gov/AgendaCenter">Agenda Center</a> &middot; <a href="https://library.municode.com/ga/college_park/codes/code_of_ordinances">Charter and Code</a> &middot; <a href="https://www.collegeparkga.gov/296/Council-Meetings">Meeting details</a></p>
     <p>This page is about a contract, a job description, and a public office. It raises questions about how that office is being staffed and funded. It makes no claim about any individual's character or background.</p>
   </div>
@@ -551,8 +594,9 @@ footer p+p{margin-top:10px}
     inner.className="reveal-inner";
     var chips=inner.querySelectorAll(".chip");
     [].forEach.call(chips,function(c,i){ c.style.setProperty("--i", i); });
-    var srcEl=inner.querySelector(".src");
+    var srcEl=inner.querySelector(".src"), det=inner.querySelector("details.how");
     if(srcEl) srcEl.style.setProperty("--n", chips.length);
+    if(det) det.style.setProperty("--n", chips.length);
 
     var wrap=document.createElement("div");
     wrap.className="reveal"; wrap.tabIndex=0; wrap.setAttribute("role","button");
@@ -564,21 +608,18 @@ footer p+p{margin-top:10px}
 
     var open=false,down=false,startX=0,lastX=0,lastT=0,vel=0,moved=0,pct=0,raf=0,target=0;
     function draw(){ raf=0; veil.style.transform="translate3d("+target+"%,0,0)"; }
-    function set(p){ target=Math.max(0,Math.min(102,p)); if(!raf) raf=requestAnimationFrame(draw); }
+    function set(p){ target=Math.max(0,Math.min(103,p)); if(!raf) raf=requestAnimationFrame(draw); }
     function finish(){
       if(open) return; open=true; done++;
       if(raf){ cancelAnimationFrame(raf); raf=0; }
       wrap.classList.remove("dragging");
       veil.style.transform="";
       wrap.classList.add("done","flash");
-      setTimeout(function(){ wrap.classList.remove("flash"); },600);
-      wrap.setAttribute("aria-label","Revealed"); wrap.removeAttribute("tabindex");
+      setTimeout(function(){ wrap.classList.remove("flash"); },650);
+      wrap.setAttribute("aria-label","Answered"); wrap.removeAttribute("tabindex");
       count(true);
     }
-    function reset(){
-      wrap.classList.remove("dragging");
-      veil.style.transform="";
-    }
+    function reset(){ wrap.classList.remove("dragging"); veil.style.transform=""; }
     wrap.addEventListener("pointerdown",function(e){
       if(open) return;
       down=true; moved=0; pct=0; vel=0;
