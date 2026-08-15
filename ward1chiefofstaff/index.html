@@ -205,24 +205,7 @@ details.how[open] .howbody{animation:drop .28s cubic-bezier(.2,.9,.25,1)}
 .payoff p{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
   font-size:clamp(21px,5.6vw,32px);line-height:1.02;color:#fff;text-shadow:0 3px 0 rgba(48,8,60,.22)}
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:center;font-size:12.5px;color:var(--muted)}
-.punch{margin-top:26px;padding:26px;border:3px solid var(--yellow);border-radius:14px;background:var(--panel)}
-.punch p{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
-  font-size:clamp(20px,5.4vw,31px);line-height:1.04;color:var(--yellow)}
-.punch .sub{font-family:system-ui,sans-serif;text-transform:none;font-size:15.5px;font-weight:400;
-  color:var(--ink);margin-top:13px;line-height:1.5}
 
-.dilemma{background:var(--panel);padding:56px 0 60px}
-.dl{margin-top:30px}
-.dl-i{border-top:2px solid var(--rule);padding:22px 0}
-.dl-i .k{font-family:Anton,Impact,sans-serif;font-size:20px;letter-spacing:.08em;text-transform:uppercase;
-  color:var(--hot);display:block;margin-bottom:9px}
-.dl-i .t{font-size:clamp(19px,4.6vw,25px);font-weight:700;line-height:1.3}
-.dl-i .s{font-size:15px;color:var(--muted);margin-top:9px;line-height:1.55;max-width:60ch}
-.dl-end{border-top:3px solid var(--yellow);margin-top:8px;padding-top:24px;
-  font-family:Anton,Impact,sans-serif;text-transform:uppercase;
-  font-size:clamp(21px,5.4vw,32px);line-height:1.04;color:var(--yellow)}
-.dl-end span{display:block;font-family:system-ui,sans-serif;text-transform:none;font-size:15px;
-  font-weight:400;color:var(--muted);margin-top:12px;line-height:1.55}
 
 .facts{margin-top:28px;border-top:3px solid var(--yellow)}
 .f{padding:20px 0;border-bottom:1px solid var(--rule)}
@@ -234,6 +217,13 @@ details.how[open] .howbody{animation:drop .28s cubic-bezier(.2,.9,.25,1)}
 .ask .eyebrow{color:#3B0F45}
 .ask h2{color:#fff;text-shadow:0 4px 0 rgba(48,8,60,.22)}
 .ask .deck{color:#3B0F45;font-weight:500}
+.cbox{margin-top:26px;border:2px solid var(--rule);border-radius:12px;background:var(--panel);overflow:hidden}
+summary.csum{list-style:none;cursor:pointer;padding:16px 18px;display:flex;align-items:center;gap:12px;
+  font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:17px;letter-spacing:.04em;color:var(--yellow)}
+summary.csum::-webkit-details-marker{display:none}
+summary.csum .cv{margin-left:auto;flex:none;transition:transform .22s cubic-bezier(.2,.9,.25,1)}
+.cbox[open] summary.csum .cv{transform:rotate(180deg)}
+.cbox .facts{margin-top:0;border-top:1px solid var(--rule);padding:4px 18px 8px}
 .timing{margin-top:16px;padding:15px 17px;background:rgba(30,7,38,.86);border-radius:12px;
   font-size:14.5px;line-height:1.55;color:#F0E4FF;max-width:62ch}
 .timing b{color:var(--yellow)}
@@ -286,17 +276,20 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
 .pstmt b{color:var(--yellow);font-weight:400}
 .pkick{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
   letter-spacing:.18em;text-transform:uppercase;color:var(--yellow);margin-bottom:20px}
-.cmp{display:grid;gap:26px;margin-top:6px}
-.cmp .row .rl{font-size:15px;color:#9C8FB8;margin-bottom:5px}
-.cmp .row .rv{font-family:Anton,Impact,sans-serif;font-size:clamp(46px,13.5vw,92px);
-  line-height:.9;color:#fff;letter-spacing:.01em}
-.cmp .row.hot .rv{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.cmp .row .rn{font-size:13px;color:#6F6489;margin-top:8px;font-family:ui-monospace,Menlo,monospace}
-.xbig{margin-top:34px;padding-top:26px;border-top:3px solid #241738}
-.xbig .n{font-family:Anton,Impact,sans-serif;font-size:clamp(64px,20vw,150px);line-height:.84;
+.mrow{display:flex;align-items:baseline;justify-content:space-between;gap:16px;
+  padding:14px 0;border-bottom:1px solid #241738}
+.mrow .ml{font-size:15px;color:#9C8FB8}
+.mrow .mv{font-family:Anton,Impact,sans-serif;font-size:clamp(30px,8.4vw,54px);line-height:.9;
+  color:#fff;letter-spacing:.01em;white-space:nowrap}
+.mrow.hot .mv{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.mcite{font-family:ui-monospace,Menlo,monospace;font-size:11px;color:#6F6489;margin-top:10px;line-height:1.5}
+.xbig{margin-top:22px;padding-top:20px;border-top:3px solid #241738;display:flex;align-items:baseline;gap:16px;flex-wrap:wrap}
+.xbig .n{font-family:Anton,Impact,sans-serif;font-size:clamp(48px,15vw,110px);line-height:.82;
   background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
-.xbig .t{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(19px,5vw,32px);
-  color:#fff;line-height:1.04;margin-top:10px}
+.xbig .t{font-size:14.5px;color:#9C8FB8;max-width:22ch;line-height:1.4}
+.seatq{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
+  font-size:clamp(26px,7.2vw,52px);line-height:1.02;color:var(--yellow);margin-top:22px}
+.seatq-s{font-size:15px;color:#B3A3D0;line-height:1.55;margin-top:12px;max-width:46ch}
 .chev{position:absolute;left:0;right:0;z-index:5;display:flex;justify-content:center;
   bottom:calc(env(safe-area-inset-bottom,0px) + 76px)}
 @media(min-width:760px){.chev{bottom:calc(env(safe-area-inset-bottom,0px) + 40px)}}
@@ -330,22 +323,15 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
 <section class="panel p-black" id="p2">
   <div class="shell">
     <p class="pkick">The math</p>
-    <div class="cmp">
-      <div class="row">
-        <p class="rl">The Ward 1 councilmember, elected and salaried</p>
-        <p class="rv">$24,215</p>
-        <p class="rn">Per year. Code of Ordinances Sec. 2-27(b).</p>
-      </div>
-      <div class="row hot">
-        <p class="rl">The Chief of Staff the council is voting on</p>
-        <p class="rv">$72,799.92</p>
-        <p class="rn">Per year. $6,066.66 a month. Contract Sec. 3, packet p. 217.</p>
-      </div>
-    </div>
+    <div class="mrow"><span class="ml">The Ward 1 councilmember</span><span class="mv">$24,215</span></div>
+    <div class="mrow hot"><span class="ml">The Chief of Staff</span><span class="mv">$72,799.92</span></div>
+    <p class="mcite">Per year. Code of Ordinances Sec. 2-27(b); Contract Sec. 3, packet p. 217.</p>
     <div class="xbig">
       <p class="n">3x</p>
       <p class="t">The staffer costs three times the elected official.</p>
     </div>
+    <p class="seatq">So what is the seat for?</p>
+    <p class="seatq-s">Either this work is already being done and we are buying it twice, or the seat cannot carry the job the voters elected it to do. Neither is worth $291,199.68.</p>
   </div>
   <div class="chev"><button type="button" data-to="p3">Keep going<svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg></button></div>
 </section>
@@ -415,7 +401,7 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
           <div class="chips"><span class="chip nobody">No one</span></div>
           <span class="src">The only part of the job with no existing owner.</span>
           <details class="how"><summary class="hows">How a working city handles it<svg class="cv" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
-          <div class="howbody">With a calendar. Every other elected official in this city keeps their own schedule, and the tools to do it are free. This is the one line on the list with no existing owner, and it is also the one line nobody would argue is worth a salary.</div></details>
+          <div class="howbody">With a calendar. Google Calendar is free. Every other elected official in this city keeps their own schedule, and the tools to do it cost nothing. This is the one thing on the whole list that is nobody’s job, and it is also the one nobody would argue is worth $72,799.92 a year.</div></details>
         </div>
       </div>
 
@@ -539,10 +525,6 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
       <span><span class="chip nobody">No one</span> no existing owner</span>
     </div>
 
-    <div class="punch">
-      <p>One thing on the whole list is nobody&rsquo;s job: keeping the calendar.</p>
-      <p class="sub">Google Calendar is free. Whatever the answer to scheduling is, it is not $72,799.92 a year.</p>
-    </div>
   </div>
 </section>
 
@@ -566,7 +548,9 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
   <div class="shell">
     <div class="gbar"></div>
     <h2>Three more things <span class="q">worth knowing</span></h2>
-    <div class="facts">
+    <details class="cbox">
+      <summary class="csum">Open them<svg class="cv" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 9l7 7 7-7"/></svg></summary>
+      <div class="facts">
       <div class="f">
         <p class="ft">It is on the consent agenda.</p>
         <p class="fs">Section 8 of Monday's agenda is Consent. Section 9 is Regular Business. This is item 8.C, in section 8, which means it passes inside a block vote with no discussion unless a councilmember pulls it out.</p>
@@ -579,30 +563,8 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
         <p class="ft">The city pays for it and cannot direct it.</p>
         <p class="fs">The contract says the contractor <q>shall not be subject to the direction or supervision of any other elected official, City officer, department, employee, board, commission, or authority.</q> The charter gives the city manager <q>administrative control over all regular departments and divisions of the City of College Park.</q> Exhibit A (h), packet p. 226; Charter Sec. 4-7(c).</p>
       </div>
-    </div>
-  </div>
-</section>
-
-<section class="dilemma">
-  <div class="shell">
-    <div class="gbar"></div>
-    <p class="eyebrow">The question underneath all of this</p>
-    <h2>If the seat needs <span class="q">$72,800</span> of help, what is the seat for?</h2>
-    <div class="dl">
-      <div class="dl-i">
-        <span class="k">Either</span>
-        <p class="t">This work is already being done by people the city employs.</p>
-        <p class="s">In which case we are buying it twice, and the council owes the public an explanation of what the second purchase adds.</p>
       </div>
-      <div class="dl-i">
-        <span class="k">Or</span>
-        <p class="t">Whoever holds the seat cannot carry the job the voters elected them to do.</p>
-        <p class="s">In which case the problem is not a staffing shortage, and hiring someone at three times the salary of the office does not fix it.</p>
-      </div>
-    </div>
-    <p class="dl-end">Both answers are a problem. Neither is worth $291,199.68.
-      <span>Voters hired one person to represent Ward 1. Nobody voted for a Chief of Staff, and no one at the city is permitted to supervise the position once it exists.</span>
-    </p>
+    </details>
   </div>
 </section>
 
@@ -747,22 +709,56 @@ html{scroll-behavior:smooth;scroll-snap-type:y proximity}
 })();
 
 (function(){
+  var root=document.documentElement, tween=null;
+
+  function stop(){
+    if(tween){ cancelAnimationFrame(tween.raf); clearTimeout(tween.guard); restore(tween); tween=null; }
+  }
+  function restore(t){
+    root.style.scrollSnapType=t.snap;
+    root.style.scrollBehavior=t.behav;
+  }
+  ["wheel","touchstart","keydown"].forEach(function(ev){
+    window.addEventListener(ev,stop,{passive:true});
+  });
+
   function goTo(el){
     if(!el) return;
-    var y=el.getBoundingClientRect().top+window.pageYOffset;
-    var start=window.pageYOffset;
-    try{ window.scrollTo({top:y,behavior:"smooth"}); }
-    catch(err){ window.scrollTo(0,y); }
-    // hard fallback: if smooth scrolling never engaged, jump
-    setTimeout(function(){
-      if(Math.abs(window.pageYOffset-start)<4 && Math.abs(window.pageYOffset-y)>8){
-        var d=document.documentElement, prev=d.style.scrollBehavior;
-        d.style.scrollBehavior="auto";
-        window.scrollTo(0,y);
-        d.style.scrollBehavior=prev;
+    stop();
+    var from=window.pageYOffset;
+    var to=Math.round(el.getBoundingClientRect().top+from);
+    var max=Math.max(0,root.scrollHeight-window.innerHeight);
+    if(to>max) to=max;
+    if(Math.abs(to-from)<2) return;
+
+    var reduce=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    var t={snap:root.style.scrollSnapType, behav:root.style.scrollBehavior, raf:0};
+    // snap and native smooth both re-target a scroll in flight, which reads as a
+    // blink that goes nowhere. Both are switched off while we drive it ourselves.
+    root.style.scrollSnapType="none";
+    root.style.scrollBehavior="auto";
+
+    if(reduce){ window.scrollTo(0,to); restore(t); return; }
+
+    var dur=Math.min(700,Math.max(320,Math.abs(to-from)*0.6)), t0=0;
+    tween=t;
+    // if the frame loop never ticks (throttled tab, stalled compositor) just jump
+    t.guard=setTimeout(function(){
+      if(tween===t && Math.abs(window.pageYOffset-from)<3){
+        cancelAnimationFrame(t.raf); window.scrollTo(0,to); restore(t); tween=null;
       }
-    },520);
+    },350);
+    function frame(now){
+      if(!t0) t0=now;
+      var p=Math.min(1,(now-t0)/dur);
+      var e=p<0.5 ? 4*p*p*p : 1-Math.pow(-2*p+2,3)/2;   // easeInOutCubic
+      window.scrollTo(0,Math.round(from+(to-from)*e));
+      if(p<1){ t.raf=requestAnimationFrame(frame); }
+      else{ clearTimeout(t.guard); window.scrollTo(0,to); restore(t); tween=null; }
+    }
+    t.raf=requestAnimationFrame(frame);
   }
+
   document.querySelectorAll(".chev button").forEach(function(b){
     b.addEventListener("click",function(e){
       e.preventDefault();
