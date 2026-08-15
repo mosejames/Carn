@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Ward 1 Chief of Staff</title>
-<meta name="description" content="Three Ward 1 staff contracts in four months, all on the consent agenda, all on the same budget line. $105,527 a year for an office whose elected head is paid $24,215.">
-<meta property="og:title" content="Three contracts. One ward. Four months.">
-<meta property="og:description" content="College Park Ward 1 is on its third staff contract since April. Combined, $105,527 a year. The councilmember's own salary is $24,215.">
+<meta name="description" content="College Park votes Monday on a $72,800 a year Chief of Staff for Ward 1. Almost everything in the job description is already somebody's job.">
+<meta property="og:title" content="A $72,800 job the city is already doing">
+<meta property="og:description" content="College Park votes Monday on a Chief of Staff for Ward 1. Of the nine parts of the job description, one thing has no existing owner: the calendar.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cpmoneytrail.com/ward1chiefofstaff/">
 <meta property="og:image" content="https://cpmoneytrail.com/ward1chiefofstaff/chamber.jpg">
@@ -15,7 +15,7 @@
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23101720'/%3E%3Crect x='12' y='40' width='40' height='8' fill='%231F4FD8'/%3E%3Crect x='12' y='20' width='14' height='8' fill='%23EDEFF2'/%3E%3C/svg%3E">
 <style>
 :root{
-  --ground:#EDEFF2;--ink:#101720;--muted:#5B6675;--rule:#CFD5DD;--surface:#FFFFFF;
+  --ground:#EDEFF2;--ink:#101720;--muted:#5B6675;--rule:#CFD5DD;
   --accent:#1F4FD8;--band:#101720;--band-muted:#9BA7B6;--band-rule:#2A3442;--band-accent:#7FA0F5;
 }
 *{box-sizing:border-box}
@@ -23,18 +23,17 @@ body{margin:0;background:var(--ground);color:var(--ink);
  font-family:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
  font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased;overflow-x:hidden}
 .mono{font-family:ui-monospace,SFMono-Regular,"SF Mono",Menlo,Consolas,monospace;font-variant-numeric:tabular-nums}
-.shell{max-width:920px;margin:0 auto;padding:0 20px}
+.shell{max-width:900px;margin:0 auto;padding:0 20px}
 h1,h2{margin:0;text-wrap:balance}
 p{margin:0}
 a:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .eyebrow{font-family:ui-monospace,Menlo,monospace;font-size:11.5px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--accent)}
 
-/* hero */
 .hero{padding:44px 0 0}
-h1{font-size:clamp(42px,10vw,80px);font-weight:800;letter-spacing:-.04em;line-height:.98;margin:14px 0 16px}
-.lede{font-size:clamp(17px,4vw,20px);color:var(--muted);max-width:52ch}
-.bars{margin:40px 0 0;border-top:1px solid var(--rule);padding-top:28px}
-.bar{margin-bottom:22px}
+h1{font-size:clamp(40px,9.4vw,76px);font-weight:800;letter-spacing:-.04em;line-height:1;margin:14px 0 16px}
+.lede{font-size:clamp(17px,4vw,20px);color:var(--muted);max-width:54ch}
+.bars{margin:38px 0 0;border-top:1px solid var(--rule);padding-top:26px}
+.bar{margin-bottom:20px}
 .bar .lab{display:flex;justify-content:space-between;align-items:baseline;gap:12px;margin-bottom:7px}
 .bar .who{font-size:14.5px;font-weight:600}
 .bar .amt{font-family:ui-monospace,Menlo,monospace;font-weight:600;font-size:clamp(16px,4vw,20px)}
@@ -46,49 +45,35 @@ h1{font-size:clamp(42px,10vw,80px);font-weight:800;letter-spacing:-.04em;line-he
 .ratio{font-family:ui-monospace,Menlo,monospace;font-weight:600;font-size:clamp(28px,7vw,42px);color:var(--accent);letter-spacing:-.03em;margin-top:4px}
 .ratio span{font-family:system-ui,sans-serif;font-size:15px;font-weight:400;color:var(--muted);display:block;letter-spacing:0;margin-top:4px}
 
-section{padding:58px 0}
+section{padding:56px 0}
 h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-height:1.05}
 .deck{color:var(--muted);max-width:58ch;margin-top:12px;font-size:16.5px}
 
-/* timeline band */
-.band{background:var(--band);color:var(--ground);padding:52px 0 56px}
-.band h2{color:#fff}
-.band .deck{color:var(--band-muted)}
-.band .eyebrow{color:var(--band-accent)}
-.tl{margin-top:32px;display:grid;gap:0}
-.tl-i{display:grid;grid-template-columns:96px 1fr;gap:16px;padding:18px 0;border-top:1px solid var(--band-rule);align-items:start}
-@media(max-width:620px){.tl-i{grid-template-columns:1fr;gap:6px}}
-.tl-d{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;font-weight:600;color:var(--band-accent);letter-spacing:.04em;padding-top:3px}
-.tl-t{font-size:17px;font-weight:600;color:#fff}
-.tl-m{font-family:ui-monospace,Menlo,monospace;font-size:14px;color:#fff;margin-top:4px}
-.tl-s{font-size:13.5px;color:var(--band-muted);margin-top:5px}
-.tl-total{border-top:2px solid var(--band-accent);margin-top:6px;padding-top:18px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px;align-items:baseline}
-.tl-total .l{font-size:15px;color:#fff;font-weight:600;max-width:36ch}
-.tl-total .v{font-family:ui-monospace,Menlo,monospace;font-size:clamp(22px,5.5vw,32px);font-weight:600;color:var(--band-accent)}
-
-/* question block */
-.qs{margin-top:30px;display:grid;gap:0}
-.q{border-top:1px solid var(--rule);padding:18px 0;font-size:clamp(18px,4.4vw,23px);font-weight:600;letter-spacing:-.015em;line-height:1.3}
-.q span{display:block;font-size:14.5px;font-weight:400;color:var(--muted);margin-top:7px;letter-spacing:0;line-height:1.5;max-width:62ch}
-
-/* overlap compact */
-.ov{margin-top:28px;display:grid;gap:0;border-top:2px solid var(--ink)}
-.ov-r{display:grid;gap:4px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.ov{margin-top:28px;border-top:2px solid var(--ink)}
+.ovh{display:none}
+@media(min-width:720px){
+  .ovh{display:grid;grid-template-columns:30px 1fr 1fr;gap:18px;padding:10px 0;
+    font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.12em;
+    text-transform:uppercase;color:var(--muted);border-bottom:1px solid var(--rule)}
+}
+.ov-r{display:grid;gap:4px;padding:15px 0;border-bottom:1px solid var(--rule)}
 @media(min-width:720px){.ov-r{grid-template-columns:30px 1fr 1fr;gap:18px;align-items:baseline}}
 .ov-r .l{font-family:ui-monospace,Menlo,monospace;font-size:12px;font-weight:600;color:var(--accent)}
-.ov-r .n{font-weight:600;font-size:15.5px}
+.ov-r .n{font-weight:600;font-size:15.5px;line-height:1.35}
 .ov-r .o{font-size:14.5px;color:var(--muted)}
 .ov-r.none{background:rgba(31,79,216,.09);padding-left:12px;padding-right:12px}
 .ov-r.none .o{color:var(--accent);font-weight:600}
-.punch{margin-top:26px;padding:22px;background:var(--ink);color:#fff}
-.punch p{font-size:clamp(17px,4.2vw,22px);font-weight:600;line-height:1.35;letter-spacing:-.015em}
-.punch .sub{font-size:14.5px;font-weight:400;color:var(--band-muted);margin-top:10px;letter-spacing:0}
 
-.pull{margin-top:30px;border-left:4px solid var(--accent);padding:4px 0 4px 20px}
-.pull p{font-size:clamp(16px,3.9vw,19px);font-weight:600;line-height:1.4}
-.pull cite{font-family:ui-monospace,Menlo,monospace;font-style:normal;font-size:12px;color:var(--muted);display:block;margin-top:10px}
+.punch{margin-top:26px;padding:24px;background:var(--ink);color:#fff}
+.punch p{font-size:clamp(18px,4.4vw,24px);font-weight:600;line-height:1.3;letter-spacing:-.02em}
+.punch .sub{font-size:15px;font-weight:400;color:var(--band-muted);margin-top:12px;letter-spacing:0;line-height:1.5}
 
-/* ask */
+.facts{margin-top:30px;display:grid;gap:0;border-top:2px solid var(--ink)}
+.f{padding:18px 0;border-bottom:1px solid var(--rule)}
+.f .ft{font-size:clamp(17px,4.2vw,21px);font-weight:600;letter-spacing:-.015em;line-height:1.3}
+.f .fs{font-size:14.5px;color:var(--muted);margin-top:7px;line-height:1.5;max-width:64ch}
+.f q{quotes:"\201C" "\201D"}
+
 .ask{background:var(--band);color:var(--ground);padding:52px 0 56px}
 .ask h2{color:#fff}.ask .deck{color:var(--band-muted)}.ask .eyebrow{color:var(--band-accent)}
 .asks{list-style:none;padding:0;margin:30px 0 0;counter-reset:a}
@@ -109,152 +94,109 @@ footer p+p{margin-top:10px}
 
 <header class="hero">
   <div class="shell">
-    <p class="eyebrow">cpmoneytrail.com / Ward 1 / Consent Item 8.C / August 17, 2026</p>
-    <h1>Three contracts. One ward. Four months.</h1>
-    <p class="lede">College Park is voting Monday on a $72,800 a year Chief of Staff for Ward 1. It is the third staff contract for that one office since April, and it is on the consent agenda, which means it passes in a block with no discussion.</p>
+    <p class="eyebrow">cpmoneytrail.com / Consent Item 8.C / Monday, August 17, 2026</p>
+    <h1>A $72,800 job the city is already doing.</h1>
+    <p class="lede">College Park votes Monday on a Chief of Staff for the Ward 1 council office. Read the job description against what the city already pays people to do, and almost nothing is left over.</p>
 
     <div class="bars">
       <div class="bar">
         <div class="lab"><span class="who">The Ward 1 councilmember, elected and salaried</span><span class="amt">$24,215</span></div>
-        <div class="track"><div class="fill" style="width:23%"></div></div>
+        <div class="track"><div class="fill" style="width:33%"></div></div>
         <span class="note">Per year. Code of Ordinances Sec. 2-27(b).</span>
       </div>
       <div class="bar big">
-        <div class="lab"><span class="who">Ward 1 staff contracts, if both current ones run</span><span class="amt">$105,527</span></div>
+        <div class="lab"><span class="who">The Chief of Staff the council is voting on</span><span class="amt">$72,799.92</span></div>
         <div class="track"><div class="fill" style="width:100%"></div></div>
-        <span class="note">Per year. Chief of Staff $72,799.92 plus Events Coordinator $32,727.24.</span>
+        <span class="note">Per year. $6,066.66 a month. Contract Sec. 3, packet p. 217.</span>
       </div>
-      <p class="ratio">4.4x<span>The staff costs four and a half times the elected official.</span></p>
+      <p class="ratio">3x<span>The staffer costs three times the elected official.</span></p>
     </div>
   </div>
 </header>
 
-<section class="band">
-  <div class="shell">
-    <p class="eyebrow">The run</p>
-    <h2>April to August, on the same budget line.</h2>
-    <p class="deck">Every one of these went on the consent agenda. Every one came out of G/L 100-1100-52-6170. Every one was requested by the same office.</p>
-
-    <div class="tl">
-      <div class="tl-i">
-        <div class="tl-d">Apr 20</div>
-        <div>
-          <div class="tl-t">Ward 1 Legislative Aide</div>
-          <div class="tl-m">amount not stated on the agenda</div>
-          <div class="tl-s">Professional Services Agreement. Consent item 9.A.</div>
-        </div>
-      </div>
-      <div class="tl-i">
-        <div class="tl-d">Aug 3</div>
-        <div>
-          <div class="tl-t">Legislative Events &amp; Community Engagement Coordinator</div>
-          <div class="tl-m">$2,727.27 / month, $32,727.24 / year</div>
-          <div class="tl-s">Consent item 9.A. Fourteen days before the next one.</div>
-        </div>
-      </div>
-      <div class="tl-i">
-        <div class="tl-d">Aug 17</div>
-        <div>
-          <div class="tl-t">Legislative Manager / Chief of Staff</div>
-          <div class="tl-m">$6,066.66 / month, $72,799.92 / year</div>
-          <div class="tl-s">Consent item 8.C. Auto renews three more years to $291,199.68.</div>
-        </div>
-      </div>
-      <div class="tl-total">
-        <span class="l">One ward office. One hundred and nineteen days.</span>
-        <span class="v">$105,527 / year</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section>
   <div class="shell">
-    <p class="eyebrow">The question nobody has answered</p>
-    <h2>What did the city get?</h2>
-    <div class="qs">
-      <div class="q">Ward 1 ran for decades without any of this.
-        <span>Ambrose Clay held the seat until the end of 2023. In the city's published agendas, no Ward 1 staff contract appears before 2026.</span>
+    <p class="eyebrow">The job description</p>
+    <h2>So what does it actually do?</h2>
+    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Here is each one, and who is already responsible for it today.</p>
+
+    <div class="ov">
+      <div class="ovh"><div>Part</div><div>What the contract says it does</div><div>Who already does it</div></div>
+      <div class="ov-r">
+        <div class="l mono">(a)</div>
+        <div class="n">Runs the council office and advises the councilmember</div>
+        <div class="o">The councilmember. The office has one elected head. Charter Sec. 1-3.</div>
       </div>
-      <div class="q">Nobody has said what the April aide cost.
-        <span>The April 20 agenda lists the contract with no dollar figure at all. Four months later it is being replaced.</span>
+      <div class="ov-r">
+        <div class="l mono">(b)</div>
+        <div class="n">Budget planning, procurement coordination, records management</div>
+        <div class="o">Finance and Accounting, Procurement, the City Clerk. Charter Sec. 4-7; Code Secs. 2-3(b), 2-102.</div>
       </div>
-      <div class="q">Nobody has said what any of it produced.
-        <span>No report, no measure, no before and after has come to council with these renewals.</span>
+      <div class="ov-r none">
+        <div class="l mono">(b)</div>
+        <div class="n">Scheduling and calendar management</div>
+        <div class="o">Nobody. This is the only part with no existing owner.</div>
       </div>
-      <div class="q">Nobody has said why the city's own departments cannot do it.
-        <span>College Park staffs Procurement, Finance, the City Clerk, Customer Service, and Strategic Communications and Public Information right now.</span>
+      <div class="ov-r">
+        <div class="l mono">(c)</div>
+        <div class="n">Researches policy and drafts ordinances and resolutions</div>
+        <div class="o">The councilmember. Passing ordinances is the office itself. Charter Sec. 1-3.</div>
       </div>
+      <div class="ov-r">
+        <div class="l mono">(d)</div>
+        <div class="n">Sets and manages strategic priorities and special projects</div>
+        <div class="o">The councilmember. Setting ward priorities is what the seat is for.</div>
+      </div>
+      <div class="ov-r">
+        <div class="l mono">(e)</div>
+        <div class="n">Coordinates vendors, reviews invoices, administers contracts</div>
+        <div class="o">The City Manager, Procurement, Finance. Charter Sec. 4-7(i) and (j).</div>
+      </div>
+      <div class="ov-r">
+        <div class="l mono">(f)</div>
+        <div class="n">Town halls, community meetings, constituent communications</div>
+        <div class="o">The councilmember, Strategic Communications, Customer Service. Code Sec. 2-76(s).</div>
+      </div>
+      <div class="ov-r">
+        <div class="l mono">(g)</div>
+        <div class="n">Relations with departments, agencies, and business leaders</div>
+        <div class="o">The councilmember, the City Manager, Economic Development. Charter Sec. 4-7.</div>
+      </div>
+      <div class="ov-r">
+        <div class="l mono">(h)</div>
+        <div class="n">Reports only to her. No city officer may supervise him.</div>
+        <div class="o">Not a service. This part buys the city nothing.</div>
+      </div>
+      <div class="ov-r">
+        <div class="l mono">(i)</div>
+        <div class="n">Whatever else the councilmember asks for</div>
+        <div class="o">Not a service. An open ended clause.</div>
+      </div>
+    </div>
+
+    <div class="punch">
+      <p>Out of the entire job description, one thing has no existing owner: keeping the calendar.</p>
+      <p class="sub">Google Calendar is free. Whatever the answer to scheduling is, it is not $72,799.92 a year.</p>
     </div>
   </div>
 </section>
 
 <section style="padding-top:0">
   <div class="shell">
-    <h2>Line by line, this work already has an owner</h2>
-    <p class="deck">Exhibit A of the contract has nine lettered subsections. Seven are services. Here is who holds each one today.</p>
-
-    <div class="ov">
-      <div class="ov-r">
-        <div class="l mono">(a)</div>
-        <div class="n">Executive leadership of the office</div>
-        <div class="o">The councilmember, and the City Clerk</div>
+    <h2>Three more things worth knowing</h2>
+    <div class="facts">
+      <div class="f">
+        <p class="ft">It is on the consent agenda.</p>
+        <p class="fs">Section 8 of Monday's agenda is Consent. Section 9 is Regular Business. This is item 8.C, in section 8, which means it passes inside a block vote with no discussion unless a councilmember pulls it out.</p>
       </div>
-      <div class="ov-r">
-        <div class="l mono">(b)</div>
-        <div class="n">Office management: budget, procurement, records</div>
-        <div class="o">Finance, Procurement, City Clerk</div>
+      <div class="f">
+        <p class="ft">One vote authorizes four years and $291,199.68.</p>
+        <p class="fs">The agreement runs to August 31, 2027, then renews itself for up to three more years unless somebody sends a letter stopping it. No stated notice window. No future council vote required. Contract Sec. 2, packet p. 217.</p>
       </div>
-      <div class="ov-r none">
-        <div class="l mono">(b)</div>
-        <div class="n">Scheduling and calendar management</div>
-        <div class="o">Nobody</div>
+      <div class="f">
+        <p class="ft">The city pays for it and cannot direct it.</p>
+        <p class="fs">The contract says the contractor <q>shall not be subject to the direction or supervision of any other elected official, City officer, department, employee, board, commission, or authority.</q> The charter gives the city manager <q>administrative control over all regular departments and divisions of the City of College Park.</q> Exhibit A (h), packet p. 226; Charter Sec. 4-7(c).</p>
       </div>
-      <div class="ov-r">
-        <div class="l mono">(c)</div>
-        <div class="n">Legislative research and drafting</div>
-        <div class="o">The councilmember</div>
-      </div>
-      <div class="ov-r">
-        <div class="l mono">(d)</div>
-        <div class="n">Strategic priorities and special projects</div>
-        <div class="o">The councilmember</div>
-      </div>
-      <div class="ov-r">
-        <div class="l mono">(e)</div>
-        <div class="n">Vendor coordination and invoice review</div>
-        <div class="o">City Manager, Procurement, Finance</div>
-      </div>
-      <div class="ov-r">
-        <div class="l mono">(f)</div>
-        <div class="n">Community and constituent engagement</div>
-        <div class="o">The councilmember, Strategic Communications</div>
-      </div>
-      <div class="ov-r">
-        <div class="l mono">(g)</div>
-        <div class="n">Intergovernmental and stakeholder relations</div>
-        <div class="o">The councilmember, City Manager, Economic Development</div>
-      </div>
-      <div class="ov-r">
-        <div class="l mono">(h)</div>
-        <div class="n">Reports only to her, no city officer may supervise</div>
-        <div class="o">Not a service at all</div>
-      </div>
-      <div class="ov-r">
-        <div class="l mono">(i)</div>
-        <div class="n">Whatever else she asks for</div>
-        <div class="o">Not a service at all</div>
-      </div>
-    </div>
-
-    <div class="punch">
-      <p>One task on the entire list has no existing owner: keeping the calendar.</p>
-      <p class="sub">Google Calendar is free. Whatever the answer to Ward 1's scheduling is, it is not $72,799.92 a year.</p>
-    </div>
-
-    <div class="pull">
-      <p>&ldquo;Contractor shall not be subject to the direction or supervision of any other elected official, City officer, department, employee, board, commission, or authority.&rdquo;</p>
-      <cite>Exhibit A (h), packet p. 226. The city pays for the position and cannot direct it.</cite>
     </div>
   </div>
 </section>
@@ -263,25 +205,25 @@ footer p+p{margin-top:10px}
   <div class="shell">
     <p class="eyebrow">Monday night</p>
     <h2>Ask them to pull 8.C from consent.</h2>
-    <p class="deck">Every question below points at a document, so it is hard to answer with a speech.</p>
+    <p class="deck">Every question points at a document, so it is hard to answer with a speech.</p>
     <ol class="asks">
-      <li>What did the city get for the first two contracts?
-        <span class="w">April 20 and August 3, both Ward 1, both consent, both on G/L 100-1100-52-6170. Show the work.</span>
-      </li>
-      <li>Is the Events Coordinator still being paid after Monday?
-        <span class="w">It was approved fourteen days ago at $2,727.27 a month. If it continues, Ward 1 staffing is $105,527 a year.</span>
+      <li>What does this position do that the city is not already paying someone to do?
+        <span class="w">Go down Exhibit A, pages 224 to 226, part by part, and name it.</span>
       </li>
       <li>Which city department was asked whether it could do this work?
-        <span class="w">Name them, and say what they answered.</span>
+        <span class="w">College Park staffs Procurement, Finance and Accounting, the City Clerk, Customer Service, and Strategic Communications and Public Information right now. Name the ones that were asked, and say what they answered.</span>
+      </li>
+      <li>Which city employees will report to this contractor?
+        <span class="w">The council memo says the position provides oversight of staff, contractors, and consultants. Charter Sec. 4-7(c) and (d) reserve hiring, firing, and discipline to the city manager and department heads.</span>
       </li>
       <li>Why is a $291,199.68 contract on the consent agenda?
-        <span class="w">Section 8 is Consent. Section 9 is Regular Business. This is in section 8.</span>
+        <span class="w">Nothing about this is routine. It should be debated in Regular Business and voted on by itself.</span>
       </li>
-      <li>Who supervises this position?
-        <span class="w">Exhibit A (h) puts it outside every city officer. Charter Sec. 4-7(c) gives the city manager control over all departments and divisions.</span>
+      <li>Who supervises the position, and under what authority?
+        <span class="w">Exhibit A (h) places it outside every city officer. Has the city attorney put an opinion in writing? The signature line on packet page 223 is blank.</span>
       </li>
       <li>Does a future council have to vote again to keep paying?
-        <span class="w">Contract Sec. 2 renews it automatically for three more years, with no notice window stated.</span>
+        <span class="w">If the answer is no, then Monday is the only chance the public gets for four years.</span>
       </li>
     </ol>
 
@@ -295,10 +237,10 @@ footer p+p{margin-top:10px}
 
 <footer>
   <div class="shell">
-    <p>Sources, all public: Regular Session agenda and packet, August 17, 2026, item 8.C, packet pp. 215 to 228. Regular Session agendas of August 3, 2026, item 9.A, and April 20, 2026, item 9.A. City of College Park Charter and Code of Ordinances.</p>
-    <p>Who currently holds each area of work is our reading of the contract against the city's published department list and the charter. Every quotation and dollar figure is exact. We could not find a Ward 1 staff contract before 2026 in the agendas we reviewed, and we did not review every agenda.</p>
+    <p>Sources, all public: Regular Session agenda and packet for August 17, 2026, item 8.C, packet pages 215 to 228, including the Council Agenda Memo and Exhibit A, Scope of Services. City of College Park Charter and Code of Ordinances.</p>
+    <p>Every quotation and dollar figure on this page is exact. Who currently holds each part of the work is our reading of the contract against the city's published department list and the charter, and you should check it yourself against the sections cited.</p>
     <p><a href="https://www.collegeparkga.gov/AgendaCenter">Agenda Center</a> &middot; <a href="https://library.municode.com/ga/college_park/codes/code_of_ordinances">Charter and Code</a> &middot; <a href="https://www.collegeparkga.gov/296/Council-Meetings">Meeting details</a></p>
-    <p>This page is about contracts and a public office. It makes no claim about any individual's character or background.</p>
+    <p>This page is about a contract and a public office. It makes no claim about any individual's character or background.</p>
   </div>
 </footer>
 
