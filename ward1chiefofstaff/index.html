@@ -83,35 +83,86 @@ h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 .revealbar{display:none;flex-wrap:wrap;align-items:center;justify-content:space-between;
   gap:12px;margin-top:26px;padding:13px 15px;background:var(--ink);color:#fff}
 .revealbar.on{display:flex}
+.revealbar{position:sticky;top:0;z-index:20;box-shadow:0 6px 18px rgba(16,23,32,.16)}
 .revealall{font:inherit;font-size:14px;font-weight:700;color:var(--ink);background:#fff;
   border:0;padding:10px 18px;border-radius:999px;cursor:pointer;
-  transition:background .12s ease,transform .12s ease}
-.revealall:hover{background:var(--band-accent)}
+  transition:background .14s ease,transform .14s cubic-bezier(.2,.9,.25,1)}
+.revealall:hover{background:var(--band-accent);transform:translateY(-1px)}
 .revealall:active{transform:translateY(1px)}
 .revealall:focus-visible{outline:2px solid var(--band-accent);outline-offset:3px}
-.revealall[disabled]{opacity:.45;cursor:default}
+.revealall[disabled]{opacity:.45;cursor:default;transform:none}
 .tally{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--band-muted)}
-.tally b{color:#fff}
-.reveal{position:relative;touch-action:pan-y;cursor:pointer;border-radius:4px;
+.tally b{color:#fff;transition:color .2s}
+.tally.bump b{animation:bump .34s cubic-bezier(.2,.9,.25,1)}
+@keyframes bump{0%{transform:scale(1)}40%{transform:scale(1.32);color:var(--band-accent)}100%{transform:scale(1)}}
+.tally b{display:inline-block}
+
+.reveal{position:relative;border-radius:5px;touch-action:pan-y;cursor:grab;
   -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
-.reveal.done{-webkit-user-select:text;user-select:text;cursor:default}
-.reveal:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
-.veil{position:absolute;inset:-6px -8px;background:var(--ink);border-radius:4px;
-  display:flex;align-items:center;gap:9px;padding:0 14px;overflow:hidden;
-  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 3px,transparent 3px 9px);
-  clip-path:inset(0 0 0 0);transition:clip-path .06s linear}
-.veil.go{transition:clip-path .32s ease,opacity .32s ease}
+.reveal:active{cursor:grabbing}
+.reveal.done{cursor:default;-webkit-user-select:text;user-select:text}
+.reveal:focus-visible{outline:2px solid var(--accent);outline-offset:5px}
+.vmask{position:absolute;inset:-7px -9px;overflow:hidden;border-radius:5px;pointer-events:none}
+.veil{position:absolute;inset:0;background:var(--ink);
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.06) 0 3px,transparent 3px 9px);
+  display:flex;align-items:center;padding:0 15px;
+  transform:translate3d(0,0,0);will-change:transform;
+  transition:transform .36s cubic-bezier(.16,1,.3,1)}
+.reveal.dragging .veil{transition:none}
+.veil::before{content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(100deg,transparent 32%,rgba(255,255,255,.14) 48%,transparent 64%);
+  transform:translateX(-100%);animation:sheen 3s ease-in-out infinite}
+.veil::after{content:"";position:absolute;left:-2px;top:0;bottom:0;width:3px;
+  background:var(--band-accent);box-shadow:0 0 16px 3px rgba(127,160,245,.8);
+  opacity:0;transition:opacity .1s ease}
+.reveal.dragging .veil::after{opacity:1}
+.reveal.done .veil{transform:translate3d(102%,0,0)}
+@keyframes sheen{0%{transform:translateX(-100%)}58%,100%{transform:translateX(100%)}}
 .veil-txt{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
-  letter-spacing:.14em;text-transform:uppercase;color:#fff;white-space:nowrap;opacity:.85}
-.veil-txt::before{content:"";display:inline-block;width:22px;height:2px;background:var(--band-accent);
-  margin-right:9px;vertical-align:middle}
-.reveal.done .veil{clip-path:inset(0 0 0 100%);opacity:0;pointer-events:none}
-.payoff{margin-top:18px;padding:16px 18px;background:var(--accent);color:#fff;display:none}
-.payoff.on{display:block}
+  letter-spacing:.14em;text-transform:uppercase;color:#fff;white-space:nowrap;
+  display:flex;align-items:center;gap:10px}
+.veil-txt i{display:block;width:20px;height:2px;background:var(--band-accent);
+  animation:nudge 1.5s ease-in-out infinite}
+@keyframes nudge{0%,100%{transform:translateX(0);opacity:.6}50%{transform:translateX(7px);opacity:1}}
+.reveal-inner .chip,.reveal-inner .src{opacity:0}
+.reveal.done .reveal-inner .chip{animation:pop .44s cubic-bezier(.2,.9,.25,1) forwards;
+  animation-delay:calc(var(--i,0)*70ms + 80ms)}
+.reveal.done .reveal-inner .src{animation:pop .44s cubic-bezier(.2,.9,.25,1) forwards;
+  animation-delay:calc(var(--n,1)*70ms + 140ms)}
+@keyframes pop{from{opacity:0;transform:translateY(8px) scale(.96)}to{opacity:1;transform:none}}
+.reveal.flash::after{content:"";position:absolute;inset:-7px -9px;border-radius:5px;
+  pointer-events:none;animation:ring .55s ease-out forwards}
+@keyframes ring{from{box-shadow:0 0 0 0 rgba(31,79,216,.5)}to{box-shadow:0 0 0 16px rgba(31,79,216,0)}}
+.payoff{margin-top:18px;padding:18px 20px;background:var(--accent);color:#fff;display:none}
+.payoff.on{display:block;animation:pop .5s cubic-bezier(.2,.9,.25,1)}
 .payoff p{font-size:clamp(16px,4vw,20px);font-weight:700;line-height:1.35;letter-spacing:-.015em}
 @media (prefers-reduced-motion: reduce){
-  .veil,.veil.go,.revealall{transition:none}
+  .veil,.revealall,.tally b{transition:none;animation:none}
+  .veil::before,.veil-txt i{animation:none}
+  .reveal.done .reveal-inner .chip,.reveal.done .reveal-inner .src{animation:none;opacity:1}
+  .reveal.flash::after,.payoff.on{animation:none}
 }
+/* compact source links */
+.docs{margin-top:26px;border-top:1px solid var(--rule);padding-top:18px}
+.docs .dl{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+a.docbtn{display:inline-flex;align-items:center;gap:12px;text-decoration:none;
+  background:#fff;border:2px solid var(--ink);padding:11px 16px 11px 13px;max-width:100%;
+  transition:background .14s ease,transform .14s cubic-bezier(.2,.9,.25,1)}
+a.docbtn:hover{background:var(--ink);transform:translateY(-1px)}
+a.docbtn:hover .dt,a.docbtn:hover .dm{color:#fff}
+a.docbtn:hover .ico{color:#fff}
+a.docbtn:active{transform:translateY(1px)}
+a.docbtn:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.ico{width:26px;height:26px;flex:none;color:var(--accent);transition:color .14s ease}
+a.docbtn .dt{display:block;font-size:15.5px;font-weight:700;color:var(--ink);
+  letter-spacing:-.01em;line-height:1.25}
+a.docbtn .dm{display:block;font-family:ui-monospace,Menlo,monospace;font-size:11px;
+  color:var(--muted);margin-top:3px;line-height:1.4}
+.doc-row{display:flex;flex-wrap:wrap;gap:6px 18px;margin-top:12px}
+.doc-row a{font-size:12.5px;color:var(--muted);text-decoration:none;border-bottom:1px solid var(--rule)}
+.doc-row a:hover{color:var(--accent);border-bottom-color:var(--accent)}
+
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:center;
   font-size:12.5px;color:var(--muted)}
 .legend .chip{margin-right:2px}
@@ -198,15 +249,16 @@ footer p+p{margin-top:10px}
 
     <div class="docs">
       <p class="dl">Do not take our word for it</p>
-      <a class="doc" href="ward1-chief-of-staff-contract.pdf">
-        <span class="arw">&rarr;</span>
-        <span class="dt">Read item 8.C yourself: the contract and the council memo</span>
-        <span class="dm">PDF, 14 pages. The complete item as it appears in Monday's packet, pages 215 to 228, including Exhibit A, the scope of services quoted on this page.</span>
+      <a class="docbtn" href="ward1-chief-of-staff-contract.pdf">
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.75h4.9L19.25 8.1V17.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-12.75a2 2 0 0 1 2-2z"/><path d="M13.6 2.9v5.4h5.4"/><path d="M4.75 6.5v12.25a2.5 2.5 0 0 0 2.5 2.5h8.25"/></svg>
+        <span>
+          <span class="dt">Read item 8.C yourself</span>
+          <span class="dm">The contract and council memo. PDF, 14 pages.</span>
+        </span>
       </a>
       <div class="doc-row">
-        <a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-502">Monday's full agenda from the city</a>
-        <a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-503">The city's complete packet</a>
-        <span>(122 MB, slow on a phone)</span>
+        <a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-502">Monday's full agenda</a>
+        <a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-503">City's complete packet (122 MB)</a>
       </div>
     </div>
   </div>
@@ -486,71 +538,86 @@ footer p+p{margin-top:10px}
   var bar=document.getElementById("rvbar"), all=document.getElementById("rvall"),
       tally=document.getElementById("rvtally"), payoff=document.getElementById("rvpayoff");
   var cells=[].slice.call(list.querySelectorAll(".o")), total=cells.length, done=0;
-  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var THRESH=45, FLICK=0.55;
 
   bar.hidden=false; bar.classList.add("on");
-  function count(){
-    tally.innerHTML = "<b>"+done+"</b> of <b>"+total+"</b> revealed";
-    if(done>=total){
-      tally.innerHTML = "<b>"+total+"</b> of <b>"+total+"</b> revealed";
-      all.disabled=true; all.textContent="All revealed";
-      payoff.classList.add("on");
-    }
+  function count(bump){
+    tally.innerHTML="<b>"+done+"</b> of <b>"+total+"</b> revealed";
+    if(bump){ tally.classList.remove("bump"); void tally.offsetWidth; tally.classList.add("bump"); }
+    if(done>=total){ all.disabled=true; all.textContent="All revealed"; payoff.classList.add("on"); }
   }
 
   cells.forEach(function(cell){
     var inner=document.createElement("div");
     while(cell.firstChild) inner.appendChild(cell.firstChild);
     inner.className="reveal-inner";
+    var chips=inner.querySelectorAll(".chip");
+    [].forEach.call(chips,function(c,i){ c.style.setProperty("--i", i); });
+    var srcEl=inner.querySelector(".src");
+    if(srcEl) srcEl.style.setProperty("--n", chips.length);
+
     var wrap=document.createElement("div");
     wrap.className="reveal"; wrap.tabIndex=0; wrap.setAttribute("role","button");
     wrap.setAttribute("aria-label","Reveal who already does this");
-    var veil=document.createElement("div");
-    veil.className="veil";
-    veil.innerHTML='<span class="veil-txt">Rub to reveal</span>';
-    wrap.appendChild(inner); wrap.appendChild(veil); cell.appendChild(wrap);
+    var mask=document.createElement("div"); mask.className="vmask";
+    var veil=document.createElement("div"); veil.className="veil";
+    veil.innerHTML='<span class="veil-txt"><i></i>Rub to reveal</span>';
+    mask.appendChild(veil); wrap.appendChild(inner); wrap.appendChild(mask); cell.appendChild(wrap);
 
-    var open=false, down=false, startX=0, moved=0;
+    var open=false,down=false,startX=0,lastX=0,lastT=0,vel=0,moved=0,pct=0,raf=0,target=0;
+    function draw(){ raf=0; veil.style.transform="translate3d("+target+"%,0,0)"; }
+    function set(p){ target=Math.max(0,Math.min(102,p)); if(!raf) raf=requestAnimationFrame(draw); }
     function finish(){
       if(open) return; open=true; done++;
-      veil.classList.add("go"); wrap.classList.add("done");
+      if(raf){ cancelAnimationFrame(raf); raf=0; }
+      wrap.classList.remove("dragging");
+      veil.style.transform="";
+      wrap.classList.add("done","flash");
+      setTimeout(function(){ wrap.classList.remove("flash"); },600);
       wrap.setAttribute("aria-label","Revealed"); wrap.removeAttribute("tabindex");
-      count();
+      count(true);
     }
-    function wipe(pct){
-      if(open) return;
-      if(pct>=62){ finish(); return; }
-      veil.style.clipPath="inset(0 0 0 "+Math.max(0,pct)+"%)";
+    function reset(){
+      wrap.classList.remove("dragging");
+      veil.style.transform="";
     }
     wrap.addEventListener("pointerdown",function(e){
-      if(open) return; down=true; moved=0; startX=e.clientX;
+      if(open) return;
+      down=true; moved=0; pct=0; vel=0;
+      startX=lastX=e.clientX; lastT=e.timeStamp||Date.now();
+      wrap.classList.add("dragging");
       try{ wrap.setPointerCapture(e.pointerId); }catch(err){}
     });
     wrap.addEventListener("pointermove",function(e){
       if(!down||open) return;
+      var t=e.timeStamp||Date.now(), dt=t-lastT;
+      if(dt>0) vel=(e.clientX-lastX)/dt;
+      lastX=e.clientX; lastT=t;
       var d=e.clientX-startX; moved=Math.max(moved,Math.abs(d));
-      wipe(d/wrap.offsetWidth*100);
+      pct=d/wrap.offsetWidth*100;
+      if(pct>=THRESH){ finish(); return; }
+      set(pct);
     });
     function release(){
       if(!down) return; down=false;
       if(open) return;
-      if(moved<8){ finish(); }
-      else { veil.classList.add("go"); veil.style.clipPath="inset(0 0 0 0)";
-             setTimeout(function(){ if(!open) veil.classList.remove("go"); },340); }
+      if(moved<9){ finish(); return; }
+      if(vel>FLICK && pct>12){ finish(); return; }
+      reset();
     }
     wrap.addEventListener("pointerup",release);
     wrap.addEventListener("pointercancel",release);
+    wrap.addEventListener("lostpointercapture",release);
     wrap.addEventListener("keydown",function(e){
       if(e.key==="Enter"||e.key===" "){ e.preventDefault(); finish(); }
     });
     cell._reveal=finish;
-    if(reduce){ /* still interactive, just no easing */ }
   });
 
   all.addEventListener("click",function(){
-    cells.forEach(function(c){ if(c._reveal) c._reveal(); });
+    cells.forEach(function(c,i){ setTimeout(function(){ if(c._reveal) c._reveal(); }, i*85); });
   });
-  count();
+  count(false);
 })();
 </script>
 </body>
