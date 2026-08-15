@@ -79,26 +79,38 @@ h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-h
   .ov-r .l{margin-bottom:0;padding-top:14px}
   .ov-r .o{margin-top:0;padding-top:0;border-top:0}
 }
-/* the switch */
-.switchbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;
-  gap:14px;margin-top:26px;padding:14px 16px;background:var(--ink);color:#fff}
-.sw{display:flex;align-items:center;gap:11px;cursor:pointer;user-select:none}
-.sw input{position:absolute;opacity:0;width:1px;height:1px}
-.sw .track{width:46px;height:26px;border-radius:999px;background:#3A4250;
-  position:relative;flex:none;transition:background .18s ease}
-.sw .knob{position:absolute;top:3px;left:3px;width:20px;height:20px;border-radius:50%;
-  background:#fff;transition:transform .18s ease}
-.sw input:checked + .track{background:var(--accent)}
-.sw input:checked + .track .knob{transform:translateX(20px)}
-.sw input:focus-visible + .track{outline:2px solid var(--band-accent);outline-offset:3px}
-.swlabel{font-size:14.5px;font-weight:600}
-.count{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--band-muted)}
-.count b{color:#fff}
-.ov .o{transition:opacity .2s ease}
-.ov.hide-owners .o{display:none}
-.ov.hide-owners .ov-r.none{background:transparent}
+/* rub to reveal */
+.revealbar{display:none;flex-wrap:wrap;align-items:center;justify-content:space-between;
+  gap:12px;margin-top:26px;padding:13px 15px;background:var(--ink);color:#fff}
+.revealbar.on{display:flex}
+.revealall{font:inherit;font-size:14px;font-weight:700;color:var(--ink);background:#fff;
+  border:0;padding:10px 18px;border-radius:999px;cursor:pointer;
+  transition:background .12s ease,transform .12s ease}
+.revealall:hover{background:var(--band-accent)}
+.revealall:active{transform:translateY(1px)}
+.revealall:focus-visible{outline:2px solid var(--band-accent);outline-offset:3px}
+.revealall[disabled]{opacity:.45;cursor:default}
+.tally{font-family:ui-monospace,Menlo,monospace;font-size:12.5px;color:var(--band-muted)}
+.tally b{color:#fff}
+.reveal{position:relative;touch-action:pan-y;cursor:pointer;border-radius:4px;
+  -webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent}
+.reveal.done{-webkit-user-select:text;user-select:text;cursor:default}
+.reveal:focus-visible{outline:2px solid var(--accent);outline-offset:4px}
+.veil{position:absolute;inset:-6px -8px;background:var(--ink);border-radius:4px;
+  display:flex;align-items:center;gap:9px;padding:0 14px;overflow:hidden;
+  background-image:repeating-linear-gradient(90deg,rgba(255,255,255,.05) 0 3px,transparent 3px 9px);
+  clip-path:inset(0 0 0 0);transition:clip-path .06s linear}
+.veil.go{transition:clip-path .32s ease,opacity .32s ease}
+.veil-txt{font-family:ui-monospace,Menlo,monospace;font-size:11px;font-weight:700;
+  letter-spacing:.14em;text-transform:uppercase;color:#fff;white-space:nowrap;opacity:.85}
+.veil-txt::before{content:"";display:inline-block;width:22px;height:2px;background:var(--band-accent);
+  margin-right:9px;vertical-align:middle}
+.reveal.done .veil{clip-path:inset(0 0 0 100%);opacity:0;pointer-events:none}
+.payoff{margin-top:18px;padding:16px 18px;background:var(--accent);color:#fff;display:none}
+.payoff.on{display:block}
+.payoff p{font-size:clamp(16px,4vw,20px);font-weight:700;line-height:1.35;letter-spacing:-.015em}
 @media (prefers-reduced-motion: reduce){
-  .sw .track,.sw .knob,.ov .o{transition:none}
+  .veil,.veil.go,.revealall{transition:none}
 }
 .legend{display:flex;flex-wrap:wrap;gap:14px;margin-top:22px;align-items:center;
   font-size:12.5px;color:var(--muted)}
@@ -147,6 +159,16 @@ h2{font-size:clamp(27px,6.2vw,40px);font-weight:800;letter-spacing:-.03em;line-h
 .meet .ml{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--band-accent);display:block}
 .meet .mv{font-size:15px;color:#fff;margin-top:4px;display:block;font-weight:600}
 
+.fix{padding:56px 0}
+.fx{margin-top:30px;counter-reset:f;list-style:none;padding:0}
+.fx li{counter-increment:f;position:relative;padding:20px 0 20px 52px;border-top:1px solid var(--rule)}
+.fx li::before{content:counter(f,decimal-leading-zero);position:absolute;left:0;top:21px;
+  font-family:ui-monospace,Menlo,monospace;font-size:14px;font-weight:700;color:var(--accent)}
+.fx .h{font-size:clamp(17px,4.2vw,21px);font-weight:700;letter-spacing:-.015em;line-height:1.3}
+.fx .b{font-size:15px;color:var(--muted);margin-top:8px;line-height:1.55;max-width:64ch}
+.fixnote{margin-top:26px;padding:18px 20px;border:2px solid var(--ink);font-size:clamp(16px,4vw,19px);
+  font-weight:700;letter-spacing:-.015em;line-height:1.35}
+
 footer{padding:38px 0 56px;font-size:13px;color:var(--muted)}
 footer a{color:var(--accent)}
 footer p+p{margin-top:10px}
@@ -194,15 +216,11 @@ footer p+p{margin-top:10px}
   <div class="shell">
     <p class="eyebrow">The job description</p>
     <h2>So what does it actually do?</h2>
-    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Each one is below, in bold, exactly as the contract describes it. Underneath each is who is already responsible for that work today. Flip the switch to strip the page back to the contract alone.</p>
+    <p class="deck">Exhibit A of the contract spells the job out in nine lettered parts. Each one is below, in bold, exactly as the contract describes it. Who is already responsible for that work is hidden underneath. Rub your finger across a black bar to uncover it.</p>
 
-    <div class="switchbar">
-      <label class="sw" for="own">
-        <input type="checkbox" id="own" checked>
-        <span class="track"><span class="knob"></span></span>
-        <span class="swlabel">Show who already does it</span>
-      </label>
-      <p class="count">Only <b>1</b> of these <b>10</b> lines is work nobody already does</p>
+    <div class="revealbar" id="rvbar" hidden>
+      <button type="button" class="revealall" id="rvall">Reveal all</button>
+      <p class="tally" id="rvtally"><b>0</b> of <b>10</b> revealed</p>
     </div>
 
     <div class="ov" id="ovlist">
@@ -327,6 +345,7 @@ footer p+p{margin-top:10px}
         </div>
       </div>
     </div>
+      <div class="payoff" id="rvpayoff"><p>Ten lines. Nine of them already belong to somebody. The tenth is a calendar.</p></div>
       <div class="legend"><span><span class="chip elected">The councilmember</span> the elected office</span><span><span class="chip dept">Department</span> already staffed and funded by the city</span><span><span class="chip nobody">No one</span> no existing owner</span></div>
 
     <div class="punch">
@@ -379,6 +398,42 @@ footer p+p{margin-top:10px}
   </div>
 </section>
 
+
+<section class="fix">
+  <div class="shell">
+    <p class="eyebrow">The fix</p>
+    <h2>What this should look like instead</h2>
+    <p class="deck">None of this is exotic. It is how College Park already hires everybody else who works for the public.</p>
+    <ol class="fx">
+      <li>
+        <p class="h">Make it a job, not a personal contract.</p>
+        <p class="b">If the work is real, create a budgeted position with a public job description, post it, and hire competitively into the city pay plan. The charter has a civil service article for exactly this. A professional services agreement written for one person skips all of it.</p>
+      </li>
+      <li>
+        <p class="h">Put it under the city manager, like every other city employee.</p>
+        <p class="b">Charter Sec. 4-7(c) gives the city manager administrative control over all departments and divisions. Anyone paid by the public should answer to the professional administrator, not to a single politician. That is the whole reason the city has a manager.</p>
+      </li>
+      <li>
+        <p class="h">Share the staff across all four wards.</p>
+        <p class="b">Council wide legislative support is a legitimate need. One or two analysts serving the entire council, available to every member on the same terms, is how that need gets met. Personal staff for one ward at a price nobody else was offered is a different thing.</p>
+      </li>
+      <li>
+        <p class="h">Compete it, so the price gets tested.</p>
+        <p class="b">The city has a Procurement department and a Purchasing Policies Manual, referenced in Code Sec. 2-23(b). Professional services at this value should be solicited in public so the cost is measured against the market instead of set in a memo.</p>
+      </li>
+      <li>
+        <p class="h">Decide it in the budget, in public.</p>
+        <p class="b">If the council wants ward staff, adopt it during the budget process as a policy that applies to all four wards equally, debated in Regular Business. Not one contract at a time, buried on consent.</p>
+      </li>
+      <li>
+        <p class="h">One year, then prove it worked.</p>
+        <p class="b">A single term, with a written report to council on what the position produced before anyone votes to continue it. Not four years of automatic renewal authorized by one vote nobody discussed.</p>
+      </li>
+    </ol>
+    <p class="fixnote">Every one of these is the opposite of what item 8.C does. That is the problem, and it is fixable in a single motion Monday night.</p>
+  </div>
+</section>
+
 <section class="ask">
   <div class="shell">
     <p class="eyebrow">Monday night</p>
@@ -427,10 +482,75 @@ footer p+p{margin-top:10px}
 
 <script>
 (function(){
-  var cb=document.getElementById("own"), ov=document.getElementById("ovlist");
-  if(!cb||!ov) return;
-  function sync(){ ov.classList.toggle("hide-owners", !cb.checked); }
-  cb.addEventListener("change", sync); sync();
+  var list=document.getElementById("ovlist"); if(!list) return;
+  var bar=document.getElementById("rvbar"), all=document.getElementById("rvall"),
+      tally=document.getElementById("rvtally"), payoff=document.getElementById("rvpayoff");
+  var cells=[].slice.call(list.querySelectorAll(".o")), total=cells.length, done=0;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  bar.hidden=false; bar.classList.add("on");
+  function count(){
+    tally.innerHTML = "<b>"+done+"</b> of <b>"+total+"</b> revealed";
+    if(done>=total){
+      tally.innerHTML = "<b>"+total+"</b> of <b>"+total+"</b> revealed";
+      all.disabled=true; all.textContent="All revealed";
+      payoff.classList.add("on");
+    }
+  }
+
+  cells.forEach(function(cell){
+    var inner=document.createElement("div");
+    while(cell.firstChild) inner.appendChild(cell.firstChild);
+    inner.className="reveal-inner";
+    var wrap=document.createElement("div");
+    wrap.className="reveal"; wrap.tabIndex=0; wrap.setAttribute("role","button");
+    wrap.setAttribute("aria-label","Reveal who already does this");
+    var veil=document.createElement("div");
+    veil.className="veil";
+    veil.innerHTML='<span class="veil-txt">Rub to reveal</span>';
+    wrap.appendChild(inner); wrap.appendChild(veil); cell.appendChild(wrap);
+
+    var open=false, down=false, startX=0, moved=0;
+    function finish(){
+      if(open) return; open=true; done++;
+      veil.classList.add("go"); wrap.classList.add("done");
+      wrap.setAttribute("aria-label","Revealed"); wrap.removeAttribute("tabindex");
+      count();
+    }
+    function wipe(pct){
+      if(open) return;
+      if(pct>=62){ finish(); return; }
+      veil.style.clipPath="inset(0 0 0 "+Math.max(0,pct)+"%)";
+    }
+    wrap.addEventListener("pointerdown",function(e){
+      if(open) return; down=true; moved=0; startX=e.clientX;
+      try{ wrap.setPointerCapture(e.pointerId); }catch(err){}
+    });
+    wrap.addEventListener("pointermove",function(e){
+      if(!down||open) return;
+      var d=e.clientX-startX; moved=Math.max(moved,Math.abs(d));
+      wipe(d/wrap.offsetWidth*100);
+    });
+    function release(){
+      if(!down) return; down=false;
+      if(open) return;
+      if(moved<8){ finish(); }
+      else { veil.classList.add("go"); veil.style.clipPath="inset(0 0 0 0)";
+             setTimeout(function(){ if(!open) veil.classList.remove("go"); },340); }
+    }
+    wrap.addEventListener("pointerup",release);
+    wrap.addEventListener("pointercancel",release);
+    wrap.addEventListener("keydown",function(e){
+      if(e.key==="Enter"||e.key===" "){ e.preventDefault(); finish(); }
+    });
+    cell._reveal=finish;
+    if(reduce){ /* still interactive, just no easing */ }
+  });
+
+  all.addEventListener("click",function(){
+    cells.forEach(function(c){ if(c._reveal) c._reveal(); });
+  });
+  count();
 })();
 </script>
 </body>
