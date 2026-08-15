@@ -9,9 +9,9 @@
 <meta property="og:description" content="College Park votes Monday on a $72,800 a year Chief of Staff for Ward 1. Nine of the ten things the contract buys are already somebody's job. The tenth is a calendar.">
 <meta property="og:type" content="article">
 <meta property="og:url" content="https://cpmoneytrail.com/ward1chiefofstaff/">
-<meta property="og:image" content="https://cpmoneytrail.com/ward1chiefofstaff/chamber.jpg">
+<meta property="og:image" content="https://cpmoneytrail.com/ward1chiefofstaff/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:image" content="https://cpmoneytrail.com/ward1chiefofstaff/chamber.jpg">
+<meta name="twitter:image" content="https://cpmoneytrail.com/ward1chiefofstaff/og.png">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%238B2FF8'/%3E%3Cstop offset='.5' stop-color='%23E0219A'/%3E%3Cstop offset='1' stop-color='%23FF8A1E'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='64' height='64' fill='url(%23g)'/%3E%3Ctext x='33' y='49' font-family='Impact,sans-serif' font-size='50' fill='%23FFD93D' text-anchor='middle'%3E?%3C/text%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -80,19 +80,14 @@ h2{font-family:Anton,Impact,sans-serif;text-transform:uppercase;
   font-size:clamp(30px,7.4vw,56px);line-height:.95}
 h2 .q{color:var(--yellow)}
 .deck{color:var(--muted);max-width:58ch;margin-top:14px;font-size:16.5px}
-.srcnote{margin-top:26px;border:2px solid var(--yellow);border-radius:12px;
-  background:var(--panel);padding:18px 19px}
-.srcnote .sn-h{font-family:Anton,Impact,sans-serif;text-transform:uppercase;font-size:clamp(17px,4.4vw,22px);
-  color:var(--yellow);line-height:1.06;margin-bottom:10px}
-.srcnote .sn-b{font-size:15px;line-height:1.6;color:var(--ink)}
-.srcnote .sn-b strong{color:var(--yellow)}
-.srcnote .sn-a{display:inline-flex;align-items:center;gap:8px;margin-top:13px;font-size:13px;
-  font-weight:700;color:var(--yellow);text-decoration:none;border-bottom:2px solid rgba(255,217,61,.4);padding-bottom:2px}
-.srcnote .sn-a:hover{border-bottom-color:var(--yellow)}
+.srcline{margin-top:14px;font-size:14.5px;line-height:1.55;color:var(--muted);max-width:64ch}
+.srcline strong{color:var(--yellow)}
+.srcline a{color:var(--yellow);font-weight:700;text-decoration:none;border-bottom:2px solid rgba(255,217,61,.4);white-space:nowrap}
+.srcline a:hover{border-bottom-color:var(--yellow)}
 .gbar{height:6px;background:var(--grad);border-radius:999px;margin-bottom:22px;max-width:190px}
 
 /* ---------- DOC LINK ---------- */
-.docs{margin-top:26px;border-top:2px solid var(--rule);padding-top:18px}
+.docs{margin-top:24px}
 .docs .dl{font-family:ui-monospace,Menlo,monospace;font-size:10.5px;font-weight:700;
   letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:11px}
 a.docbtn{display:inline-flex;align-items:center;gap:13px;text-decoration:none;max-width:100%;
@@ -163,21 +158,21 @@ details.how[open] .howbody{animation:drop .28s cubic-bezier(.2,.9,.25,1)}
 .reveal.done{cursor:default;-webkit-user-select:text;user-select:text}
 .reveal:focus-visible{outline:3px solid var(--yellow);outline-offset:5px}
 .vmask{position:absolute;inset:-8px -10px;overflow:hidden;border-radius:10px;pointer-events:none}
-.veil{position:absolute;inset:0;background:var(--grad);display:flex;align-items:center;padding:0 17px;
+.veil{position:absolute;inset:0;background:var(--grad);display:flex;align-items:center;gap:18px;padding:0 18px;
   transform:translate3d(0,0,0);will-change:transform;transition:transform .36s cubic-bezier(.16,1,.3,1)}
 .reveal.dragging .veil{transition:none}
-.veil::before{content:"";position:absolute;inset:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='100' viewBox='0 0 420 100'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='13' stroke-linecap='round' stroke-linejoin='round' opacity='0.62'%3E%3Cpath d='M18 50 H372'/%3E%3Cpath d='M322 16 L372 50 L322 84'/%3E%3C/g%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-size:82% 74%;background-position:left center;
-  -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 30%,rgba(0,0,0,.34) 66%,transparent 88%);
-  mask-image:linear-gradient(90deg,#000 0%,#000 30%,rgba(0,0,0,.34) 66%,transparent 88%);
+.veil-arrow{flex:1 1 auto;min-width:0;height:56%;position:relative;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='420' height='100' viewBox='0 0 420 100' preserveAspectRatio='none'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='13' stroke-linecap='round' stroke-linejoin='round' opacity='0.62'%3E%3Cpath d='M10 50 H374'/%3E%3Cpath d='M326 16 L374 50 L326 84'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-size:100% 100%;background-position:center;
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 32%,rgba(0,0,0,.34) 68%,transparent 92%);
+  mask-image:linear-gradient(90deg,#000 0%,#000 32%,rgba(0,0,0,.34) 68%,transparent 92%);
   animation:glide 2.4s ease-in-out infinite}
 .veil::after{content:"";position:absolute;left:-2px;top:0;bottom:0;width:4px;background:#fff;
   box-shadow:0 0 20px 4px rgba(255,255,255,.9);opacity:0;transition:opacity .1s ease}
 .reveal.dragging .veil::after{opacity:1}
 .reveal.done .veil{transform:translate3d(103%,0,0)}
-@keyframes glide{0%{transform:translateX(-5%)}55%{transform:translateX(5%)}100%{transform:translateX(-5%)}}
-.veil-txt{position:relative;z-index:1;font-family:Anton,Impact,sans-serif;font-size:15px;
+@keyframes glide{0%{transform:translateX(-4%)}55%{transform:translateX(4%)}100%{transform:translateX(-4%)}}
+.veil-txt{flex:none;position:relative;z-index:1;font-family:Anton,Impact,sans-serif;font-size:15px;
   letter-spacing:.1em;text-transform:uppercase;color:#fff;white-space:nowrap;
   text-shadow:0 2px 0 rgba(60,10,70,.35)}
 .reveal-inner .chip,.reveal-inner .src,.reveal-inner details.how{opacity:0}
@@ -272,7 +267,7 @@ footer p+p{margin-top:11px}
   .ov-r .o{margin-top:0;padding-top:0;border-top:0}
 }
 @media (prefers-reduced-motion: reduce){
-  .veil,.veil::before,.revealall,.tally b,.payoff.on,.reveal.flash::after,
+  .veil,.veil-arrow,.revealall,.tally b,.payoff.on,.reveal.flash::after,
   .reveal.done .reveal-inner .chip,.reveal.done .reveal-inner .src,
   .reveal.done .reveal-inner details.how,a.docbtn,a.docbtn .ico,details.how[open] .howbody,summary.hows .cv{
     animation:none !important;transition:none !important}
@@ -298,7 +293,7 @@ footer p+p{margin-top:11px}
 <header class="hero">
   <div class="shell">
     <h1>A <span class="hot">$72,800</span> job the city is already doing.</h1>
-    <p class="lede">College Park votes Monday on a Chief of Staff for the Ward 1 council office. Read the job description against what the city already pays people to do, and almost nothing is left over.</p>
+    <p class="lede">The council votes Monday. Read the job description against what the city already pays people to do, and almost nothing is left over.</p>
 
     <div class="bars">
       <div class="bar">
@@ -315,7 +310,6 @@ footer p+p{margin-top:11px}
     </div>
 
     <div class="docs">
-      <p class="dl">Do not take our word for it</p>
       <a class="docbtn" href="ward1-chief-of-staff-contract.pdf">
         <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 2.75h4.9L19.25 8.1V17.5a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2v-12.75a2 2 0 0 1 2-2z"/><path d="M13.6 2.9v5.4h5.4"/><path d="M4.75 6.5v12.25a2.5 2.5 0 0 0 2.5 2.5h8.25"/></svg>
         <span>
@@ -323,10 +317,6 @@ footer p+p{margin-top:11px}
           <span class="dm">The contract and council memo. PDF, 14 pages.</span>
         </span>
       </a>
-      <div class="doc-row">
-        <a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-502"><svg class="ico-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M13.5 3v5.5H19"/></svg>Monday's full agenda</a>
-        <a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-503"><svg class="ico-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M13.5 3v5.5H19"/></svg>City's complete packet (122 MB)</a>
-      </div>
     </div>
   </div>
 </header>
@@ -336,14 +326,9 @@ footer p+p{margin-top:11px}
     <div class="gbar"></div>
     <p class="eyebrow">Exhibit A, line by line</p>
     <h2>Ten lines. <span class="q">Who already does them?</span></h2>
-    <p class="deck">The contract does not describe this job in a memo. It attaches a formal Scope of Services and lists the work in nine lettered parts. Every one of them is below, word for word. Slide each bar open to see whose job it already is, then open the drop-down to see how a working city handles that job.</p>
 
 
-    <div class="srcnote">
-      <p class="sn-h">Where these ten lines come from</p>
-      <p class="sn-b">The contract carries an attachment titled <strong>Exhibit A, Scope of Services</strong>, on packet pages 224 to 226. That exhibit is the city's own official list of everything this position would do, and it is what the council votes to buy on Monday. Nothing below is summarized, reworded, or added. These are its nine lettered parts, (a) through (i), in the contract's own order. Part (b) is split into two lines because it bundles work three departments already do together with the one task nobody does.</p>
-      <a class="sn-a" href="ward1-chief-of-staff-contract.pdf"><svg class="ico-s" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M13.5 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8.5z"/><path d="M13.5 3v5.5H19"/></svg>Open Exhibit A in the contract, pages 224 to 226</a>
-    </div>
+    <p class="srcline">Every line below is <strong>Exhibit A, Scope of Services</strong>, packet pages 224 to 226, word for word. Part (b) is split in two because it bundles department work with the one task nobody does. <a href="ward1-chief-of-staff-contract.pdf">Read Exhibit A</a></p>
 
     <div class="ov" id="ovlist">
 
@@ -612,7 +597,7 @@ footer p+p{margin-top:11px}
   <div class="shell">
     <p>Sources, all public: Regular Session agenda and packet for August 17, 2026, item 8.C, packet pages 215 to 228, including the Council Agenda Memo and Exhibit A, Scope of Services. City of College Park Charter and Code of Ordinances.</p>
     <p>Every quotation and dollar figure on this page is exact. Who currently holds each part of the work, and how a working city handles it, is our reading of the contract against the city's published department list and the charter. Check it yourself against the sections cited.</p>
-    <p><a href="https://www.collegeparkga.gov/AgendaCenter">Agenda Center</a> &middot; <a href="https://library.municode.com/ga/college_park/codes/code_of_ordinances">Charter and Code</a> &middot; <a href="https://www.collegeparkga.gov/296/Council-Meetings">Meeting details</a></p>
+    <p><a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-502">Monday's full agenda</a> &middot; <a href="https://www.collegeparkga.gov/AgendaCenter/ViewFile/Agenda/_08172026-503">City's complete packet (122 MB)</a> &middot; <a href="https://www.collegeparkga.gov/AgendaCenter">Agenda Center</a> &middot; <a href="https://library.municode.com/ga/college_park/codes/code_of_ordinances">Charter and Code</a> &middot; <a href="https://www.collegeparkga.gov/296/Council-Meetings">Meeting details</a></p>
     <p>This page is about a contract, a job description, and a public office. It raises questions about how that office is being staffed and funded. It makes no claim about any individual's character or background.</p>
   </div>
 </footer>
@@ -647,7 +632,7 @@ footer p+p{margin-top:11px}
     wrap.setAttribute("aria-label","Slide to reveal whose job this already is");
     var mask=document.createElement("div"); mask.className="vmask";
     var veil=document.createElement("div"); veil.className="veil";
-    veil.innerHTML='<span class="veil-txt">Slide to reveal</span>';
+    veil.innerHTML='<span class="veil-txt">Slide to reveal</span><span class="veil-arrow"></span>';
     mask.appendChild(veil); wrap.appendChild(inner); wrap.appendChild(mask); cell.appendChild(wrap);
 
     var open=false,down=false,startX=0,lastX=0,lastT=0,vel=0,moved=0,pct=0,raf=0,target=0;
